@@ -69,7 +69,6 @@ const Counter: NextPage = () => {
         >
           Add If Odd
         </button>
-        <span>{status}</span>
       </div>
     </div>
   );
