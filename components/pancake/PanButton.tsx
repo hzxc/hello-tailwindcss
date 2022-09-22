@@ -1,19 +1,18 @@
-import React, { FC, ButtonHTMLAttributes, AnchorHTMLAttributes } from 'react';
+import React, { FC, ButtonHTMLAttributes } from 'react';
 
-import { NextPage } from 'next';
-import Image from 'next/image';
-import dayjs from 'dayjs';
-
-interface ButtonProps {
+interface BaseProps {
   classes?: string;
   children?: React.ReactNode;
 }
 
-const defaultClasses: string = '';
+type NativeButtonProps = BaseProps & ButtonHTMLAttributes<HTMLElement>;
 
-export const PanButton: React.FC<ButtonProps> = (props) => {
+const defaultClass: string =
+  'px-4 py-1 text-sm text-white	bg-cyan-500 font-semibold rounded-full shadow-sm shadow-black hover:opacity-60 active:translate-y-px active:shadow-none';
+
+export const PanButton: React.FC<NativeButtonProps> = (props) => {
   const { classes, children, ...restProps } = props;
-  const className = `${defaultClasses} ${classes}`;
+  const className = `${defaultClass} ${classes}`;
   return (
     <button className={className} {...restProps}>
       {children}
