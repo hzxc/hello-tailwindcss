@@ -7,7 +7,7 @@ const Toggle: NextPage = () => {
   return (
     <div className='container m-auto py-2 space-x-2'>
       <ToggleButton
-        className='bg-gray-400 border-gray-400 transition-shadow duration-300'
+        className='bg-gray-400 border-gray-400'
         width={'3rem'}
         height={'1.5rem'}
         onChange={() => {

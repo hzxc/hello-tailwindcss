@@ -6,7 +6,8 @@ interface BaseProps {
 }
 
 type NativeInputProps = BaseProps & InputHTMLAttributes<HTMLInputElement>;
-const defaultClass: string = 'cursor-pointer appearance-none rounded-full border';
+const defaultClass: string =
+  'cursor-pointer appearance-none rounded-full border transition-shadow duration-300';
 
 export const ToggleButton: React.FC<NativeInputProps> = (props) => {
   const { className, width, height, checked, ...restProps } = props;
