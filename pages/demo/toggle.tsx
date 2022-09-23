@@ -1,14 +1,21 @@
+import { ToggleButton } from 'components';
 import { NextPage } from 'next';
+import { useState } from 'react';
 
 const Toggle: NextPage = () => {
+  const [check, setCheck] = useState(false);
   return (
-    <div className='container m-auto py-2'>
-      <input
-        type='checkbox'
-        className='w-12 h-6 cursor-pointer ring-1 ring-purple-600 appearance-none rounded-full bg-gray-200 '
-        style={{ boxShadow: '-1.5rem 0 0 2px #ff9900 inset,0 0 0 2px #ff9900 inset' }}
-        checked
+    <div className='container m-auto py-2 space-x-2'>
+      <ToggleButton
+        className='bg-gray-400 border-gray-400 transition-shadow duration-300'
+        width={'3rem'}
+        height={'1.5rem'}
+        onChange={() => {
+          setCheck(!check);
+        }}
+        checked={check}
       />
+      <span>{check ? 'check' : 'nocheck'}</span>
     </div>
   );
 };

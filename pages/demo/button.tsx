@@ -20,8 +20,8 @@ const Button: NextPage = () => {
   return (
     <div className='container p-2 space-x-4 dark:bg-slate-800'>
       <PanButton>Connect Wallet</PanButton>
-      <PanButton classes='w-72 h-12 rounded-2xl'>Connect Wallet</PanButton>
-      <PanButton classes='py-0 px-2'>scan risk</PanButton>
+      <PanButton className='w-72 h-12 rounded-2xl'>Connect Wallet</PanButton>
+      <PanButton className='py-0 px-2'>scan risk</PanButton>
       <PanButton
         onClick={(e) => {
           changeTheme(e);
