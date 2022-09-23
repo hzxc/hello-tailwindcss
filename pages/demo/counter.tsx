@@ -8,16 +8,14 @@ import {
   incrementByAmount,
   incrementAsync,
   incrementIfOdd,
-  selectCount,
-  selectStatus,
+  selectCounter,
 } from 'redux/counter/counterSlice';
 import { NextPage } from 'next';
 import Image from 'next/image';
 import { Spin } from 'components';
 
 const Counter: NextPage = () => {
-  const count = useAppSelector(selectCount);
-  const status = useAppSelector(selectStatus);
+  const counter = useAppSelector(selectCounter);
   const dispatch = useAppDispatch();
   const [incrementAmount, setIncrementAmount] = useState('2');
 
@@ -32,7 +30,7 @@ const Counter: NextPage = () => {
         >
           -
         </button>
-        <span className='px-6 text-7xl font-light'>{count}</span>
+        <span className='px-6 text-7xl font-light'>{counter.value}</span>
         <button
           onClick={() => dispatch(increment())}
           className='px-4 py-1 text-xl text-purple-600 font-bold border border-purple-200 hover:text-white hover:bg-purple-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2'
@@ -56,11 +54,11 @@ const Counter: NextPage = () => {
         <button
           onClick={() => dispatch(incrementAsync(incrementValue))}
           className={`${
-            status === 'loading' ? 'cursor-not-allowed' : 'cursor-pointer'
+            counter.status === 'loading' ? 'cursor-not-allowed' : 'cursor-pointer'
           } inline-flex items-center px-4 py-1 text-xl bg-purple-100 text-purple-600 border border-purple-200 hover:text-white hover:bg-purple-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2`}
-          disabled={status === 'loading' ? true : false}
+          disabled={counter.status === 'loading' ? true : false}
         >
-          {status === 'loading' ? <Spin classes='animate-spin mr-3 h-5 w-5' /> : ''}
+          {counter.status === 'loading' ? <Spin classes='animate-spin mr-3 h-5 w-5' /> : ''}
           Add Async
         </button>
         <button
