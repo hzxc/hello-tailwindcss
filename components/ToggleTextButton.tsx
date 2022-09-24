@@ -1,5 +1,4 @@
 import React, { ButtonHTMLAttributes, useLayoutEffect, useRef, useState } from 'react';
-import { FiSun } from 'react-icons/fi';
 interface BaseProps {
   leftText?: string;
   rightText?: string;
@@ -10,8 +9,8 @@ interface BaseProps {
 }
 
 const defaultInitialProps: BaseProps = {
-  leftText: ' ',
-  rightText: ' ',
+  leftText: '      ',
+  rightText: '      ',
   checked: false,
   spread: '2px',
   shadowColor: 'rgb(238, 234, 244)',
@@ -19,7 +18,7 @@ const defaultInitialProps: BaseProps = {
 };
 
 type NativeInputProps = BaseProps & ButtonHTMLAttributes<HTMLButtonElement>;
-const defaultClass: string = 'rounded-full border transition-shadow duration-200';
+const defaultClass: string = 'rounded-full border transition-all duration-200';
 
 export const ToggleTextButton: React.FC<NativeInputProps> = (props) => {
   const refLeft = useRef<any>();
@@ -57,10 +56,10 @@ export const ToggleTextButton: React.FC<NativeInputProps> = (props) => {
       {...restProps}
     >
       <div className='flex justify-between items-center p-px'>
-        <span ref={refLeft} className='grow rounded-full px-2 mr-1 whitespace-pre'>
+        <span ref={refLeft} className='grow rounded-full p-1 whitespace-pre'>
           {leftText}
         </span>
-        <span ref={refRight} className='grow rounded-full px-2 whitespace-pre'>
+        <span ref={refRight} className='grow rounded-full p-1 whitespace-pre'>
           {rightText}
         </span>
       </div>

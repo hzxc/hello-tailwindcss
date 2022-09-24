@@ -1,7 +1,7 @@
 import { NextPage } from 'next';
 import { PanButton } from 'components';
 import { useAppDispatch, useAppSelector } from 'redux/hooks';
-import { selectDarkMode, switchTheme } from 'redux/theme/themeSlice';
+import { selectMode, switchTheme } from 'redux/theme/themeSlice';
 
 const Button: NextPage = () => {
   // const clsList = document.documentElement.classList;
@@ -14,7 +14,7 @@ const Button: NextPage = () => {
     }
   };
 
-  const dark = useAppSelector(selectDarkMode);
+  const dark = useAppSelector(selectMode);
   const dispatch = useAppDispatch();
 
   return (
