@@ -24,7 +24,7 @@ const defaultInitialProps: BaseProps = {
 type NativeInputProps = BaseProps & ButtonHTMLAttributes<HTMLButtonElement>;
 const defaultClass: string = `rounded-full border transition-shadow duration-300`;
 
-export const ToggleIconButton: React.FC<NativeInputProps> = (props) => {
+export const ToggleButton: React.FC<NativeInputProps> = (props) => {
   const refLeft = useRef<any>();
   const refRight = useRef<any>();
   const [widthLeft, setWidthOn] = useState(0);
