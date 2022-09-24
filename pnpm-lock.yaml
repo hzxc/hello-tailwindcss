@@ -15,6 +15,7 @@ specifiers:
   prettier: ^2.7.1
   react: 18.1.0
   react-dom: 18.1.0
+  react-icons: ^4.4.0
   react-redux: ^8.0.2
   stylelint: ^14.12.1
   stylelint-config-prettier: ^9.0.3
@@ -28,6 +29,7 @@ dependencies:
   next: 12.3.1_ef5jwxihqo6n7gxfmzogljlgcm
   react: 18.1.0
   react-dom: 18.1.0_react@18.1.0
+  react-icons: 4.4.0_react@18.1.0
   react-redux: 8.0.2_qyffbl774oliprn4v4btwexwpy
 
 devDependencies:
@@ -2282,6 +2284,14 @@ packages:
       loose-envify: 1.4.0
       react: 18.1.0
       scheduler: 0.22.0
+    dev: false
+
+  /react-icons/4.4.0_react@18.1.0:
+    resolution: {integrity: sha512-fSbvHeVYo/B5/L4VhB7sBA1i2tS8MkT0Hb9t2H1AVPkwGfVHLJCqyr2Py9dKMxsyM63Eng1GkdZfbWj+Fmv8Rg==}
+    peerDependencies:
+      react: '*'
+    dependencies:
+      react: 18.1.0
     dev: false
 
   /react-is/16.13.1:
