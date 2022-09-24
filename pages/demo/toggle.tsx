@@ -60,7 +60,7 @@ const Toggle: NextPage = () => {
         checked={darkMode}
         leftIcon={<>v2</>}
         rightIcon={<>v1(old)</>}
-        checkedShadowColor='#570df8'
+        checkedShadowColor='#fb7185'
         spread={0}
         onClick={() => dispatch(switchTheme())}
       />
