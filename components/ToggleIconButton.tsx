@@ -20,7 +20,7 @@ const defaultInitialProps: BaseProps = {
   leftIcon: <FiSun size={20} className=' text-amber-400' />,
   rightIcon: <FiMoon size={20} className=' text-purple-400' />,
   checked: false,
-  spread: '1px',
+  spread: '3px',
   shadowColor: 'rgb(238, 234, 244)',
   checkedShadowColor: 'rgb(49, 208, 170)',
 };
