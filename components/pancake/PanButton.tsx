@@ -1,4 +1,4 @@
-import React, { FC, ButtonHTMLAttributes } from 'react';
+import React, { ButtonHTMLAttributes } from 'react';
 
 interface BaseProps {
   children?: React.ReactNode;

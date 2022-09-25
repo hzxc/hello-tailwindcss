@@ -2,8 +2,8 @@ import React, { ButtonHTMLAttributes, ReactElement, useEffect, useRef, useState 
 
 import { RiCheckboxBlankCircleFill } from 'react-icons/Ri';
 interface BaseProps {
-  leftIcon?: ReactElement;
-  rightIcon?: ReactElement;
+  leftEl?: ReactElement;
+  rightEl?: ReactElement;
   checked: boolean;
   spread?: 0 | '1px' | '2px' | '3px';
   shadowColor?: string;
@@ -13,8 +13,8 @@ interface BaseProps {
 }
 
 const defaultInitialProps: BaseProps = {
-  leftIcon: <RiCheckboxBlankCircleFill opacity={0} />,
-  rightIcon: <RiCheckboxBlankCircleFill opacity={0} />,
+  leftEl: <RiCheckboxBlankCircleFill opacity={0} />,
+  rightEl: <RiCheckboxBlankCircleFill opacity={0} />,
   checked: false,
   spread: '2px',
   shadowColor: 'white',
@@ -25,8 +25,8 @@ type NativeInputProps = BaseProps & ButtonHTMLAttributes<HTMLButtonElement>;
 const defaultClass: string = `rounded-full border transition-shadow duration-200`;
 
 export const ToggleButton: React.FC<NativeInputProps> = (props) => {
-  const refLeft = useRef<any>();
-  const refRight = useRef<any>();
+  const refLeft = useRef<any>(null);
+  const refRight = useRef<any>(null);
   const [widthLeft, setWidthOn] = useState(0);
   const [widthRight, setWidthOff] = useState(0);
 
@@ -37,8 +37,8 @@ export const ToggleButton: React.FC<NativeInputProps> = (props) => {
 
   const {
     className,
-    leftIcon,
-    rightIcon,
+    leftEl,
+    rightEl,
     checked,
     spread,
     shadowColor,
@@ -69,7 +69,7 @@ export const ToggleButton: React.FC<NativeInputProps> = (props) => {
             !checked && outlineColor ? 'outline ' : ''
           }outline-4 ${outlineColor} outline-offset-[-2px]`}
         >
-          {leftIcon}
+          {leftEl}
         </span>
         <span
           ref={refRight}
@@ -77,7 +77,7 @@ export const ToggleButton: React.FC<NativeInputProps> = (props) => {
             checked && checkedOutlineColor ? 'outline ' : ''
           }outline-4 ${checkedOutlineColor} outline-offset-[-2px]`}
         >
-          {rightIcon}
+          {rightEl}
         </span>
       </div>
     </button>

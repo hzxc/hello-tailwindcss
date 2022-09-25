@@ -45,8 +45,8 @@ const Toggle: NextPage = () => {
 
       <ToggleButton
         className='border-purple-200 dark:border-zinc-800'
-        leftIcon={<FiSun size={24} className='text-amber-400' />}
-        rightIcon={<FiMoon size={24} className='text-purple-400' />}
+        leftEl={<FiSun size={24} className='text-amber-400' />}
+        rightEl={<FiMoon size={24} className='text-purple-400' />}
         checked={darkMode}
         shadowColor='rgb(189, 194, 196)'
         checkedShadowColor='rgb(102, 97, 113)'
@@ -58,8 +58,8 @@ const Toggle: NextPage = () => {
       <ToggleButton
         className='w-32 border-purple-200 bg-purple-800 dark:border-zinc-800'
         checked={darkMode}
-        leftIcon={<>v2</>}
-        rightIcon={<>v1(old)</>}
+        leftEl={<>v2</>}
+        rightEl={<>v1(old)</>}
         checkedShadowColor='#fb7185'
         spread={0}
         onClick={() => dispatch(switchTheme())}
