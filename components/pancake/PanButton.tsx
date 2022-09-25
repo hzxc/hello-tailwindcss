@@ -1,15 +1,15 @@
 import React, { ButtonHTMLAttributes } from 'react';
 
-interface BaseProps {
-  children?: React.ReactNode;
-}
+// interface BaseProps {
+//   children?: React.ReactNode;
+// }
 
-type NativeButtonProps = BaseProps & ButtonHTMLAttributes<HTMLButtonElement>;
+// type NativeButtonProps = BaseProps & ButtonHTMLAttributes<HTMLButtonElement>;
 
 const defaultClass: string =
   'px-4 py-1 text-sm text-white	bg-cyan-500 font-semibold rounded-full shadow-sm shadow-black hover:opacity-60 active:translate-y-px active:shadow-none';
 
-export const PanButton: React.FC<NativeButtonProps> = (props) => {
+export const PanButton: React.FC<ButtonHTMLAttributes<HTMLButtonElement>> = (props) => {
   const { className, children, ...restProps } = props;
   const mergeClass = `${defaultClass}${className ? ' ' + className : ''}`;
   return (

@@ -4,7 +4,7 @@ interface IModalContentProps {
   width?: string;
 }
 
-type ModalContentProps = IModalContentProps & HTMLAttributes<HTMLDivElement>;
+type ModalContentProps = IModalContentProps & HTMLAttributes<HTMLElement>;
 
 const defaultInitialProps: IModalContentProps = {
   width: '100%',
@@ -14,7 +14,7 @@ export const ModalContent: React.FC<ModalContentProps> = (props) => {
   const { width, children, ...restProps } = { ...defaultInitialProps, ...props };
 
   return (
-    <div className='w-full flex justify-center absolute z-50' {...restProps}>
+    <div className='border' {...restProps}>
       <div style={{ width: '100%', maxWidth: width }}>{children}</div>
     </div>
   );
