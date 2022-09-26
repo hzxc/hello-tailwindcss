@@ -12,5 +12,5 @@ export const Portal = ({ children }: { children: ReactNode }) => {
     };
   }, [container]);
 
-  return <>{createPortal(children, container)}</>;
+  return createPortal(children, container);
 };
