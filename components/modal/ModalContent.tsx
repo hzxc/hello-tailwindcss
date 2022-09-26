@@ -10,12 +10,14 @@ const defaultInitialProps: IModalContentProps = {
   width: '100%',
 };
 
-export const ModalContent: React.FC<ModalContentProps> = (props) => {
-  const { width, children, ...restProps } = { ...defaultInitialProps, ...props };
+export const ModalContent: React.FC<HTMLAttributes<HTMLElement>> = (props) => {
+  const { children, ...restProps } = { ...props };
 
   return (
-    <div className='border' {...restProps}>
-      <div style={{ width: '100%', maxWidth: width }}>{children}</div>
+    <div className='absolute' {...restProps}>
+      {/* <div className='bg-white' style={{ width: width, maxWidth: width }}> */}
+      {children}
+      {/* </div> */}
     </div>
   );
 };
