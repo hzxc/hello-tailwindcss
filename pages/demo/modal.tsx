@@ -1,7 +1,7 @@
 import { NextPage } from 'next';
 import { Button } from 'components';
 import { useToggle } from 'hooks/useToggle';
-import { SettingsModal } from 'components/pancake';
+import { PanModal, SettingsModal } from 'components/pancake';
 
 const Modal: NextPage = () => {
   const { visible, close, open } = useToggle(false);
@@ -9,7 +9,7 @@ const Modal: NextPage = () => {
   return (
     <div className='m-auto py-2 space-x-2'>
       <Button onClick={open}>open modal</Button>
-      <SettingsModal visible={visible} close={close} />
+      <PanModal visible={visible} close={close} />
     </div>
   );
 };

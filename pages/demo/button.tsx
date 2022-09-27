@@ -29,7 +29,8 @@ const Button: NextPage = () => {
       >
         Change Theme
       </PanButton>
-      <input type='checkbox' className='appearance-none indeterminate:bg-gray-300' />
+
+      {/* <input type='checkbox' className='appearance-none indeterminate:bg-gray-300' /> */}
       {/* <PanButton onClick={() => dispatch(switchTheme())}>Change Theme</PanButton> */}
     </div>
   );
