@@ -2,7 +2,7 @@ import { Portal } from 'components/portal';
 import { useToggle } from 'hooks/useToggle';
 import { ReactNode } from 'react';
 import { createPortal } from 'react-dom';
-import { ModalOverlay } from '../pancake/pan-modal/ModalOverlay';
+import { ModalOverlay } from '../pancake/modal/ModalOverlay';
 
 export const Modal: React.FC<{ visible: boolean; children: ReactNode }> = ({
   visible,
