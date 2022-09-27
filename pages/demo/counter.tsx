@@ -12,7 +12,7 @@ import {
 } from 'redux/counter/counterSlice';
 import { NextPage } from 'next';
 import Image from 'next/image';
-import { Spin } from 'components';
+import { Spin } from 'components/svg';
 
 const Counter: NextPage = () => {
   const counter = useAppSelector(selectCounter);

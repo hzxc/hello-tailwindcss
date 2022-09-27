@@ -1,4 +1,4 @@
-import { PanButton } from 'components';
+import { PanButton } from 'components/pancake';
 import { NextPage } from 'next';
 import Link from 'next/link';
 
