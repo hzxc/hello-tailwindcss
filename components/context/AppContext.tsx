@@ -1,18 +1,16 @@
 import { createContext, ReactNode, useContext, useEffect, useRef, useState } from 'react';
 
 interface AppContextProps {
-  container: HTMLElement | undefined;
+  contextName: string;
 }
 
 const AppContext = createContext<AppContextProps | undefined>(undefined);
 AppContext.displayName = 'AppContext';
 
 export const AppProvider = ({ children }: { children: ReactNode }) => {
-  const [container, setContainer] = useState<HTMLElement>();
-  useEffect(() => {
-    setContainer(document.body);
-  }, []);
-  return <AppContext.Provider value={{ container }}>{children}</AppContext.Provider>;
+  return (
+    <AppContext.Provider value={{ contextName: 'AppContext' }}>{children}</AppContext.Provider>
+  );
 };
 
 export const useAppContext = () => {

@@ -2,7 +2,6 @@ import { NextPage } from 'next';
 import { Button } from 'components';
 import { Modal as ModalContainer, ModalContent, ModalOverlay } from 'components/modal';
 import { useToggle } from 'hooks/useToggle';
-import { useModal } from 'hooks/useModal';
 
 const Modal: NextPage = () => {
   const [isOpen, open, close] = useToggle(false);
