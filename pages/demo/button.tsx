@@ -1,5 +1,5 @@
 import { NextPage } from 'next';
-import { PanButton } from 'components';
+import { PanButton } from 'components/pancake';
 import { useAppDispatch, useAppSelector } from 'redux/hooks';
 import { selectMode, switchTheme } from 'redux/theme/themeSlice';
 
