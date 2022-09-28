@@ -1,6 +1,8 @@
 import { Modal } from 'components/modal';
 import { ModalOverlay } from './ModalOverlay';
 import { RiCloseFill } from 'react-icons/Ri';
+import { PanIconButton } from '../button';
+import dayjs from 'dayjs';
 
 export const PanModal: React.FC<{ visible: boolean; close: () => void }> = ({ visible, close }) => {
   return (
@@ -19,14 +21,10 @@ export const PanModal: React.FC<{ visible: boolean; close: () => void }> = ({ vi
           />
           <p className='text-sm'>Common tokens</p>
           <div className='flex items-center justify-around'>
-            <button className='ring-2'>
-              <span></span>
-              <span>BNB</span>
-            </button>
-            <button className='ring-2'>
-              <span></span>
-              <span>BNB</span>
-            </button>
+            <PanIconButton leftSrc='/images/pancake/bnb.svg'>BNB</PanIconButton>
+            <PanIconButton leftSrc='/images/pancake/busd.png'>BUSD</PanIconButton>
+            <PanIconButton leftSrc='/images/pancake/cake.png'>CAKE</PanIconButton>
+            <PanIconButton leftSrc='/images/pancake/btc.png'>BTCB</PanIconButton>
           </div>
         </div>
       </div>

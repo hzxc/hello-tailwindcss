@@ -58,11 +58,7 @@ const Counter: NextPage = () => {
           } inline-flex items-center px-4 py-1 text-xl bg-purple-100 text-purple-600 border border-purple-200 hover:text-white hover:bg-purple-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2`}
           disabled={counter.status === 'loading' ? true : false}
         >
-          {counter.status === 'loading' ? (
-            <Spin classes='animate-spin mr-3 h-5 w-5 fill-sky-400' />
-          ) : (
-            ''
-          )}
+          {counter.status === 'loading' ? <Spin classes='animate-spin mr-3 h-5 w-5' /> : ''}
           Add Async
         </button>
         <button
@@ -71,7 +67,6 @@ const Counter: NextPage = () => {
         >
           Add If Odd
         </button>
-        <Spin classes='animate-spin mr-3 h-5 w-5 text-amber-800' />
       </div>
     </div>
   );

@@ -1,7 +1,7 @@
 import { NextPage } from 'next';
 import Image from 'next/image';
 import dayjs from 'dayjs';
-import spinSvg from '/svg/spin.svg';
+import spinSvg from '/images/spin.svg';
 import { CgSpinner } from 'react-icons/cg';
 
 const ImageDemo: NextPage = () => {

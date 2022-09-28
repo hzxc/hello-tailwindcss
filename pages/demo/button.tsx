@@ -28,12 +28,16 @@ const ButtonDemo: NextPage = () => {
         Change Theme
       </PanButton>
       <Button>Base Button</Button>
-      <PanIconButton leftEl={<FiSun size={16} className='text-amber-400' />}>BNB</PanIconButton>
-      <PanIconButton rightEl={<FiMoon size={16} className='text-purple-400' />}>BNB</PanIconButton>
+      <PanIconButton leftSrc='/images/pancake/bnb.svg'>BNB</PanIconButton>
+      <PanIconButton rightSrc='https://assets-cdn.trustwallet.com/blockchains/smartchain/assets/0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56/logo.png'>
+        BUSD
+      </PanIconButton>
       <PanIconButton
-        leftEl={<FiSun size={24} className='text-amber-400' />}
-        rightEl={<FiMoon size={24} className='text-purple-400' />}
-      ></PanIconButton>
+        leftSrc='https://assets-cdn.trustwallet.com/blockchains/smartchain/assets/0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82/logo.png'
+        rightSrc='/images/pancake/bnb.svg'
+      >
+        BNB
+      </PanIconButton>
       <PanIconButton>Base</PanIconButton>
 
       {/* <input type='checkbox' className='appearance-none indeterminate:bg-gray-300' /> */}

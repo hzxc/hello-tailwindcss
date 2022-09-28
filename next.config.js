@@ -2,7 +2,14 @@
 module.exports = {
   reactStrictMode: true,
   images: {
-    domains: ['robohash.org'],
+    unoptimized: true,
+    domains: [
+      // 'robohash.org',
+      // 'assets-cdn.trustwallet.com',
+      // 's2.coinmarketcap.com',
+      // 'tokens.pancakeswap.finance',
+      // 'assets.coingecko.com',
+    ],
   },
   webpack(config) {
     config.module.rules.push({
