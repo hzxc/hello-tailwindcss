@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* @layer components {} */
-.toggle {
-  box-shadow: inset -24 0 0 2px red;
+@font-face {
+  font-family: Kanit;
+  src: url('../public/fonts/Kanit-Regular.ttf');
 }

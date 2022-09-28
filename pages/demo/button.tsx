@@ -14,9 +14,6 @@ const Button: NextPage = () => {
     }
   };
 
-  const dark = useAppSelector(selectMode);
-  const dispatch = useAppDispatch();
-
   return (
     <div className='container p-2 space-x-4 dark:bg-slate-800'>
       <PanButton>Connect Wallet</PanButton>
