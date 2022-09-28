@@ -22,7 +22,7 @@ const Toggle: NextPage = () => {
   }, [darkMode]);
 
   return (
-    <div className='container flex items-center m-auto py-2 space-x-2 dark:bg-zinc-800 dark:text-white'>
+    <div className='p-2 space-x-2 dark:bg-zinc-800 dark:text-white'>
       <ToggleButton
         onClick={() => {
           setCheck(!check);
