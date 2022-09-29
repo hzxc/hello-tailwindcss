@@ -14,7 +14,8 @@ export const PanModal: React.FC<{ visible: boolean; close: () => void }> = ({ vi
       style={style}
     >
       <PanIconButton
-        className='hover:opacity-70 ring-0 p-0'
+        ring='ring-0'
+        hover='hover:opacity-70'
         leftSrc={baseTokens[index]?.logoURI}
       ></PanIconButton>
       <div className='flex-col'>

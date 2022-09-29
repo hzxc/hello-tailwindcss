@@ -16,7 +16,7 @@ const ButtonDemo: NextPage = () => {
   };
 
   return (
-    <div className='flex flex-wrap items-center content-around p-2 space-x-2 dark:bg-slate-800'>
+    <div className='p-4 space-x-2 space-y-2 dark:bg-slate-800'>
       <PanButton>Connect Wallet</PanButton>
       <PanButton className='w-72 h-12 rounded-2xl'>Connect Wallet</PanButton>
       <PanButton className='py-0 px-2'>scan risk</PanButton>
@@ -42,11 +42,16 @@ const ButtonDemo: NextPage = () => {
       <PanIconButton rightSrc='/images/pancake/bnb.svg' />
       <PanIconButton leftSrc='/images/pancake/bnb.svg' />
 
-      <PanIconButton className='hover:bg-sky-200 ring-0' rightSrc='/images/pancake/bnb.svg' />
-      <PanIconButton className='hover:opacity-70 ring-0 p-0' leftSrc='/images/pancake/bnb.svg' />
-
-      {/* <input type='checkbox' className='appearance-none indeterminate:bg-gray-300' /> */}
-      {/* <PanButton onClick={() => dispatch(switchTheme())}>Change Theme</PanButton> */}
+      <PanIconButton ring='ring-0' rightSrc='/images/pancake/bnb.svg' />
+      <PanIconButton ring='ring-0' hover='hover:opacity-70' leftSrc='/images/pancake/bnb.svg' />
+      <PanIconButton
+        className='text-cyan-500  '
+        ring='ring-0'
+        hover='hover:opacity-70 hover:underline'
+        rightSrc='/images/pancake/bnb.svg'
+      >
+        Convert ERC-20 to BEP-20
+      </PanIconButton>
     </div>
   );
 };

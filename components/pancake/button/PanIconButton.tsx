@@ -5,6 +5,8 @@ interface BaseProps {
   rightSrc?: string;
   iconWidth?: string;
   iconHeight?: string;
+  hover?: string;
+  ring?: string;
   alt?: string;
 }
 
@@ -13,18 +15,33 @@ const defaultInitialProps: BaseProps = {
   rightSrc: undefined,
   iconWidth: '24px',
   iconHeight: '24px',
+  ring: 'ring-1 ring-gray-100 p-[6px]',
+  hover: 'hover:bg-gray-100 hover:opacity-100',
   alt: '',
 };
 
 type NativeProps = BaseProps & ButtonHTMLAttributes<HTMLButtonElement>;
 
-const defaultClass: string = `font-kanit p-[6px] rounded-xl align-middle ring-1 ring-gray-100 hover:bg-gray-100`;
+const defaultClass: string = `font-kanit rounded-xl align-middle`;
 export const PanIconButton: React.FC<NativeProps> = (props) => {
-  const { className, children, leftSrc, rightSrc, alt, iconHeight, iconWidth, ...restProps } = {
+  const {
+    className,
+    children,
+    leftSrc,
+    rightSrc,
+    alt,
+    iconHeight,
+    iconWidth,
+    ring,
+    hover,
+    ...restProps
+  } = {
     ...defaultInitialProps,
     ...props,
   };
-  const mergeClass = `${defaultClass}${className ? ' ' + className : ''}`;
+  const mergeClass = `${defaultClass}${className ? ' ' + className : ''}${ring ? ' ' + ring : ''}${
+    hover ? ' ' + hover : ''
+  }`;
 
   return (
     <button className={mergeClass} {...restProps}>
