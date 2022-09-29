@@ -4,5 +4,48 @@
 
 @font-face {
   font-family: Kanit;
-  src: url('../public/fonts/Kanit-Regular.ttf');
+  src: url('../public/fonts/kanit/Kanit-Thin.ttf');
+  font-weight: thin;
+}
+
+@font-face {
+  font-family: Kanit;
+  src: url('../public/fonts/kanit/Kanit-Light.ttf');
+  font-weight: light;
+}
+
+@font-face {
+  font-family: Kanit;
+  src: url('../public/fonts/kanit/Kanit-Medium.ttf');
+  font-weight: medium;
+}
+
+@font-face {
+  font-family: Kanit;
+  src: url('../public/fonts/kanit/Kanit-SemiBold.ttf');
+  font-weight: semibold;
+}
+
+@font-face {
+  font-family: Kanit;
+  src: url('../public/fonts/kanit/Kanit-Bold.ttf');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: Kanit;
+  src: url('../public/fonts/kanit/Kanit-ExtraBold.ttf');
+  font-weight: extrabold;
+}
+
+@font-face {
+  font-family: Kanit;
+  src: url('../public/fonts/kanit/Kanit-Black.ttf');
+  font-weight: black;
+}
+
+@font-face {
+  font-family: Kanit;
+  src: url('../public/fonts/kanit/Kanit-Regular.ttf');
+  font-weight: regular;
 }

@@ -19,7 +19,7 @@ export const PanModal: React.FC<{ visible: boolean; close: () => void }> = ({ vi
         leftSrc={baseTokens[index]?.logoURI}
       ></PanIconButton>
       <div className='flex-col'>
-        <p className='font-semibold'>{baseTokens[index].symbol}</p>
+        <p className='text-base font-semibold'>{baseTokens[index].symbol}</p>
         <p className='text-sm opacity-70'>{baseTokens[index].name}</p>
       </div>
     </div>
@@ -27,7 +27,7 @@ export const PanModal: React.FC<{ visible: boolean; close: () => void }> = ({ vi
   return (
     <Modal visible={visible}>
       <ModalOverlay onClick={close} />
-      <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 max-h-screen overflow-hidden bg-white w-full min-w-[320px] max-w-[420px] rounded-[32px] font-kanit text-base text-indigo-900'>
+      <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 max-h-screen overflow-hidden bg-white w-full min-w-[320px] max-w-[420px] rounded-[32px] font-kanit text-base text-indigo-900/90'>
         <div className='flex py-5 border border-x-0 px-6 items-center justify-between'>
           <div className='text-xl font-semibold'>Select a Token</div>
           <RiCloseFill size={24} className='text-cyan-400' />
@@ -56,7 +56,13 @@ export const PanModal: React.FC<{ visible: boolean; close: () => void }> = ({ vi
           {Row}
         </List>
         <div className='p-5 text-center'>
-          <PanButton>Manage Tokens</PanButton>
+          <PanIconButton
+            className='text-cyan-400 font-semibold'
+            ring='ring-0'
+            hover='hover:opacity-70'
+          >
+            Manage Tokens
+          </PanIconButton>
         </div>
       </div>
     </Modal>

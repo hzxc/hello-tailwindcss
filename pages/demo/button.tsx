@@ -45,7 +45,7 @@ const ButtonDemo: NextPage = () => {
       <PanIconButton ring='ring-0' rightSrc='/images/pancake/bnb.svg' />
       <PanIconButton ring='ring-0' hover='hover:opacity-70' leftSrc='/images/pancake/bnb.svg' />
       <PanIconButton
-        className='text-cyan-500  '
+        className='text-cyan-500'
         ring='ring-0'
         hover='hover:opacity-70 hover:underline'
         rightSrc='/images/pancake/bnb.svg'
