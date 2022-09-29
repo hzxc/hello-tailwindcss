@@ -19,7 +19,7 @@ export const PanModal: React.FC<{ visible: boolean; close: () => void }> = ({ vi
         leftSrc={baseTokens[index]?.logoURI}
       ></PanIconButton>
       <div className='flex-col'>
-        <p className='text-base font-semibold'>{baseTokens[index].symbol}</p>
+        <p className='font-semibold'>{baseTokens[index].symbol}</p>
         <p className='text-sm opacity-70'>{baseTokens[index].name}</p>
       </div>
     </div>
