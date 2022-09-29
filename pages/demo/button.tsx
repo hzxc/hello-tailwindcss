@@ -52,6 +52,14 @@ const ButtonDemo: NextPage = () => {
       >
         Convert ERC-20 to BEP-20
       </PanIconButton>
+      <PanIconButton
+        className='text-cyan-500'
+        ring='ring-0'
+        hover='hover:opacity-70 hover:underline'
+        rightSrc='/images/pancake/arrowUpRight.svg'
+      >
+        Convert ERC-20 to BEP-20
+      </PanIconButton>
     </div>
   );
 };
