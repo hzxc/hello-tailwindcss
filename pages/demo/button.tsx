@@ -16,7 +16,7 @@ const ButtonDemo: NextPage = () => {
   };
 
   return (
-    <div className='p-2 space-x-4 dark:bg-slate-800'>
+    <div className='flex flex-wrap items-center content-around p-2 space-x-2 dark:bg-slate-800'>
       <PanButton>Connect Wallet</PanButton>
       <PanButton className='w-72 h-12 rounded-2xl'>Connect Wallet</PanButton>
       <PanButton className='py-0 px-2'>scan risk</PanButton>
@@ -39,6 +39,11 @@ const ButtonDemo: NextPage = () => {
         BNB
       </PanIconButton>
       <PanIconButton>Base</PanIconButton>
+      <PanIconButton rightSrc='/images/pancake/bnb.svg' />
+      <PanIconButton leftSrc='/images/pancake/bnb.svg' />
+
+      <PanIconButton className='hover:bg-sky-200 ring-0' rightSrc='/images/pancake/bnb.svg' />
+      <PanIconButton className='hover:opacity-70 ring-0 p-0' leftSrc='/images/pancake/bnb.svg' />
 
       {/* <input type='checkbox' className='appearance-none indeterminate:bg-gray-300' /> */}
       {/* <PanButton onClick={() => dispatch(switchTheme())}>Change Theme</PanButton> */}

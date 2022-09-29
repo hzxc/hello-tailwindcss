@@ -6,6 +6,7 @@ specifiers:
   '@types/node': 17.0.35
   '@types/react': 18.0.9
   '@types/react-dom': 18.0.5
+  '@types/react-window': ^1.8.5
   autoprefixer: ^10.4.7
   dayjs: ^1.11.5
   eslint: ^8.23.1
@@ -18,20 +19,24 @@ specifiers:
   react-dom: 18.1.0
   react-icons: ^4.4.0
   react-redux: ^8.0.2
+  react-window: ^1.8.7
   stylelint: ^14.12.1
   stylelint-config-prettier: ^9.0.3
   stylelint-config-standard: ^28.0.0
+  tailwind-scrollbar: ^2.0.1
   tailwindcss: ^3.1.2
   typescript: 4.7.2
 
 dependencies:
   '@reduxjs/toolkit': 1.8.5_ctm756ikdwcjcvyfxxwskzbr6q
+  '@types/react-window': 1.8.5
   dayjs: 1.11.5
   next: 12.3.1_ef5jwxihqo6n7gxfmzogljlgcm
   react: 18.1.0
   react-dom: 18.1.0_react@18.1.0
   react-icons: 4.4.0_react@18.1.0
   react-redux: 8.0.2_qyffbl774oliprn4v4btwexwpy
+  react-window: 1.8.7_ef5jwxihqo6n7gxfmzogljlgcm
 
 devDependencies:
   '@svgr/webpack': 6.3.1
@@ -47,6 +52,7 @@ devDependencies:
   stylelint: 14.12.1
   stylelint-config-prettier: 9.0.3_stylelint@14.12.1
   stylelint-config-standard: 28.0.0_stylelint@14.12.1
+  tailwind-scrollbar: 2.0.1_tailwindcss@3.1.8
   tailwindcss: 3.1.8_postcss@8.4.16
   typescript: 4.7.2
 
@@ -1783,6 +1789,12 @@ packages:
     dependencies:
       '@types/react': 18.0.9
 
+  /@types/react-window/1.8.5:
+    resolution: {integrity: sha512-V9q3CvhC9Jk9bWBOysPGaWy/Z0lxYcTXLtLipkt2cnRj1JOSFNF7wqGpkScSXMgBwC+fnVRg/7shwgddBG5ICw==}
+    dependencies:
+      '@types/react': 18.0.9
+    dev: false
+
   /@types/react/18.0.9:
     resolution: {integrity: sha512-9bjbg1hJHUm4De19L1cHiW0Jvx3geel6Qczhjd0qY5VKVE2X5+x77YxAepuCwVh4vrgZJdgEJw48zrhRIeF4Nw==}
     dependencies:
@@ -3428,6 +3440,10 @@ packages:
     resolution: {integrity: sha512-dn6wd0uw5GsdswPFfsgMp5NSB0/aDe6fK94YJV/AJDYXL6HVLWBsxeq7js7Ad+mU2K9LAlwpk6kN2D5mwCPVow==}
     dev: true
 
+  /memoize-one/5.2.1:
+    resolution: {integrity: sha512-zYiwtZUcYyXKo/np96AGZAckk+FWWsUdJ3cHGGmld7+AhvcWmQyGCYUh1hc4Q/pkOhb65dQR/pqCyK0cOaHz4Q==}
+    dev: false
+
   /meow/9.0.0:
     resolution: {integrity: sha512-+obSblOQmRhcyBt62furQqRAQpNyWXo8BuQ5bN7dG8wmwQ+vwHKp/rCFD4CrTP8CsDQD1sjoZ94K417XEUk8IQ==}
     engines: {node: '>=10'}
@@ -3948,6 +3964,19 @@ packages:
       use-sync-external-store: 1.2.0_react@18.1.0
     dev: false
 
+  /react-window/1.8.7_ef5jwxihqo6n7gxfmzogljlgcm:
+    resolution: {integrity: sha512-JHEZbPXBpKMmoNO1bNhoXOOLg/ujhL/BU4IqVU9r8eQPcy5KQnGHIHDRkJ0ns9IM5+Aq5LNwt3j8t3tIrePQzA==}
+    engines: {node: '>8.0.0'}
+    peerDependencies:
+      react: ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
+      react-dom: ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      '@babel/runtime': 7.19.0
+      memoize-one: 5.2.1
+      react: 18.1.0
+      react-dom: 18.1.0_react@18.1.0
+    dev: false
+
   /react/18.1.0:
     resolution: {integrity: sha512-4oL8ivCz5ZEPyclFQXaNksK3adutVS8l2xzZU0cqEFrE9Sb7fC0EFK5uEk74wIreL1DERyjvsU915j1pcT2uEQ==}
     engines: {node: '>=0.10.0'}
@@ -4437,6 +4466,15 @@ packages:
       slice-ansi: 4.0.0
       string-width: 4.2.3
       strip-ansi: 6.0.1
+    dev: true
+
+  /tailwind-scrollbar/2.0.1_tailwindcss@3.1.8:
+    resolution: {integrity: sha512-OcR7qHBbux4k+k6bWqnEQFYFooLK/F4dhkBz6nvswIoaA9ancZ5h20e0tyV7ifSWLDCUBtpG+1NHRA8HMRH/wg==}
+    engines: {node: '>=12.13.0'}
+    peerDependencies:
+      tailwindcss: 3.x
+    dependencies:
+      tailwindcss: 3.1.8_postcss@8.4.16
     dev: true
 
   /tailwindcss/3.1.8_postcss@8.4.16:

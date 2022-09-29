@@ -1,6 +1,5 @@
 import React, { ButtonHTMLAttributes, ReactElement } from 'react';
 import Image from 'next/image';
-import { Spin } from 'components/svg';
 interface BaseProps {
   leftSrc?: string;
   rightSrc?: string;
@@ -19,8 +18,7 @@ const defaultInitialProps: BaseProps = {
 
 type NativeProps = BaseProps & ButtonHTMLAttributes<HTMLButtonElement>;
 
-const defaultClass: string =
-  'font-kanit text-purple-900 p-[6px] ring-1 ring-slate-200 rounded-xl align-middle hover:bg-gray-100';
+const defaultClass: string = `font-kanit p-[6px] rounded-xl align-middle ring-1 ring-gray-100 hover:bg-gray-100`;
 export const PanIconButton: React.FC<NativeProps> = (props) => {
   const { className, children, leftSrc, rightSrc, alt, iconHeight, iconWidth, ...restProps } = {
     ...defaultInitialProps,
@@ -30,16 +28,16 @@ export const PanIconButton: React.FC<NativeProps> = (props) => {
 
   return (
     <button className={mergeClass} {...restProps}>
-      <div className='flex items-center justify-center space-x-1'>
+      <div className={`flex items-center justify-center${children ? ' space-x-1' : ''}`}>
         {leftSrc ? (
           <span className='relative' style={{ width: iconWidth, height: iconHeight }}>
-            <Image className='rounded-full bg-gray-200' alt={alt} src={leftSrc} layout='fill' />
+            <Image className='rounded-full' alt={alt} src={leftSrc} layout='fill' />
           </span>
         ) : undefined}
         <span>{children}</span>
         {rightSrc ? (
-          <span className='relative ' style={{ width: iconWidth, height: iconHeight }}>
-            <Image className='rounded-full bg-gray-200' alt={alt} src={rightSrc} layout='fill' />
+          <span className='relative' style={{ width: iconWidth, height: iconHeight }}>
+            <Image className='rounded-full' alt={alt} src={rightSrc} layout='fill' />
           </span>
         ) : undefined}
       </div>
