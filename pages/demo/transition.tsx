@@ -8,7 +8,7 @@ const TransitionDemo: NextPage = () => {
   return (
     <div className='p-4 space-y-2'>
       <Button onClick={toggle}>Toggle</Button>
-      <Transition in={visible} timeout={300} animation='zoom-in-left'>
+      <Transition in={visible} timeout={200} animation='zoom-in-left'>
         <div>
           <p className='text-blue-600/100'>The quick brown fox jumps over the lazy dog.</p>
           <p className='text-blue-600/90'>The quick brown fox jumps over the lazy dog.</p>
@@ -19,10 +19,10 @@ const TransitionDemo: NextPage = () => {
           <p className='text-blue-600/40'>The quick brown fox jumps over the lazy dog.</p>
         </div>
       </Transition>
-      <Transition in={visible} timeout={300} wrapper animation='zoom-in-top'>
+      <Transition in={visible} timeout={200} animation='zoom-in-top' wrapper>
         <Button>Base Button</Button>
       </Transition>
-      <Transition in={visible} timeout={300} wrapper classNames='alert'>
+      <Transition in={visible} timeout={200} classNames='alert'>
         <div>
           <p className='text-blue-600/100'>The quick brown fox jumps over the lazy dog.</p>
           <p className='text-blue-600/90'>The quick brown fox jumps over the lazy dog.</p>
