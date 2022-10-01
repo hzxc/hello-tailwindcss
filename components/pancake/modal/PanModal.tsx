@@ -42,7 +42,9 @@ export const PanModal: React.FC<{ visible: boolean; close: () => void }> = ({ vi
           <div className='flex items-center justify-around'>
             <PanIconButton leftSrc='/images/pancake/bnb.svg'>BNB</PanIconButton>
             <PanIconButton leftSrc='/images/pancake/busd.png'>BUSD</PanIconButton>
-            <PanIconButton leftSrc='/images/pancake/cake.png'>CAKE</PanIconButton>
+            <PanIconButton leftSrc='https://tokens.pancakeswap.finance/images/0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82.png'>
+              CAKE
+            </PanIconButton>
             <PanIconButton leftSrc='/images/pancake/btc.png'>BTCB</PanIconButton>
           </div>
         </div>

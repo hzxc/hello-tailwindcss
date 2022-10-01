@@ -1,7 +1,7 @@
 import React, { ButtonHTMLAttributes, ReactElement, useEffect, useRef, useState } from 'react';
 
 import { RiCheckboxBlankCircleFill } from 'react-icons/Ri';
-interface BaseProps {
+interface ToggleButtonProps {
   leftEl?: ReactElement;
   rightEl?: ReactElement;
   checked: boolean;
@@ -12,7 +12,7 @@ interface BaseProps {
   checkedOutlineColor?: string;
 }
 
-const defaultInitialProps: BaseProps = {
+const defaultInitialProps: ToggleButtonProps = {
   leftEl: <RiCheckboxBlankCircleFill opacity={0} />,
   rightEl: <RiCheckboxBlankCircleFill opacity={0} />,
   checked: false,
@@ -21,10 +21,10 @@ const defaultInitialProps: BaseProps = {
   checkedShadowColor: 'white',
 };
 
-type NativeInputProps = BaseProps & ButtonHTMLAttributes<HTMLButtonElement>;
+type Props = ToggleButtonProps & ButtonHTMLAttributes<HTMLButtonElement>;
 const defaultClass: string = `align-middle rounded-full border transition-shadow duration-200`;
 
-export const ToggleButton: React.FC<NativeInputProps> = (props) => {
+export const ToggleButton: React.FC<Props> = (props) => {
   const refLeft = useRef<any>(null);
   const refRight = useRef<any>(null);
   const [widthLeft, setWidthOn] = useState(0);
