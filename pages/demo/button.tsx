@@ -67,7 +67,7 @@ const ButtonDemo: NextPage = () => {
         <PanIconButton
           className='text-black font-semibold	text-xl	'
           ring='ring-0'
-          hover=''
+          hover
           leftSrc='/images/pancake/pancakeSwapMobile.svg'
         >
           PancakeSwap

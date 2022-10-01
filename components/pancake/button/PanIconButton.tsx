@@ -5,7 +5,7 @@ interface PanIconButtonProps {
   rightSrc?: string;
   iconWidth?: string;
   iconHeight?: string;
-  hover?: string;
+  hover?: string | boolean;
   ring?: string;
   alt?: string;
   rounded?: string;

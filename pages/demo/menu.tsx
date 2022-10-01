@@ -7,13 +7,19 @@ const MenuDemo: NextPage = () => {
   return (
     <div className='p-2'>
       <Menu>
-        <MenuItem index='0'>active</MenuItem>
-        <MenuItem index='1'>disabled</MenuItem>
+        <MenuItem>Trade</MenuItem>
+        <MenuItem>Earn</MenuItem>
+        <MenuItem>Win</MenuItem>
+        <MenuItem>NFT</MenuItem>
+        <MenuItem>•••</MenuItem>
       </Menu>
 
       <Menu className='h-14' mode='horizontal'>
-        <MenuItem>active</MenuItem>
-        <MenuItem>disabled</MenuItem>
+        <MenuItem>Trade</MenuItem>
+        <MenuItem>Earn</MenuItem>
+        <MenuItem>Win</MenuItem>
+        <MenuItem>NFT</MenuItem>
+        <MenuItem>•••</MenuItem>
       </Menu>
     </div>
   );
