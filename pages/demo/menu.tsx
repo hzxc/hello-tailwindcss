@@ -23,7 +23,7 @@ const MenuDemo: NextPage = () => {
         <MenuItem>Win</MenuItem>
         <MenuItem>NFT</MenuItem>
         <MenuItem>•••</MenuItem>
-        <SubMenu title='opened'>
+        <SubMenu title='Open'>
           <MenuItem>opened1</MenuItem>
           <MenuItem>opened1</MenuItem>
           <MenuItem>opened1</MenuItem>

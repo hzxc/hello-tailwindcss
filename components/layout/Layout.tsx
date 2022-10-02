@@ -9,7 +9,7 @@ export const Layout: React.FC<{ children: ReactNode }> = ({ children }) => {
         {children}
       </div>
       {/* <div className=' fixed top-0 right-0 bottom-0 w-64 bg-orange-200'>Sidebar</div> */}
-      <div className='fixed top-0 right-0 bottom-0 w-64 p-4 bg-zinc-100 border-l'>
+      <div className='fixed top-0 right-0 w-64 h-screen p-4 bg-zinc-100 border-l overflow-y-auto scrollbar-thin scrollbar-thumb-cyan-600/60 scrollbar-track-slate-300 scrollbar-thumb-rounded-lg scrollbar-track-rounded-lg'>
         <Menu>
           <MenuItem>Getting Started</MenuItem>
           <MenuItem>Add React to a Website</MenuItem>
