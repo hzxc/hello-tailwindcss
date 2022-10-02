@@ -1,29 +1,38 @@
+@import 'https://fonts.googleapis.com/css2?family=Kanit:wght@100;200;300;400;500;600;700;800;900&display=swap';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/*
 @font-face {
   font-family: Kanit;
   src: url('../public/fonts/kanit/Kanit-Thin.ttf');
-  font-weight: thin;
+  font-weight: 'thin';
+}
+
+@font-face {
+  font-family: Kanit;
+  src: url('../public/fonts/kanit/Kanit-ExtraLight.ttf');
+  font-weight: 'extralight';
 }
 
 @font-face {
   font-family: Kanit;
   src: url('../public/fonts/kanit/Kanit-Light.ttf');
-  font-weight: light;
+  font-weight: 'light';
 }
 
 @font-face {
   font-family: Kanit;
   src: url('../public/fonts/kanit/Kanit-Medium.ttf');
-  font-weight: medium;
+  font-weight: 'medium';
 }
 
 @font-face {
   font-family: Kanit;
   src: url('../public/fonts/kanit/Kanit-SemiBold.ttf');
-  font-weight: semibold;
+  font-weight: 'semibold';
 }
 
 @font-face {
@@ -35,20 +44,20 @@
 @font-face {
   font-family: Kanit;
   src: url('../public/fonts/kanit/Kanit-ExtraBold.ttf');
-  font-weight: extrabold;
+  font-weight: 'extrabold';
 }
 
 @font-face {
   font-family: Kanit;
   src: url('../public/fonts/kanit/Kanit-Black.ttf');
-  font-weight: black;
+  font-weight: 'black';
 }
 
 @font-face {
   font-family: Kanit;
   src: url('../public/fonts/kanit/Kanit-Regular.ttf');
-  font-weight: regular;
-}
+  font-weight: 'regular';
+} */
 
 .zoom-in-top-enter {
   opacity: 0;

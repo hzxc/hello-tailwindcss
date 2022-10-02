@@ -1,7 +1,7 @@
 import React, { ButtonHTMLAttributes } from 'react';
 
 const defaultClass: string =
-  'px-4 py-1 text-sm text-white	bg-cyan-500 font-kanit font-semibold rounded-full shadow-sm shadow-black hover:opacity-60 active:translate-y-px active:shadow-none';
+  'px-4 py-1 text-white	bg-cyan-500 font-kanit font-base font-semibold rounded-full shadow-sm shadow-black hover:opacity-60 active:translate-y-px active:shadow-none';
 
 export const PanButton: React.FC<ButtonHTMLAttributes<HTMLButtonElement>> = (props) => {
   const { className, children, ...restProps } = props;

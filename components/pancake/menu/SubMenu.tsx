@@ -1,7 +1,7 @@
 import { Transition } from 'components';
 import React, { FunctionComponentElement } from 'react';
 import { LiHTMLAttributes, useContext, useState } from 'react';
-import { RiArrowDownSLine } from 'react-icons/ri';
+// import { RiArrowDownSLine } from 'react-icons/ri';
 import { MenuContext } from './Menu';
 import { MenuItemProps } from './MenuItem';
 
@@ -74,7 +74,7 @@ export const SubMenu: React.FC<Props> = (props) => {
     <li key={index} {...hoverEvents}>
       <div className='flex' {...clickEvents}>
         {title}
-        <RiArrowDownSLine size={30} color='#805634' />
+        {/* <RiArrowDownSLine size={30} color='#805634' /> */}
       </div>
       {renderChildren()}
     </li>
