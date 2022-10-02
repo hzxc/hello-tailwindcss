@@ -15,25 +15,19 @@ interface TransitionProps {
   classNames?: string;
   children: ReactNode;
   timeout: number;
+  nodeRef: any;
 }
 
-export const Transition: React.FC<TransitionProps> = (props) => {
-  const nodeRef = useRef(null);
+export const TransitionRef: React.FC<TransitionProps> = (props) => {
   const { visible, timeout, classNames, children, ...restProps } = props;
   return (
-    <CSSTransition
-      nodeRef={nodeRef}
-      in={visible}
-      timeout={timeout}
-      classNames={classNames}
-      {...restProps}
-    >
-      <div ref={nodeRef}>{children}</div>
+    <CSSTransition in={visible} timeout={timeout} classNames={classNames} {...restProps}>
+      {children}
     </CSSTransition>
   );
 };
-Transition.defaultProps = {
+TransitionRef.defaultProps = {
   visible: false,
   unmountOnExit: true,
-  classNames: 'zoom-in-left',
+  classNames: 'zoom-in-center',
 };

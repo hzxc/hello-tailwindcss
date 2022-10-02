@@ -2,27 +2,28 @@ import { NextPage } from 'next';
 import { Button } from 'components';
 import { Transition } from 'components';
 import { useToggle } from 'hooks/useToggle';
+import { useRef } from 'react';
 
 const TransitionDemo: NextPage = () => {
   const { visible, toggle } = useToggle();
   return (
     <div className='p-4 space-y-2'>
       <Button onClick={toggle}>Toggle</Button>
-      <Transition in={visible} timeout={200} animation='zoom-in-left'>
+      <Transition visible={visible} timeout={200} classNames='fade-modal'>
+        <p className='text-blue-600/100'>The quick brown fox jumps over the lazy dog.</p>
+        <p className='text-blue-600/90'>The quick brown fox jumps over the lazy dog.</p>
+        <p className='text-blue-600/80'>The quick brown fox jumps over the lazy dog.</p>
+        <p className='text-blue-600/70'>The quick brown fox jumps over the lazy dog.</p>
+        <p className='text-blue-600/60'>The quick brown fox jumps over the lazy dog.</p>
+        <p className='text-blue-600/50'>The quick brown fox jumps over the lazy dog.</p>
+        <p className='text-blue-600/40'>The quick brown fox jumps over the lazy dog.</p>
+      </Transition>
+      <Transition visible={visible} timeout={200} classNames='zoom-in-right'>
         <div>
-          <p className='text-blue-600/100'>The quick brown fox jumps over the lazy dog.</p>
-          <p className='text-blue-600/90'>The quick brown fox jumps over the lazy dog.</p>
-          <p className='text-blue-600/80'>The quick brown fox jumps over the lazy dog.</p>
-          <p className='text-blue-600/70'>The quick brown fox jumps over the lazy dog.</p>
-          <p className='text-blue-600/60'>The quick brown fox jumps over the lazy dog.</p>
-          <p className='text-blue-600/50'>The quick brown fox jumps over the lazy dog.</p>
-          <p className='text-blue-600/40'>The quick brown fox jumps over the lazy dog.</p>
+          <Button>Base Button</Button>
         </div>
       </Transition>
-      <Transition in={visible} timeout={200} animation='zoom-in-top' wrapper>
-        <Button>Base Button</Button>
-      </Transition>
-      <Transition in={visible} timeout={200} classNames='alert'>
+      <Transition visible={visible} timeout={200} classNames='zoom-in-top'>
         <div>
           <p className='text-blue-600/100'>The quick brown fox jumps over the lazy dog.</p>
           <p className='text-blue-600/90'>The quick brown fox jumps over the lazy dog.</p>

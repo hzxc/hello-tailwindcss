@@ -1,7 +1,7 @@
 import { NextPage } from 'next';
 import { Button } from 'components';
 import { useToggle } from 'hooks/useToggle';
-import { Menu, MenuItem } from 'components/pancake';
+import { Menu, MenuItem, SubMenu } from 'components/pancake';
 
 const MenuDemo: NextPage = () => {
   return (
@@ -12,6 +12,11 @@ const MenuDemo: NextPage = () => {
         <MenuItem>Win</MenuItem>
         <MenuItem>NFT</MenuItem>
         <MenuItem>•••</MenuItem>
+        <SubMenu title='opened'>
+          <MenuItem>opened1</MenuItem>
+          <MenuItem>opened1</MenuItem>
+          <MenuItem>opened1</MenuItem>
+        </SubMenu>
       </Menu>
 
       <Menu className='h-14' mode='horizontal'>
@@ -20,6 +25,11 @@ const MenuDemo: NextPage = () => {
         <MenuItem>Win</MenuItem>
         <MenuItem>NFT</MenuItem>
         <MenuItem>•••</MenuItem>
+        <SubMenu title='opened'>
+          <MenuItem>opened1</MenuItem>
+          <MenuItem>opened1</MenuItem>
+          <MenuItem>opened1</MenuItem>
+        </SubMenu>
       </Menu>
     </div>
   );

@@ -1,5 +1,9 @@
+import { Transition } from 'components';
+import React, { FunctionComponentElement } from 'react';
 import { LiHTMLAttributes, useContext, useState } from 'react';
+import { RiArrowDownSLine } from 'react-icons/ri';
 import { MenuContext } from './Menu';
+import { MenuItemProps } from './MenuItem';
 
 export interface SubMenuProps {
   index?: string;
@@ -49,26 +53,32 @@ export const SubMenu: React.FC<Props> = (props) => {
         }
       : {};
 
-  // const renderChildren = () => {
-  //   const subMenuClasses = classNames('viking-submenu', {
-  //     'menu-opened': menuOpen,
-  //   });
-  //   const childrenComponent = React.Children.map(children, (child, i) => {
-  //     const childElement = child as FunctionComponentElement<MenuItemProps>;
-  //     if (childElement.type.displayName === 'MenuItem') {
-  //       return React.cloneElement(childElement, {
-  //         index: `${index}-${i}`,
-  //       });
-  //     } else {
-  //       console.error('Warning: SubMenu has a child which is not a MenuItem component');
-  //     }
-  //   });
-  //   return (
-  //     <Transition in={menuOpen} timeout={300} animation='zoom-in-top'>
-  //       <ul className={subMenuClasses}>{childrenComponent}</ul>
-  //     </Transition>
-  //   );
-  // };
-
-  return <li key={index} className={mergeClass}></li>;
+  const renderChildren = () => {
+    const childrenComponent = React.Children.map(children, (child, i) => {
+      const childElement = child as FunctionComponentElement<MenuItemProps>;
+      if (childElement.type.displayName === 'MenuItem') {
+        return React.cloneElement(childElement, {
+          index: `${index}-${i}`,
+        });
+      } else {
+        console.error('Warning: SubMenu has a child which is not a MenuItem component');
+      }
+    });
+    return (
+      <Transition visible={menuOpen} timeout={300} classNames='zoom-in-top'>
+        <ul>{childrenComponent}</ul>
+      </Transition>
+    );
+  };
+  return (
+    <li key={index} {...hoverEvents}>
+      <div className='flex' {...clickEvents}>
+        {title}
+        <RiArrowDownSLine size={30} color='#805634' />
+      </div>
+      {renderChildren()}
+    </li>
+  );
 };
+
+SubMenu.displayName = 'SubMenu';
