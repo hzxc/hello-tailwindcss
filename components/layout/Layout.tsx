@@ -1,28 +1,16 @@
 import { Menu, MenuItem, SubMenu } from 'components/menu';
 import React, { ReactNode } from 'react';
+import Sidebar from './Sidebar';
 
 export const Layout: React.FC<{ children: ReactNode }> = ({ children }) => {
   return (
-    <div className='m-0 p-0'>
+    <>
       {/* <div style={{ width: 'calc(100vw-256px)' }} className='min-h-screen bg-orange-200/60'> */}
-      <div style={{ width: 'calc(100vw-256px)' }} className='min-h-screen bg-white'>
+      <main style={{ width: 'calc(100vw-256px)' }} className='min-h-screen bg-white'>
         {children}
-      </div>
+      </main>
       {/* <div className=' fixed top-0 right-0 bottom-0 w-64 bg-orange-200'>Sidebar</div> */}
-      <div className='fixed top-0 right-0 w-64 h-screen p-4 bg-zinc-100 border-l overflow-y-auto scrollbar-thin scrollbar-thumb-cyan-600/60 scrollbar-track-slate-300 scrollbar-thumb-rounded-lg scrollbar-track-rounded-lg'>
-        <Menu>
-          <MenuItem>Getting Started</MenuItem>
-          <MenuItem>Add React to a Website</MenuItem>
-          <MenuItem>Create a New React App</MenuItem>
-          <MenuItem>CDN Links</MenuItem>
-          <MenuItem>Release Channels</MenuItem>
-          <SubMenu title='Opend'>
-            <MenuItem>Hello World</MenuItem>
-            <MenuItem>Introducing JSX</MenuItem>
-            <MenuItem>Rendering Elements</MenuItem>
-          </SubMenu>
-        </Menu>
-      </div>
-    </div>
+      <Sidebar />
+    </>
   );
 };

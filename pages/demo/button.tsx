@@ -3,9 +3,10 @@ import { PanButton } from 'components/pancake';
 import { Button } from 'components';
 import { PanIconButton } from 'components/pancake/button';
 import { Layout } from 'components/layout';
+import { NextPageWithLayout } from 'pages/_app';
+import { ReactElement } from 'react';
 
-const ButtonDemo: NextPage = () => {
-  // const clsList = document.documentElement.classList;
+const ButtonDemo: NextPageWithLayout = () => {
   const changeTheme = (event: any) => {
     const clsList = document.documentElement.classList;
     if (clsList.contains('dark')) {
@@ -77,6 +78,10 @@ const ButtonDemo: NextPage = () => {
       </div>
     </Layout>
   );
+};
+
+ButtonDemo.getLayout = function getLayout(page: ReactElement) {
+  return <Layout>{page}</Layout>;
 };
 
 export default ButtonDemo;
