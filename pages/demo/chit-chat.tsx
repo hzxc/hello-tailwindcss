@@ -1,8 +1,11 @@
 import { NextPage } from 'next';
 import dayjs from 'dayjs';
 import Image from 'next/image';
+import { Layout } from 'components/layout';
+import { ReactElement } from 'react';
+import { NextPageWithLayout } from 'pages/_app';
 
-const ChitChat: NextPage = () => {
+const ChitChat: NextPageWithLayout = () => {
   return (
     <div className='p-6 max-w-sm mx-auto bg-white rounded-xl shadow-lg flex items-center space-x-4'>
       <div className='shrink-0'>
@@ -22,6 +25,10 @@ const ChitChat: NextPage = () => {
       </div>
     </div>
   );
+};
+
+ChitChat.getLayout = function getLayout(page: ReactElement) {
+  return <Layout>{page}</Layout>;
 };
 
 export default ChitChat;
