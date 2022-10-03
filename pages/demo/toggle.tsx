@@ -1,11 +1,13 @@
 import { NextPage } from 'next';
-import { useEffect, useRef, useState } from 'react';
+import { ReactElement, useEffect, useRef, useState } from 'react';
 import { useAppDispatch, useAppSelector } from 'redux/hooks';
 import { switchTheme, selectMode } from 'redux/theme/themeSlice';
 import { FiSun, FiMoon } from 'react-icons/fi';
 import { ToggleButton } from 'components';
+import { NextPageWithLayout } from 'pages/_app';
+import { Layout } from 'components/layout';
 
-const Toggle: NextPage = () => {
+const Toggle: NextPageWithLayout = () => {
   const darkMode = useAppSelector(selectMode);
   const dispatch = useAppDispatch();
   const [check, setCheck] = useState(false);
@@ -69,6 +71,10 @@ const Toggle: NextPage = () => {
       <span>darkMode:{darkMode.toString()}</span>
     </div>
   );
+};
+
+Toggle.getLayout = function getLayout(page: ReactElement) {
+  return <Layout>{page}</Layout>;
 };
 
 export default Toggle;

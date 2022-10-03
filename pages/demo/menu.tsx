@@ -1,7 +1,9 @@
-import { NextPage } from 'next';
+import { Layout } from 'components/layout';
 import { Menu, MenuItem, SubMenu } from 'components/menu';
+import { NextPageWithLayout } from 'pages/_app';
+import { ReactElement } from 'react';
 
-const MenuDemo: NextPage = () => {
+const MenuDemo: NextPageWithLayout = () => {
   return (
     <div className='p-2'>
       <Menu>
@@ -17,6 +19,8 @@ const MenuDemo: NextPage = () => {
         <MenuItem>Release Channels</MenuItem>
       </Menu>
 
+      <hr />
+
       <Menu className='h-14' mode='horizontal'>
         <MenuItem>Trade</MenuItem>
         <MenuItem>Earn</MenuItem>
@@ -31,6 +35,10 @@ const MenuDemo: NextPage = () => {
       </Menu>
     </div>
   );
+};
+
+MenuDemo.getLayout = function getLayout(page: ReactElement) {
+  return <Layout>{page}</Layout>;
 };
 
 export default MenuDemo;

@@ -22,12 +22,29 @@ export default function Sidebar() {
             <Link href='/demo/chit-chat'>Chit Chat</Link>
           </MenuItem>
           <MenuItem>
+            <Link href='/demo/counter'>Counter</Link>
+          </MenuItem>
+          <MenuItem>
+            <Link href='/demo/fonts'>Fonts</Link>
+          </MenuItem>
+          <MenuItem>
+            <Link href='/demo/image'>Image</Link>
+          </MenuItem>
+          <MenuItem>
             <Link href='/demo/button'>Button</Link>
           </MenuItem>
           <MenuItem>
             <Link href='/demo/modal'>Modal</Link>
           </MenuItem>
-          <MenuItem>Rendering Elements</MenuItem>
+          <MenuItem>
+            <Link href='/demo/menu'>Menu</Link>
+          </MenuItem>
+          <MenuItem>
+            <Link href='/demo/transition'>Transition</Link>
+          </MenuItem>
+          <MenuItem>
+            <Link href='/demo/toggle'>Toggle</Link>
+          </MenuItem>
         </SubMenu>
       </Menu>
     </nav>

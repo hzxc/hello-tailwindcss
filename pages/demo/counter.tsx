@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { ReactElement, useState } from 'react';
 
 import { useAppSelector, useAppDispatch } from 'redux/hooks';
 
@@ -10,11 +10,11 @@ import {
   incrementIfOdd,
   selectCounter,
 } from 'redux/counter/counterSlice';
-import { NextPage } from 'next';
-import Image from 'next/image';
 import { Spin } from 'components/svg';
+import { Layout } from 'components/layout';
+import { NextPageWithLayout } from 'pages/_app';
 
-const Counter: NextPage = () => {
+const Counter: NextPageWithLayout = () => {
   const counter = useAppSelector(selectCounter);
   const dispatch = useAppDispatch();
   const [incrementAmount, setIncrementAmount] = useState('2');
@@ -70,6 +70,10 @@ const Counter: NextPage = () => {
       </div>
     </div>
   );
+};
+
+Counter.getLayout = function getLayout(page: ReactElement) {
+  return <Layout>{page}</Layout>;
 };
 
 export default Counter;

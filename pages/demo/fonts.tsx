@@ -1,10 +1,8 @@
-import { NextPage } from 'next';
-import Image from 'next/image';
-import dayjs from 'dayjs';
-import spinSvg from '/images/spin.svg';
-import { CgSpinner } from 'react-icons/cg';
+import { Layout } from 'components/layout';
+import { NextPageWithLayout } from 'pages/_app';
+import { ReactElement } from 'react';
 
-const ImageDemo: NextPage = () => {
+const ImageDemo: NextPageWithLayout = () => {
   return (
     <div className='p-4'>
       <p className=''>Normal:Todos os seres humanos nascem livres e iguais em dignidade</p>
@@ -13,6 +11,10 @@ const ImageDemo: NextPage = () => {
       </p>
     </div>
   );
+};
+
+ImageDemo.getLayout = function getLayout(page: ReactElement) {
+  return <Layout>{page}</Layout>;
 };
 
 export default ImageDemo;
