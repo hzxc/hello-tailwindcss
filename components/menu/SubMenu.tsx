@@ -1,5 +1,4 @@
 import { Transition } from 'components';
-import { PanIconButton } from 'components/pancake';
 import React, { FunctionComponentElement } from 'react';
 import { LiHTMLAttributes, useContext, useState } from 'react';
 import { IoIosArrowDown } from 'react-icons/io';
@@ -12,8 +11,7 @@ export interface SubMenuProps {
 }
 
 type Props = SubMenuProps & LiHTMLAttributes<HTMLLIElement>;
-const defaultClass: string = 'px-4 py-2 border-l-4 border-l-transparent';
-const activeClass: string = 'font-semibold border-l-4 border-l-cyan-400';
+const defaultClass: string = '';
 export const SubMenu: React.FC<Props> = (props) => {
   const { index, title, children, className } = props;
   const context = useContext(MenuContext);
@@ -34,7 +32,7 @@ export const SubMenu: React.FC<Props> = (props) => {
     e.preventDefault();
     timer = setTimeout(() => {
       setOpen(toggle);
-    }, 300);
+    }, 100);
   };
 
   const clickEvents =
@@ -68,7 +66,7 @@ export const SubMenu: React.FC<Props> = (props) => {
     });
     return (
       <Transition visible={menuOpen} timeout={300} classNames='zoom-in-top'>
-        <ul className='flex flex-col flex-nowrap items-start justify-start gap-1 mt-2'>
+        <ul className='flex flex-col flex-nowrap items-start justify-start gap-0.5 pl-4'>
           {childrenComponent}
         </ul>
       </Transition>
@@ -77,9 +75,11 @@ export const SubMenu: React.FC<Props> = (props) => {
   return (
     <li key={index} className={mergeClass} {...hoverEvents}>
       <div
-        className={`flex items-center cursor-pointer hover:opacity-70 ${
-          context.index.startsWith(index + '-') ? 'font-semibold' : ''
-        }`}
+        className={`flex items-center cursor-pointer hover:opacity-70${
+          context.mode === 'vertical'
+            ? ' border-l-4 border-l-transparent'
+            : ' border-b-4 border-b-transparent'
+        } px-3 py-1.5${context.index.startsWith(index + '-') ? ' font-semibold' : ''}`}
         style={{ lineHeight: '100%' }}
         {...clickEvents}
       >

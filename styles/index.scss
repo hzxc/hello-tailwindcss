@@ -3,3 +3,10 @@
 @import 'mixin';
 
 @import 'animation';
+
+.chidren-padding {
+  > * {
+    display: block;
+    padding: 6px 12px;
+  }
+}

@@ -4,61 +4,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/*
-@font-face {
-  font-family: Kanit;
-  src: url('../public/fonts/kanit/Kanit-Thin.ttf');
-  font-weight: 'thin';
-}
-
-@font-face {
-  font-family: Kanit;
-  src: url('../public/fonts/kanit/Kanit-ExtraLight.ttf');
-  font-weight: 'extralight';
-}
-
-@font-face {
-  font-family: Kanit;
-  src: url('../public/fonts/kanit/Kanit-Light.ttf');
-  font-weight: 'light';
-}
-
-@font-face {
-  font-family: Kanit;
-  src: url('../public/fonts/kanit/Kanit-Medium.ttf');
-  font-weight: 'medium';
-}
-
-@font-face {
-  font-family: Kanit;
-  src: url('../public/fonts/kanit/Kanit-SemiBold.ttf');
-  font-weight: 'semibold';
-}
-
-@font-face {
-  font-family: Kanit;
-  src: url('../public/fonts/kanit/Kanit-Bold.ttf');
-  font-weight: bold;
-}
-
-@font-face {
-  font-family: Kanit;
-  src: url('../public/fonts/kanit/Kanit-ExtraBold.ttf');
-  font-weight: 'extrabold';
-}
-
-@font-face {
-  font-family: Kanit;
-  src: url('../public/fonts/kanit/Kanit-Black.ttf');
-  font-weight: 'black';
-}
-
-@font-face {
-  font-family: Kanit;
-  src: url('../public/fonts/kanit/Kanit-Regular.ttf');
-  font-weight: 'regular';
-} */
-
+/* animation */
 .zoom-in-top-enter {
   opacity: 0;
   transform: scaleY(0);
@@ -200,4 +146,10 @@
 .fade-modal-exit-active {
   opacity: 0;
   transition: opacity 300ms cubic-bezier(0.23, 1, 0.32, 1) 100ms;
+}
+
+/* children padding */
+.chidren-padding > * {
+  display: block;
+  padding: 6px 12px;
 }

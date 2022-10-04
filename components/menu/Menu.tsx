@@ -1,5 +1,4 @@
 import React, { FC, createContext, HTMLAttributes, useState } from 'react';
-import { isContext } from 'vm';
 import { MenuItemProps } from './MenuItem';
 
 type MenuMode = 'horizontal' | 'vertical';
@@ -29,9 +28,9 @@ interface IMenuContext {
 export const MenuContext = createContext<IMenuContext>({ index: '0' });
 
 const verticalClass: string =
-  'font-kanit flex flex-col flex-nowrap items-start justify-start gap-1';
+  'font-kanit flex flex-col flex-nowrap items-start justify-start gap-0.5';
 const horizontalClass: string =
-  'font-kanit flex flex-row flex-nowrap items-stretch justify-start gap-1';
+  'font-kanit flex flex-row flex-nowrap items-start justify-start gap-0.5';
 
 export const Menu: FC<Props> = (props) => {
   const { className, mode, children, defaultIndex, onSelect, defaultOpenSubMenus } = {
@@ -72,8 +71,8 @@ export const Menu: FC<Props> = (props) => {
 
   return (
     <ul className={mergeClass}>
-      currentActive:{currentActive}
       <MenuContext.Provider value={passedContext}>{renderChildren()}</MenuContext.Provider>
+      currentActive:{currentActive}
     </ul>
   );
 };

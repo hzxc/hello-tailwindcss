@@ -16,7 +16,9 @@ export default function Sidebar() {
         <MenuItem>Release Channels</MenuItem>
         <SubMenu title='Demo'>
           <MenuItem>
-            <Link href='/demo/business-card'>Business Card</Link>
+            <Link style={{ display: 'block' }} href='/demo/business-card'>
+              Business Card
+            </Link>
           </MenuItem>
           <MenuItem>
             <Link href='/demo/chit-chat'>Chit Chat</Link>

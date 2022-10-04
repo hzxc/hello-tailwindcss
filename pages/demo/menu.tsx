@@ -26,11 +26,10 @@ const MenuDemo: NextPageWithLayout = () => {
         <MenuItem>Earn</MenuItem>
         <MenuItem>Win</MenuItem>
         <MenuItem>NFT</MenuItem>
-        <MenuItem>•••</MenuItem>
         <SubMenu title='Open'>
-          <MenuItem>opened1</MenuItem>
-          <MenuItem>opened1</MenuItem>
-          <MenuItem>opened1</MenuItem>
+          <MenuItem>Modal</MenuItem>
+          <MenuItem>Button</MenuItem>
+          <MenuItem>Pancake</MenuItem>
         </SubMenu>
       </Menu>
     </div>
