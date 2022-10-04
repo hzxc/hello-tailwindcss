@@ -32,6 +32,8 @@ const MenuDemo: NextPageWithLayout = () => {
           <MenuItem>Pancake</MenuItem>
         </SubMenu>
       </Menu>
+
+      <hr />
     </div>
   );
 };
