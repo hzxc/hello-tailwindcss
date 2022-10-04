@@ -30,7 +30,7 @@ export const MenuContext = createContext<IMenuContext>({ index: '0' });
 const verticalClass: string =
   'font-kanit flex flex-col flex-nowrap items-start justify-start gap-0.5';
 const horizontalClass: string =
-  'font-kanit flex flex-row flex-nowrap items-start justify-start gap-0.5';
+  'font-kanit flex flex-row flex-nowrap items-stretch justify-start gap-0.5';
 
 export const Menu: FC<Props> = (props) => {
   const { className, mode, children, defaultIndex, onSelect, defaultOpenSubMenus } = {

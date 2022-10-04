@@ -21,7 +21,7 @@ const MenuDemo: NextPageWithLayout = () => {
 
       <hr />
 
-      <Menu className='h-14' mode='horizontal'>
+      <Menu mode='horizontal'>
         <MenuItem>Trade</MenuItem>
         <MenuItem>Earn</MenuItem>
         <MenuItem>Win</MenuItem>

@@ -11,7 +11,7 @@ export interface SubMenuProps {
 }
 
 type Props = SubMenuProps & LiHTMLAttributes<HTMLLIElement>;
-const defaultClass: string = '';
+const defaultClass: string = 'relative';
 export const SubMenu: React.FC<Props> = (props) => {
   const { index, title, children, className } = props;
   const context = useContext(MenuContext);
@@ -66,7 +66,11 @@ export const SubMenu: React.FC<Props> = (props) => {
     });
     return (
       <Transition visible={menuOpen} timeout={300} classNames='zoom-in-top'>
-        <ul className='flex flex-col flex-nowrap items-start justify-start gap-0.5 pl-4'>
+        <ul
+          className={`${
+            context.mode === 'horizontal' ? 'absolute ' : ''
+          }flex flex-col flex-nowrap items-start justify-start gap-0.5 pl-4`}
+        >
           {childrenComponent}
         </ul>
       </Transition>
@@ -79,7 +83,9 @@ export const SubMenu: React.FC<Props> = (props) => {
           context.mode === 'vertical'
             ? ' border-l-4 border-l-transparent'
             : ' border-b-4 border-b-transparent'
-        } px-3 py-1.5${context.index.startsWith(index + '-') ? ' font-semibold' : ''}`}
+        } px-3 py-1.5${
+          context.index.startsWith(index + '-') ? ' font-semibold text-cyan-400' : ''
+        }`}
         style={{ lineHeight: '100%' }}
         {...clickEvents}
       >
