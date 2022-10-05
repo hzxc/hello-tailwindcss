@@ -23,7 +23,7 @@ export const Header: React.FC = () => {
             <MenuItem>Liquidity</MenuItem>
             <MenuItem>
               <PanIconButton
-                className='w-64 align-baseline my-[-2px]'
+                className='w-full align-baseline my-[-2px]'
                 iconWidth='20px'
                 iconHeight='20px'
                 ring='ring-0'
@@ -35,7 +35,7 @@ export const Header: React.FC = () => {
             </MenuItem>
             <MenuItem>
               <PanIconButton
-                className='w-64 align-baseline my-[-2px]'
+                className='w-full align-baseline my-[-2px]'
                 iconWidth='20px'
                 iconHeight='20px'
                 ring='ring-0'
@@ -87,7 +87,7 @@ export const Header: React.FC = () => {
             <MenuItem itemClass='border-b'>Leaderboard</MenuItem>
             <MenuItem>
               <PanIconButton
-                className='w-64 align-baseline my-[-2px]'
+                className='w-full align-baseline my-[-2px]'
                 iconWidth='20px'
                 iconHeight='20px'
                 ring='ring-0'
@@ -99,7 +99,7 @@ export const Header: React.FC = () => {
             </MenuItem>
             <MenuItem>
               <PanIconButton
-                className='w-64 align-baseline my-[-2px]'
+                className='w-full align-baseline my-[-2px]'
                 iconWidth='20px'
                 iconHeight='20px'
                 ring='ring-0'
