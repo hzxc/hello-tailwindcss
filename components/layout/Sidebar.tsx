@@ -42,6 +42,9 @@ export default function Sidebar() {
             <Link href='/demo/menu'>Menu</Link>
           </MenuItem>
           <MenuItem>
+            <Link href='/demo/pan-menu'>Pan Menu</Link>
+          </MenuItem>
+          <MenuItem>
             <Link href='/demo/transition'>Transition</Link>
           </MenuItem>
           <MenuItem>

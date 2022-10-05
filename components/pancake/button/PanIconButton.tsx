@@ -8,7 +8,7 @@ interface PanIconButtonProps {
   hover?: string | boolean;
   ring?: string;
   alt?: string;
-  rounded?: string;
+  rounded?: string | boolean;
 }
 
 const defaultInitialProps: PanIconButtonProps = {
@@ -24,7 +24,7 @@ const defaultInitialProps: PanIconButtonProps = {
 
 type Props = PanIconButtonProps & ButtonHTMLAttributes<HTMLButtonElement>;
 
-const defaultClass: string = `font-kanit align-middle`;
+const defaultClass: string = `font-kanit`;
 export const PanIconButton: React.FC<Props> = (props) => {
   const {
     className,

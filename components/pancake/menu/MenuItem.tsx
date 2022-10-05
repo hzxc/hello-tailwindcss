@@ -7,14 +7,21 @@ export interface MenuItemProps {
 }
 
 type Props = MenuItemProps & LiHTMLAttributes<HTMLLIElement>;
-const defaultClass: string =
-  'flex items-center px-4 py-1 rounded-2xl cursor-pointer hover:bg-slate-100 ';
+const defaultClass: string = 'cursor-pointer hover:bg-zinc-100 rounded-2xl';
+const activeClass: string = 'font-semibold text-violet-600';
+const horizontalActiveClass: string = 'font-semibold text-violet-600';
 
 const MenuItem: FC<Props> = (props) => {
   const { index, disabled, className, children } = props;
   const context = useContext(MenuContext);
 
-  const mergeClass = `${defaultClass}${className ? ' ' + className : ''}`;
+  const mergeClass = `${defaultClass}${className ? ' ' + className : ''}${
+    context.mode === 'vertical'
+      ? ' border-l-0 border-l-transparent'
+      : ' border-b-0 border-b-transparent'
+  }${context.index === index && context.mode === 'vertical' ? ' ' + activeClass : ''}${
+    context.index === index && context.mode === 'horizontal' ? ' ' + horizontalActiveClass : ''
+  }`;
 
   const handleClick = () => {
     if (context.onSelect && !disabled && typeof index === 'string') {
@@ -24,7 +31,8 @@ const MenuItem: FC<Props> = (props) => {
 
   return (
     <li className={mergeClass} style={{ lineHeight: '100%' }} onClick={handleClick}>
-      {children}
+      <div className='px-4 py-4'>{children}</div>
+      {/* {typeof children === 'string' ? <div>{children}</div> : children} */}
     </li>
   );
 };

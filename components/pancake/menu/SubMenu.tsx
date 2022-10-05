@@ -1,19 +1,21 @@
 import { Transition } from 'components';
-import React, { FunctionComponentElement } from 'react';
+import React, { FunctionComponentElement, ReactComponentElement, ReactNode } from 'react';
 import { LiHTMLAttributes, useContext, useState } from 'react';
-// import { RiArrowDownSLine } from 'react-icons/ri';
+import { ReactElement } from 'react';
+
+import { IoIosArrowDown } from 'react-icons/io';
 import { MenuContext } from './Menu';
 import { MenuItemProps } from './MenuItem';
 
 export interface SubMenuProps {
   index?: string;
-  title: string;
+  subTitle: string | ReactNode;
 }
 
 type Props = SubMenuProps & LiHTMLAttributes<HTMLLIElement>;
-const defaultClass: string = '';
+const defaultClass: string = 'relative';
 export const SubMenu: React.FC<Props> = (props) => {
-  const { index, title, children, className } = props;
+  const { index, subTitle, children, className } = props;
   const context = useContext(MenuContext);
   const openedSubMenus = context.defaultOpenSubMenus as Array<string>;
   const isOpend = index && context.mode === 'vertical' ? openedSubMenus.includes(index) : false;
@@ -32,7 +34,7 @@ export const SubMenu: React.FC<Props> = (props) => {
     e.preventDefault();
     timer = setTimeout(() => {
       setOpen(toggle);
-    }, 300);
+    }, 100);
   };
 
   const clickEvents =
@@ -55,10 +57,11 @@ export const SubMenu: React.FC<Props> = (props) => {
 
   const renderChildren = () => {
     const childrenComponent = React.Children.map(children, (child, i) => {
-      const childElement = child as FunctionComponentElement<MenuItemProps>;
+      const childElement = child as FunctionComponentElement<MenuItemProps & { className: string }>;
       if (childElement.type.displayName === 'MenuItem') {
         return React.cloneElement(childElement, {
           index: `${index}-${i}`,
+          className: `w-64 !rounded-none`,
         });
       } else {
         console.error('Warning: SubMenu has a child which is not a MenuItem component');
@@ -66,15 +69,30 @@ export const SubMenu: React.FC<Props> = (props) => {
     });
     return (
       <Transition visible={menuOpen} timeout={300} classNames='zoom-in-top'>
-        <ul>{childrenComponent}</ul>
+        <ul
+          className={`${
+            context.mode === 'horizontal' ? 'absolute ' : ''
+          }flex flex-col flex-nowrap items-start justify-start  border mt-1 py-1 rounded-xl`}
+        >
+          {childrenComponent}
+        </ul>
       </Transition>
     );
   };
   return (
-    <li key={index} {...hoverEvents}>
-      <div className='flex' {...clickEvents}>
-        {title}
-        {/* <RiArrowDownSLine size={30} color='#805634' /> */}
+    <li key={index} className={mergeClass} {...hoverEvents}>
+      <div
+        className={`flex items-center cursor-pointer rounded-2xl hover:bg-zinc-100${
+          context.mode === 'vertical'
+            ? ' border-l-0 border-l-transparent'
+            : ' border-b-0 border-b-transparent'
+        } px-4 py-4${
+          context.index.startsWith(index + '-') ? ' font-semibold text-violet-600' : ''
+        }`}
+        style={{ lineHeight: '100%' }}
+        {...clickEvents}
+      >
+        <span>{subTitle}</span>
       </div>
       {renderChildren()}
     </li>

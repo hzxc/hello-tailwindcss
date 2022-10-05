@@ -28,9 +28,9 @@ interface IMenuContext {
 export const MenuContext = createContext<IMenuContext>({ index: '0' });
 
 const verticalClass: string =
-  'relative font-kanit text-violet-900/90 flex flex-col flex-nowrap items-start justify-start py-1 gap-1 border ';
+  'font-kanit flex flex-col flex-nowrap items-start justify-start gap-0.5';
 const horizontalClass: string =
-  'relative font-kanit text-violet-900/90 flex flex-row flex-nowrap items-stretch justify-start py-1 gap-1 border';
+  'font-kanit flex flex-row flex-nowrap items-center justify-start gap-0.5';
 
 export const Menu: FC<Props> = (props) => {
   const { className, mode, children, defaultIndex, onSelect, defaultOpenSubMenus } = {
@@ -57,7 +57,9 @@ export const Menu: FC<Props> = (props) => {
 
   const renderChildren = () => {
     return React.Children.map(children, (child, index) => {
-      const childElement = child as React.FunctionComponentElement<MenuItemProps>;
+      const childElement = child as React.FunctionComponentElement<
+        MenuItemProps & { className: string }
+      >;
       const { displayName } = childElement.type;
       if (displayName === 'MenuItem' || displayName === 'SubMenu') {
         return React.cloneElement(childElement, {
@@ -71,7 +73,6 @@ export const Menu: FC<Props> = (props) => {
 
   return (
     <ul className={mergeClass}>
-      currentActive:{currentActive}
       <MenuContext.Provider value={passedContext}>{renderChildren()}</MenuContext.Provider>
     </ul>
   );
