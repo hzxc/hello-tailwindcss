@@ -29,7 +29,7 @@ export const PanModal: React.FC<{ visible: boolean; close: () => void }> = ({ vi
     <Modal visible={visible}>
       <ModalOverlay onClick={close} />
 
-      <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 max-h-screen overflow-hidden bg-white w-full min-w-[320px] max-w-[420px] rounded-[32px] font-kanit text-base text-indigo-900/90'>
+      <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 max-h-screen overflow-hidden bg-white w-full min-w-[320px] max-w-[420px] rounded-[32px] font-kanit text-base text-indigo-800/80'>
         <div className='flex py-5 border border-x-0 px-6 items-center justify-between'>
           <div className='text-xl font-semibold'>Select a Token</div>
           <RiCloseFill size={24} className='text-cyan-400' />

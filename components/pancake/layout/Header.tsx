@@ -1,5 +1,5 @@
 import { Menu, MenuItem, SubMenu } from 'components/pancake';
-import { PanIconButton } from '../button';
+import { PanButton, PanIconButton } from '../button';
 import { GoPrimitiveDot } from 'react-icons/go';
 
 export const Header: React.FC = () => {
@@ -62,7 +62,29 @@ export const Header: React.FC = () => {
           </SubMenu>
         </Menu>
       </div>
-      <div>tool</div>
+      <div className='flex gap-4'>
+        <PanIconButton
+          className='align-text-top font-semibold'
+          ring='ring-0'
+          hover='[&>div>span:first-child]:hover:scale-125 [&>div>span:first-child]:transition-transform'
+          leftSrc='/images/pancake/pancake.svg'
+        >
+          <span>$4.752</span>
+        </PanIconButton>
+        <PanIconButton
+          ring='ring-0'
+          className='align-text-top'
+          hover='hover:opacity-70'
+          leftSrc='/images/pancake/language.svg'
+        />
+        <PanIconButton
+          ring='ring-0'
+          className='align-text-top'
+          hover='hover:opacity-70'
+          leftSrc='/images/pancake/setting.svg'
+        />
+        <PanButton>Connect Wallet</PanButton>
+      </div>
     </div>
   );
 };

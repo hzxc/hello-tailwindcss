@@ -1,9 +1,7 @@
 import { Transition } from 'components';
 import React, { FunctionComponentElement, ReactComponentElement, ReactNode } from 'react';
 import { LiHTMLAttributes, useContext, useState } from 'react';
-import { ReactElement } from 'react';
 
-import { IoIosArrowDown } from 'react-icons/io';
 import { MenuContext } from './Menu';
 import { MenuItemProps } from './MenuItem';
 

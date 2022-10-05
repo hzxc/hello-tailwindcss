@@ -84,7 +84,7 @@ export const SubMenu: React.FC<Props> = (props) => {
             ? ' border-l-4 border-l-transparent'
             : ' border-b-4 border-b-transparent'
         } px-3 py-1.5${
-          context.index.startsWith(index + '-') ? ' font-semibold text-cyan-400' : ''
+          context.index.startsWith(index + '-') ? ' font-semibold text-cyan-500/80' : ''
         }`}
         style={{ lineHeight: '100%' }}
         {...clickEvents}
@@ -92,7 +92,9 @@ export const SubMenu: React.FC<Props> = (props) => {
         <span>{title}</span>
         <span className='mt-[-6px] mb-[-8px] mx-1'>
           <IoIosArrowDown
-            className={`${menuOpen ? 'rotate-180 text-cyan-400' : 'rotate-0'} transition-transform`}
+            className={`${
+              menuOpen ? 'rotate-180 text-cyan-500/80' : 'rotate-0'
+            } transition-transform`}
             size={24}
           />
         </span>

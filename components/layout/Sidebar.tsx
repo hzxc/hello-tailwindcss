@@ -50,6 +50,9 @@ export default function Sidebar() {
           <MenuItem>
             <Link href='/demo/toggle'>Toggle</Link>
           </MenuItem>
+          <MenuItem>
+            <Link href='/demo/tab'>Tab</Link>
+          </MenuItem>
         </SubMenu>
       </Menu>
     </nav>

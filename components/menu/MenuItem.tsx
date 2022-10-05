@@ -7,9 +7,10 @@ export interface MenuItemProps {
 }
 
 type Props = MenuItemProps & LiHTMLAttributes<HTMLLIElement>;
-const defaultClass: string = 'cursor-pointer hover:opacity-70';
-const activeClass: string = 'font-semibold text-cyan-400 !border-l-cyan-400';
-const horizontalActiveClass: string = 'font-semibold text-cyan-400 !border-b-cyan-400';
+const defaultClass: string =
+  'cursor-pointer hover:opacity-70 [&>*:first-child]:block [&>*:first-child]:px-3 [&>*:first-child]:py-1.5';
+const activeClass: string = 'font-semibold text-cyan-500/80 !border-l-cyan-500/80';
+const horizontalActiveClass: string = 'font-semibold text-cyan-500/80 !border-b-cyan-500/80';
 
 const MenuItem: FC<Props> = (props) => {
   const { index, disabled, className, children } = props;
@@ -31,8 +32,7 @@ const MenuItem: FC<Props> = (props) => {
 
   return (
     <li className={mergeClass} style={{ lineHeight: '100%' }} onClick={handleClick}>
-      {/* {typeof children === 'string' ? <div className='px-3 py-1.5'>{children}</div> : children} */}
-      <div className='px-3 py-1.5'>{children}</div>
+      {typeof children === 'string' ? <div>{children}</div> : children}
     </li>
   );
 };
