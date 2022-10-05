@@ -21,8 +21,30 @@ export const Header: React.FC = () => {
             <MenuItem>Swap</MenuItem>
             <MenuItem>Limit</MenuItem>
             <MenuItem>Liquidity</MenuItem>
-            <MenuItem>Perpetual</MenuItem>
-            <MenuItem>Bridge</MenuItem>
+            <MenuItem>
+              <PanIconButton
+                className='w-64 align-baseline my-[-2px]'
+                iconWidth='20px'
+                iconHeight='20px'
+                ring='ring-0'
+                hover
+                rightSrc='/images/pancake/arrowExit.svg'
+              >
+                Perpetual
+              </PanIconButton>
+            </MenuItem>
+            <MenuItem>
+              <PanIconButton
+                className='w-64 align-baseline my-[-2px]'
+                iconWidth='20px'
+                iconHeight='20px'
+                ring='ring-0'
+                hover
+                rightSrc='/images/pancake/arrowExit.svg'
+              >
+                Bridge
+              </PanIconButton>
+            </MenuItem>
           </SubMenu>
           <SubMenu subTitle='Earn'>
             <MenuItem>Farms</MenuItem>

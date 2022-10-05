@@ -64,6 +64,7 @@ export const Menu: FC<Props> = (props) => {
       if (displayName === 'MenuItem' || displayName === 'SubMenu') {
         return React.cloneElement(childElement, {
           index: index.toString(),
+          className: 'rounded-2xl',
         });
       } else {
         throw new Error('Menu has a child which is not a MenuItem component');

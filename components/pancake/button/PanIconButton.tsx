@@ -48,7 +48,7 @@ export const PanIconButton: React.FC<Props> = (props) => {
 
   return (
     <button className={mergeClass} {...restProps}>
-      <div className={`flex items-center justify-center${children ? ' space-x-1' : ''}`}>
+      <div className={`flex items-center justify-between${children ? ' space-x-1' : ''}`}>
         {leftSrc ? (
           <span className='relative' style={{ width: iconWidth, height: iconHeight }}>
             <Image alt={alt} src={leftSrc} layout='fill' />

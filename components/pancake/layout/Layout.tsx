@@ -38,7 +38,7 @@ export const Layout: React.FC<{ children: ReactNode }> = ({ children }) => {
           </TabItem>
         </Tab>
       </div>
-      <main className='shrink grow bg-zinc-200'>{children}</main>
+      <main className='shrink grow bg-gradient-to-br from-cyan-50 to-purple-50'>{children}</main>
     </div>
   );
 };

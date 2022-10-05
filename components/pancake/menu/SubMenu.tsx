@@ -59,7 +59,7 @@ export const SubMenu: React.FC<Props> = (props) => {
       if (childElement.type.displayName === 'MenuItem') {
         return React.cloneElement(childElement, {
           index: `${index}-${i}`,
-          className: `w-64 !rounded-none`,
+          className: `w-64 first:rounded-t-md last:rounded-b-md`,
         });
       } else {
         console.error('Warning: SubMenu has a child which is not a MenuItem component');

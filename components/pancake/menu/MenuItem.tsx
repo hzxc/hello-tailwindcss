@@ -8,7 +8,7 @@ export interface MenuItemProps {
 
 type Props = MenuItemProps & LiHTMLAttributes<HTMLLIElement>;
 const defaultClass: string =
-  'cursor-pointer hover:bg-zinc-100 rounded-2xl [&>*:first-child]:block [&>*:first-child]:px-4 [&>*:first-child]:py-4';
+  'cursor-pointer hover:bg-zinc-100 [&>*:first-child]:block [&>*:first-child]:px-4 [&>*:first-child]:py-4';
 const activeClass: string = 'font-semibold text-violet-600';
 const horizontalActiveClass: string = 'font-semibold text-violet-600';
 
