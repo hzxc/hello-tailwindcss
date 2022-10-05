@@ -76,10 +76,39 @@ export const Header: React.FC = () => {
           >
             <MenuItem>Info</MenuItem>
             <MenuItem>Info</MenuItem>
-            <MenuItem>Voting</MenuItem>
-            <MenuItem>Leaderboard</MenuItem>
-            <MenuItem>Blog</MenuItem>
-            <MenuItem>Docs</MenuItem>
+            <MenuItem itemClass='border-b'>
+              <div className='flex items-center justify-between'>
+                <p>Voting</p>
+                <button className='px-2 py-px text-sm font-normal rounded-full border-2 text-emerald-400 border-emerald-400 my-[-5px]'>
+                  VOTE NOW
+                </button>
+              </div>
+            </MenuItem>
+            <MenuItem itemClass='border-b'>Leaderboard</MenuItem>
+            <MenuItem>
+              <PanIconButton
+                className='w-64 align-baseline my-[-2px]'
+                iconWidth='20px'
+                iconHeight='20px'
+                ring='ring-0'
+                hover
+                rightSrc='/images/pancake/arrowExit.svg'
+              >
+                Blog
+              </PanIconButton>
+            </MenuItem>
+            <MenuItem>
+              <PanIconButton
+                className='w-64 align-baseline my-[-2px]'
+                iconWidth='20px'
+                iconHeight='20px'
+                ring='ring-0'
+                hover
+                rightSrc='/images/pancake/arrowExit.svg'
+              >
+                Docs
+              </PanIconButton>
+            </MenuItem>
           </SubMenu>
         </Menu>
       </div>

@@ -1,6 +1,6 @@
 import { NextPage } from 'next';
 import { PanButton } from 'components/pancake';
-import { Button } from 'components';
+import { Button, SimpleButton } from 'components';
 import { PanIconButton } from 'components/pancake/button';
 import { Layout } from 'components/layout';
 import { NextPageWithLayout } from 'pages/_app';
@@ -74,6 +74,7 @@ const ButtonDemo: NextPageWithLayout = () => {
           >
             PancakeSwap
           </PanIconButton>
+          <SimpleButton className='text-emerald-400 border-emerald-400'>VOTE NOW</SimpleButton>
         </div>
       </div>
     </Layout>

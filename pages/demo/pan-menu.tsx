@@ -64,6 +64,7 @@ const MenuDemo: NextPageWithLayout = () => {
           <MenuItem>Blog</MenuItem>
           <MenuItem>Docs</MenuItem>
         </SubMenu>
+        <MenuItem>Other</MenuItem>
       </Menu>
     </div>
   );

@@ -4,6 +4,7 @@ import { MenuContext } from './Menu';
 export interface MenuItemProps {
   index?: string;
   disabled?: boolean;
+  itemClass?: string;
 }
 
 type Props = MenuItemProps & LiHTMLAttributes<HTMLLIElement>;
@@ -13,17 +14,14 @@ const activeClass: string = 'font-semibold text-violet-600';
 const horizontalActiveClass: string = 'font-semibold text-violet-600';
 
 const MenuItem: FC<Props> = (props) => {
-  const { index, disabled, className, children } = props;
+  const { index, disabled, className, children, itemClass } = props;
   const context = useContext(MenuContext);
-
   const mergeClass = `${defaultClass}${className ? ' ' + className : ''}${
-    context.mode === 'vertical'
-      ? ' border-l-0 border-l-transparent'
-      : ' border-b-0 border-b-transparent'
+    itemClass ? ' ' + itemClass : ''
   }${context.index === index && context.mode === 'vertical' ? ' ' + activeClass : ''}${
     context.index === index && context.mode === 'horizontal' ? ' ' + horizontalActiveClass : ''
   }`;
-
+  console.log('className,', className);
   const handleClick = () => {
     if (context.onSelect && !disabled && typeof index === 'string') {
       context.onSelect(index);
@@ -31,8 +29,9 @@ const MenuItem: FC<Props> = (props) => {
   };
 
   return (
-    <li className={mergeClass} style={{ lineHeight: '100%' }} onClick={handleClick}>
-      {typeof children === 'string' ? <div>{children}</div> : children}
+    <li className={`${mergeClass}`} style={{ lineHeight: '100%' }} onClick={handleClick}>
+      {/* {typeof children === 'string' ? <div>{children}</div> : children} */}
+      {<div>{children}</div>}
     </li>
   );
 };
