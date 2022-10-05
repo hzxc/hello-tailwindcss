@@ -1,6 +1,5 @@
 import { Menu, MenuItem, SubMenu } from 'components/pancake';
 import { PanButton, PanIconButton } from '../button';
-import { GoPrimitiveDot } from 'react-icons/go';
 
 export const Header: React.FC = () => {
   return (

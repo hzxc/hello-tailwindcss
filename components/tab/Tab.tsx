@@ -20,7 +20,7 @@ interface ITabContext {
 export const TabContext = createContext<ITabContext>({ index: '0' });
 
 const defaultClass: string =
-  'font-kanit flex flex-row flex-nowrap items-stretch justify-start gap-0.5';
+  'font-kanit flex flex-row flex-nowrap items-stretch justify-start gap-5';
 
 export const Tab: FC<Props> = (props) => {
   const { className, children, defaultIndex, onSelect } = {
@@ -59,7 +59,6 @@ export const Tab: FC<Props> = (props) => {
   return (
     <ul className={mergeClass}>
       <TabContext.Provider value={passedContext}>{renderChildren()}</TabContext.Provider>
-      currentActive:{currentActive}
     </ul>
   );
 };

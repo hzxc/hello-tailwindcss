@@ -51,7 +51,7 @@ export const PanModal: React.FC<{ visible: boolean; close: () => void }> = ({ vi
           </div>
         </div>
         <List
-          className='scrollbar-thin scrollbar-thumb-violet-900/60 scrollbar-track-slate-100 scrollbar-thumb-rounded-lg scrollbar-track-rounded-lg'
+          className='scrollbar-thin scrollbar-thumb-violet-900/80 scrollbar-track-slate-100 scrollbar-thumb-rounded-lg scrollbar-track-rounded-lg'
           height={392}
           itemCount={baseTokens.length}
           itemSize={56}

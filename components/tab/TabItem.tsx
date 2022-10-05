@@ -8,8 +8,8 @@ export interface TabItemProps {
 
 type Props = TabItemProps & LiHTMLAttributes<HTMLLIElement>;
 const defaultClass: string =
-  'cursor-pointer hover:opacity-70 border-b-4 border-b-transparent [&>*:first-child]:px-3 [&>*:first-child]:py-1.5';
-const activeClass: string = 'font-semibold text-cyan-500/80 !border-b-cyan-500/80';
+  'cursor-pointer hover:bg-zinc-200/80 border-b-4 border-b-transparent [&>*:first-child]:px-1 [&>*:first-child]:pt-4 pb-[6px]';
+const activeClass: string = 'font-semibold text-violet-600 !border-b-cyan-500/80';
 
 const TabItem: FC<Props> = (props) => {
   const { index, disabled, className, children } = props;
@@ -27,7 +27,7 @@ const TabItem: FC<Props> = (props) => {
 
   return (
     <li className={mergeClass} style={{ lineHeight: '100%' }} onClick={handleClick}>
-      {typeof children === 'string' ? <div className='px-3 py-1.5'>{children}</div> : children}
+      {typeof children === 'string' ? <div>{children}</div> : children}
     </li>
   );
 };

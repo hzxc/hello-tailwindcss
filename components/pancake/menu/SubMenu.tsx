@@ -70,7 +70,7 @@ export const SubMenu: React.FC<Props> = (props) => {
         <ul
           className={`${
             context.mode === 'horizontal' ? 'absolute ' : ''
-          }flex flex-col flex-nowrap items-start justify-start  border mt-1 py-1 rounded-xl`}
+          }flex flex-col flex-nowrap items-start justify-start border mt-1 py-1 rounded-xl bg-white`}
         >
           {childrenComponent}
         </ul>
@@ -80,7 +80,7 @@ export const SubMenu: React.FC<Props> = (props) => {
   return (
     <li key={index} className={mergeClass} {...hoverEvents}>
       <div
-        className={`flex items-center cursor-pointer rounded-2xl hover:bg-zinc-100${
+        className={`flex items-center cursor-pointer rounded-2xl  hover:bg-zinc-100${
           context.mode === 'vertical'
             ? ' border-l-0 border-l-transparent'
             : ' border-b-0 border-b-transparent'
