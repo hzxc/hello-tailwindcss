@@ -1,3 +1,14 @@
 export const Footer: React.FC = () => {
-  return <div className='shrink-0 grow-0 h-96 bg-[#27262c]'>Footer</div>;
+  return (
+    <div className='bg-[#27262c]'>
+      <p>Footer</p>
+      <p>Footer</p>
+      <p>Footer</p>
+      <p>Footer</p>
+      <p>Footer</p>
+      <p>Footer</p>
+      <p>Footer</p>
+      <p>Footer</p>
+    </div>
+  );
 };

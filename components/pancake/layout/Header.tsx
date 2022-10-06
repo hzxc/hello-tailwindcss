@@ -6,7 +6,7 @@ import LanguageSvg from 'public/images/pancake/language.svg';
 
 export const Header: React.FC = () => {
   return (
-    <div className='flex shrink-0 grow-0 h-14 items-center justify-between border-b px-4'>
+    <div className='flex h-14 items-center justify-between border-b px-4 z-40'>
       <div className='flex items-center justify-start py-2 gap-3'>
         <PanIconButton
           iconWidth='28px'

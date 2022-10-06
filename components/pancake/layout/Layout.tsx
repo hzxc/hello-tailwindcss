@@ -15,7 +15,7 @@ export const Layout: React.FC<{ children: ReactNode }> = ({ children }) => {
         <link rel='icon' href='/images/pancake/pancake.svg' />
       </Head>
       <Header></Header>
-      <div className='flex shrink-0 grow-0 justify-center items-center h-[42px]'>
+      <div className='flex justify-center items-center h-[42px]'>
         <Tab>
           <TabItem>Swap</TabItem>
           <TabItem>Limit</TabItem>
@@ -44,8 +44,8 @@ export const Layout: React.FC<{ children: ReactNode }> = ({ children }) => {
           </TabItem>
         </Tab>
       </div>
-      <div className='grow shrink min-h-[calc(100vh-98px)] bg-gradient-to-br from-cyan-50 to-purple-50'>
-        <div className='flex flex-col justify-between shrink grow items-center pt-8 h-full'>
+      <div className='shrink-0 min-h-[calc(100vh-98px)] bg-gradient-to-br from-cyan-50 to-purple-50'>
+        <div className='flex flex-col justify-between items-center pt-8 h-full'>
           <div>{children}</div>
           <LinkBar />
         </div>
