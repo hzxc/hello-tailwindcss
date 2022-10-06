@@ -9,6 +9,8 @@ import ArrowExit from 'public/images/pancake/arrowExit.svg';
 import ArrowUpRight from 'public/images/pancake/arrowUpRight.svg';
 import BnbSvg from 'public/images/pancake/bnb.svg';
 import PancakeSvg from 'public/images/pancake/pancake.svg';
+import PanExDown from 'public/images/pancake/panExDown.svg';
+import PanExUpDown from 'public/images/pancake/PanExUpDown.svg';
 
 const ButtonDemo: NextPageWithLayout = () => {
   const changeTheme = (event: any) => {
@@ -122,6 +124,40 @@ const ButtonDemo: NextPageWithLayout = () => {
           >
             PancakeSwap
           </PanIconButton>
+        </div>
+        <hr />
+        <div className='space-x-4'>
+          <span>Test:</span>
+          <PanIconButton
+            className='text-cyan-500'
+            ring='ring-0'
+            hover
+            leftSrc='/images/pancake/panExDown.svg'
+          ></PanIconButton>
+          <PanIconButton
+            ring='ring-0'
+            hover
+            leftSrc='/images/pancake/panExUpDown.svg'
+          ></PanIconButton>
+
+          <PanIconButton
+            className='active:translate-y-px text-cyan-500'
+            hover='hover:opacity-70'
+            ring
+            rounded
+            rightSrc='/images/pancake/arrowDown.svg'
+          >
+            CAKE
+          </PanIconButton>
+
+          <PanSvgrButton
+            className='active:translate-y-px align-middle text-cyan-500 [&>div>svg:first-child]:block [&>div>svg:last-child]:hidden shadow-sm shadow-gray-700 active:shadow-none bg-[#eeeaf4]'
+            rounded='rounded-full'
+            ring='p-[6px]'
+            hover='[&>div>svg:last-child]:hover:block [&>div>svg:first-child]:hover:hidden hover:bg-[#6edbe3]'
+            leftIcon={<PanExDown />}
+            rightIcon={<PanExUpDown className='text-white' />}
+          ></PanSvgrButton>
         </div>
         <hr />
       </div>

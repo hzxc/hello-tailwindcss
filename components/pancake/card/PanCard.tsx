@@ -7,6 +7,8 @@ import BnbSvg from '/public/images/pancake/bnb.svg';
 import PancakeSvg from '/public/images/pancake/pancake.svg';
 import ArrowDownSvg from '/public/images/pancake/arrowDown.svg';
 import { PanIconButton, PanSvgrButton } from '../button';
+import PanExDown from 'public/images/pancake/panExDown.svg';
+import PanExUpDown from 'public/images/pancake/PanExUpDown.svg';
 
 const defaultClass: string = 'flex flex-col border';
 
@@ -67,6 +69,17 @@ export const PanCard: React.FC<HTMLAttributes<HTMLDivElement>> = (props) => {
           className='h-14 px-4 w-full pb-4 font-normal bg-[#eeeaf4] ring ring-[#eeeaf4] focus-visible:outline-0 rounded-2xl text-right placeholder:text-[#7a6eaa] '
           type='text'
         />
+        <div className='p-1 w-full text-center'>
+          <PanSvgrButton
+            className='active:translate-y-px align-middle text-cyan-500 [&>div>svg:first-child]:block [&>div>svg:last-child]:hidden shadow-sm shadow-gray-700 active:shadow-none bg-[#eeeaf4]'
+            rounded='rounded-full'
+            ring='p-[6px]'
+            hover='[&>div>svg:last-child]:hover:block [&>div>svg:first-child]:hover:hidden hover:bg-[#6edbe3]'
+            leftIcon={<PanExDown />}
+            rightIcon={<PanExUpDown className='text-white' />}
+          ></PanSvgrButton>
+        </div>
+
         <PanIconButton
           className='active:translate-y-px [&>div>span:last-child]:!ml-[-2px]'
           hover='hover:opacity-70'
