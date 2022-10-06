@@ -104,7 +104,15 @@ const ButtonDemo: NextPageWithLayout = () => {
           >
             Convert ERC-20 to BEP-20
           </PanIconButton>
-          <PanIconButton leftSrc='/images/pancake/arrowUpRight.svg'></PanIconButton>
+
+          <PanSvgrButton
+            className='text-cyan-500/80'
+            ring
+            hover='hover:opacity-70 hover:underline'
+            rightIcon={<ArrowUpRight className='w-6 h-6 text-cyan-500' />}
+          >
+            Convert ERC-20 to BEP-20
+          </PanSvgrButton>
 
           <PanIconButton
             className='text-black font-semibold	text-xl	'

@@ -17,7 +17,7 @@ const defaultInitialProps: PanSvgrButtonProps = {
 
 type Props = PanSvgrButtonProps & ButtonHTMLAttributes<HTMLButtonElement>;
 
-const defaultClass: string = `font-kanit`;
+const defaultClass: string = `font-kanit active:translate-y-px`;
 export const PanSvgrButton: React.FC<Props> = (props) => {
   const { className, children, leftIcon, rightIcon, ring, hover, rounded, ...restProps } = {
     ...defaultInitialProps,

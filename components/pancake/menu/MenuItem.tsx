@@ -21,7 +21,6 @@ const MenuItem: FC<Props> = (props) => {
   }${context.index === index && context.mode === 'vertical' ? ' ' + activeClass : ''}${
     context.index === index && context.mode === 'horizontal' ? ' ' + horizontalActiveClass : ''
   }`;
-  console.log('className,', className);
   const handleClick = () => {
     if (context.onSelect && !disabled && typeof index === 'string') {
       context.onSelect(index);

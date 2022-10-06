@@ -1,11 +1,19 @@
 import { Tab, TabItem } from 'components/tab';
 import { ReactNode } from 'react';
-import { PanIconButton } from '../button';
 import { Header } from './Header';
+import { PanSvgrButton } from 'components/pancake';
+import ArrowUpRight from 'public/images/pancake/arrowUpRight.svg';
+import { LinkBar } from './LinkBar';
+import { Footer } from './Footer';
+import Head from 'next/head';
 
 export const Layout: React.FC<{ children: ReactNode }> = ({ children }) => {
   return (
-    <div className='flex flex-col h-screen font-kanit font-normal text-base text-violet-900/80 scrollbar-thin scrollbar-thumb-violet-900/80 scrollbar-track-slate-100 scrollbar-thumb-rounded-lg scrollbar-track-rounded-lg'>
+    <div className='flex flex-col md:h-screen overflow-x-hidden font-kanit font-normal text-base text-violet-900/80 scrollbar-thin scrollbar-thumb-violet-900/80 scrollbar-track-slate-100 scrollbar-thumb-rounded-lg scrollbar-track-rounded-lg'>
+      <Head>
+        <title>Exchange | PancakeSwap</title>
+        <link rel='icon' href='/images/pancake/pancake.svg' />
+      </Head>
       <Header></Header>
       <div className='flex shrink-0 grow-0 justify-center items-center h-[42px]'>
         <Tab>
@@ -13,32 +21,36 @@ export const Layout: React.FC<{ children: ReactNode }> = ({ children }) => {
           <TabItem>Limit</TabItem>
           <TabItem>Liquidity</TabItem>
           <TabItem>
-            <PanIconButton
-              className='align-baseline my-[-2px]'
-              iconWidth='20px'
-              iconHeight='20px'
-              ring='ring-0'
+            <PanSvgrButton
+              className='w-full my-[-2px]'
+              ring
               hover
-              rightSrc='/images/pancake/arrowUpRight.svg'
+              rounded
+              rightIcon={<ArrowUpRight className='w-5 h-5 text-violet-900/80' />}
             >
-              Perpetual
-            </PanIconButton>
+              Blog
+            </PanSvgrButton>
           </TabItem>
           <TabItem>
-            <PanIconButton
-              className='align-baseline my-[-2px]'
-              iconWidth='20px'
-              iconHeight='20px'
-              ring='ring-0'
+            <PanSvgrButton
+              className='w-full my-[-2px]'
+              ring
               hover
-              rightSrc='/images/pancake/arrowUpRight.svg'
+              rounded
+              rightIcon={<ArrowUpRight className='w-5 h-5 text-violet-900/80' />}
             >
               Bridge
-            </PanIconButton>
+            </PanSvgrButton>
           </TabItem>
         </Tab>
       </div>
-      <main className='shrink grow bg-gradient-to-br from-cyan-50 to-purple-50'>{children}</main>
+      <div className='grow shrink min-h-[calc(100vh-98px)] bg-gradient-to-br from-cyan-50 to-purple-50'>
+        <div className='flex flex-col justify-between shrink grow items-center pt-8 h-full'>
+          <div>{children}</div>
+          <LinkBar />
+        </div>
+      </div>
+      <Footer />
     </div>
   );
 };

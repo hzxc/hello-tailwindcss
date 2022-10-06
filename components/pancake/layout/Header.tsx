@@ -1,6 +1,8 @@
 import { Menu, MenuItem, SubMenu } from 'components/pancake';
 import { PanButton, PanIconButton, PanSvgrButton } from '../button';
 import ArrowExitSvg from 'public/images/pancake/arrowExit.svg';
+import SettingSvg from '/public/images/pancake/setting.svg';
+import LanguageSvg from 'public/images/pancake/language.svg';
 
 export const Header: React.FC = () => {
   return (
@@ -17,7 +19,7 @@ export const Header: React.FC = () => {
         >
           PancakeSwap
         </PanIconButton>
-        <Menu className='h-full' mode='horizontal'>
+        <Menu className='h-full' mode='horizontal' defaultIndex={'0-0'}>
           <SubMenu subTitle='Trade'>
             <MenuItem>Swap</MenuItem>
             <MenuItem>Limit</MenuItem>
@@ -63,7 +65,6 @@ export const Header: React.FC = () => {
           <SubMenu
             subTitle={
               <PanIconButton
-                className='align-baseline'
                 iconWidth='16px'
                 iconHeight='16px'
                 ring='ring-0'
@@ -111,25 +112,27 @@ export const Header: React.FC = () => {
       </div>
       <div className='flex gap-4'>
         <PanIconButton
-          className='align-text-top font-semibold'
+          className='font-semibold'
           ring='ring-0'
           hover='[&>div>span:first-child]:hover:scale-125 [&>div>span:first-child]:transition-transform'
           leftSrc='/images/pancake/pancake.svg'
         >
           <span>$4.752</span>
         </PanIconButton>
-        <PanIconButton
-          ring='ring-0'
-          className='align-text-top'
+
+        <PanSvgrButton
           hover='hover:opacity-70'
-          leftSrc='/images/pancake/language.svg'
-        />
-        <PanIconButton
-          ring='ring-0'
-          className='align-text-top'
+          ring
+          rounded
+          leftIcon={<LanguageSvg className='w-6 h-6' />}
+        ></PanSvgrButton>
+
+        <PanSvgrButton
           hover='hover:opacity-70'
-          leftSrc='/images/pancake/setting.svg'
-        />
+          ring
+          rounded
+          leftIcon={<SettingSvg className='w-6 h-6' />}
+        ></PanSvgrButton>
         <PanButton>Connect Wallet</PanButton>
       </div>
     </div>

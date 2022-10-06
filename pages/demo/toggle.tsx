@@ -58,13 +58,13 @@ const Toggle: NextPageWithLayout = () => {
       />
 
       <ToggleButton
-        className='w-32 border-purple-200 bg-purple-800 dark:border-zinc-800'
+        className='w-36 font-semibold border-violet-200 bg-[#7a6eaa]'
         checked={darkMode}
-        leftEl={<>v2</>}
-        rightEl={<>v1(old)</>}
-        checkedShadowColor='#fb7185'
-        spread={0}
-        onClick={() => dispatch(switchTheme())}
+        leftEl={<span className='text-white'>V2</span>}
+        rightEl={<>V1(old)</>}
+        shadowColor='#eeeaf4'
+        checkedShadowColor='#666171'
+        spread={'1px'}
       />
 
       <span>checked:{check.toString()}</span>

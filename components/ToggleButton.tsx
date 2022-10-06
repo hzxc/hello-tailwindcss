@@ -5,7 +5,7 @@ interface ToggleButtonProps {
   leftEl?: ReactElement;
   rightEl?: ReactElement;
   checked: boolean;
-  spread?: 0 | '1px' | '2px' | '3px';
+  spread?: 0 | '-1px' | '-2px' | '1px' | '2px' | '3px';
   shadowColor?: string;
   checkedShadowColor?: string;
   outlineColor?: string;
