@@ -1,14 +1,14 @@
-import React, { ButtonHTMLAttributes } from 'react';
+import React, { HTMLAttributes } from 'react';
 
-const defaultClass: string = 'px-2 py-0.5 text-xs font-normal rounded-full border-2';
+const defaultClass: string = 'px-2 py-0.5 border';
 
-export const PanCard: React.FC<ButtonHTMLAttributes<HTMLButtonElement>> = (props) => {
+export const PanCard: React.FC<HTMLAttributes<HTMLDivElement>> = (props) => {
   const { className, children, ...restProps } = props;
   const mergeClass = `${defaultClass}${className ? ' ' + className : ''}`;
 
   return (
-    <button className={mergeClass} {...restProps}>
+    <div className={mergeClass} {...restProps}>
       {children}
-    </button>
+    </div>
   );
 };

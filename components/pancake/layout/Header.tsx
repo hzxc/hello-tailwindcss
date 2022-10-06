@@ -1,5 +1,6 @@
 import { Menu, MenuItem, SubMenu } from 'components/pancake';
-import { PanButton, PanIconButton } from '../button';
+import { PanButton, PanIconButton, PanSvgrButton } from '../button';
+import ArrowExitSvg from 'public/images/pancake/arrowExit.svg';
 
 export const Header: React.FC = () => {
   return (
@@ -22,28 +23,26 @@ export const Header: React.FC = () => {
             <MenuItem>Limit</MenuItem>
             <MenuItem>Liquidity</MenuItem>
             <MenuItem>
-              <PanIconButton
-                className='w-full align-baseline my-[-2px]'
-                iconWidth='20px'
-                iconHeight='20px'
-                ring='ring-0'
+              <PanSvgrButton
+                className='w-full my-[-2px]'
+                ring
                 hover
-                rightSrc='/images/pancake/arrowExit.svg'
+                rounded
+                rightIcon={<ArrowExitSvg className='w-5 h-5 text-violet-900/80' />}
               >
                 Perpetual
-              </PanIconButton>
+              </PanSvgrButton>
             </MenuItem>
             <MenuItem>
-              <PanIconButton
-                className='w-full align-baseline my-[-2px]'
-                iconWidth='20px'
-                iconHeight='20px'
-                ring='ring-0'
+              <PanSvgrButton
+                className='w-full my-[-2px]'
+                ring
                 hover
-                rightSrc='/images/pancake/arrowExit.svg'
+                rounded
+                rightIcon={<ArrowExitSvg className='w-5 h-5 text-violet-900/80' />}
               >
                 Bridge
-              </PanIconButton>
+              </PanSvgrButton>
             </MenuItem>
           </SubMenu>
           <SubMenu subTitle='Earn'>
@@ -86,28 +85,26 @@ export const Header: React.FC = () => {
             </MenuItem>
             <MenuItem itemClass='border-b'>Leaderboard</MenuItem>
             <MenuItem>
-              <PanIconButton
-                className='w-full align-baseline my-[-2px]'
-                iconWidth='20px'
-                iconHeight='20px'
-                ring='ring-0'
+              <PanSvgrButton
+                className='w-full my-[-2px]'
+                ring
                 hover
-                rightSrc='/images/pancake/arrowExit.svg'
+                rounded
+                rightIcon={<ArrowExitSvg className='w-5 h-5 text-violet-900/80' />}
               >
                 Blog
-              </PanIconButton>
+              </PanSvgrButton>
             </MenuItem>
             <MenuItem>
-              <PanIconButton
-                className='w-full align-baseline my-[-2px]'
-                iconWidth='20px'
-                iconHeight='20px'
-                ring='ring-0'
+              <PanSvgrButton
+                className='w-full my-[-2px]'
+                ring
                 hover
-                rightSrc='/images/pancake/arrowExit.svg'
+                rounded
+                rightIcon={<ArrowExitSvg className='w-5 h-5 text-violet-900/80' />}
               >
-                Docs
-              </PanIconButton>
+                Doc
+              </PanSvgrButton>
             </MenuItem>
           </SubMenu>
         </Menu>
