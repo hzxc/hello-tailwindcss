@@ -111,7 +111,7 @@ const Pancake: NextPage = () => {
             <PanQuestionMask className='text-[#7a6eaa]' />
           </div>
           <div className='w-full flex items-center justify-between px-4 pb-3'>
-            <span className='text-xs font-bold text-[#7645d9]'>Slippage Tolerance</span>
+            <span className='text-xs font-normal text-violet-700'>Slippage Tolerance</span>
             <span className='text-[#1fc7d4]'>0.5%</span>
           </div>
 

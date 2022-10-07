@@ -9,7 +9,7 @@ import Head from 'next/head';
 
 export const Layout: React.FC<{ children: ReactNode }> = ({ children }) => {
   return (
-    <div className='flex flex-col md:h-screen overflow-x-hidden font-kanit font-normal text-base text-violet-900/80 scrollbar-thin scrollbar-thumb-violet-900/80 scrollbar-track-slate-100 scrollbar-thumb-rounded-lg scrollbar-track-rounded-lg'>
+    <div className='flex flex-col h-screen overflow-x-hidden font-kanit font-normal text-base text-violet-900/80 scrollbar-thin scrollbar-thumb-violet-900/80 scrollbar-track-slate-100 scrollbar-thumb-rounded-lg scrollbar-track-rounded-lg'>
       <Head>
         <title>Exchange | PancakeSwap</title>
         <link rel='icon' href='/images/pancake/pancake.svg' />
