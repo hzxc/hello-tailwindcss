@@ -1,5 +1,4 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-import { MODERN_BROWSERSLIST_TARGET } from 'next/dist/shared/lib/constants';
 import counterReducer from 'redux/counter/counterSlice';
 import themeReducer from 'redux/theme/themeSlice';
 
