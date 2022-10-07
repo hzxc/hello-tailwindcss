@@ -26,6 +26,7 @@ specifiers:
   react-redux: ^8.0.2
   react-transition-group: ^4.4.5
   react-window: ^1.8.7
+  redux-persist: ^6.0.0
   stylelint: ^14.12.1
   stylelint-config-prettier: ^9.0.3
   stylelint-config-standard: ^28.0.0
@@ -46,6 +47,7 @@ dependencies:
   react-redux: 8.0.2_qyffbl774oliprn4v4btwexwpy
   react-transition-group: 4.4.5_ef5jwxihqo6n7gxfmzogljlgcm
   react-window: 1.8.7_ef5jwxihqo6n7gxfmzogljlgcm
+  redux-persist: 6.0.0_react@18.1.0
 
 devDependencies:
   '@svgr/webpack': 6.3.1
@@ -4148,6 +4150,18 @@ packages:
       indent-string: 4.0.0
       strip-indent: 3.0.0
     dev: true
+
+  /redux-persist/6.0.0_react@18.1.0:
+    resolution: {integrity: sha512-71LLMbUq2r02ng2We9S215LtPu3fY0KgaGE0k8WRgl6RkqxtGfl7HUozz1Dftwsb0D/5mZ8dwAaPbtnzfvbEwQ==}
+    peerDependencies:
+      react: '>=16'
+      redux: '>4.0.0'
+    peerDependenciesMeta:
+      react:
+        optional: true
+    dependencies:
+      react: 18.1.0
+    dev: false
 
   /redux-thunk/2.4.1_redux@4.2.0:
     resolution: {integrity: sha512-OOYGNY5Jy2TWvTL1KgAlVy6dcx3siPJ1wTq741EPyUKfn6W6nChdICjZwCd0p8AZBs5kWpZlbkXW2nE/zjUa+Q==}
