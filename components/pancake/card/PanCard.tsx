@@ -6,9 +6,11 @@ import ArrowLoaddingSvg from '/public/images/pancake/arrowLoading.svg';
 import BnbSvg from '/public/images/pancake/bnb.svg';
 import PancakeSvg from '/public/images/pancake/pancake.svg';
 import ArrowDownSvg from '/public/images/pancake/arrowDown.svg';
-import { PanIconButton, PanSvgrButton } from '../button';
+import { PanButton, PanIconButton, PanSvgrButton } from '../button';
 import PanExDown from 'public/images/pancake/panExDown.svg';
 import PanExUpDown from 'public/images/pancake/PanExUpDown.svg';
+import PanCopy from 'public/images/pancake/panCopy.svg';
+import PanQuestionMask from 'public/images/pancake/panQuestionMark.svg';
 
 const defaultClass: string = 'flex flex-col border';
 
@@ -49,21 +51,21 @@ export const PanCard: React.FC<HTMLAttributes<HTMLDivElement>> = (props) => {
             ></PanSvgrButton>
           </div>
         </div>
-        <span className='flex justify-center w-full text-sm text-center'>
-          Trade tokens in an instant
-        </span>
+        <div className='text-sm text-center'>Trade tokens in an instant</div>
       </div>
       <div className='flex flex-col items-start justify-start p-4 gap-2 text-indigo-900 font-semibold'>
-        <PanIconButton
-          className='active:translate-y-px [&>div>span:last-child]:!ml-[-2px]'
-          hover='hover:opacity-70'
-          ring
-          rounded
-          leftSrc='/images/pancake/bnb.svg'
-          rightSrc='/images/pancake/arrowDown.svg'
-        >
-          BNB
-        </PanIconButton>
+        <div className='px-2 space-x-2'>
+          <PanIconButton
+            className='active:translate-y-px [&>div>span:last-child]:!ml-[-2px]'
+            hover='hover:opacity-70'
+            ring
+            rounded
+            leftSrc='/images/pancake/bnb.svg'
+            rightSrc='/images/pancake/arrowDown.svg'
+          >
+            BNB
+          </PanIconButton>
+        </div>
         <input
           placeholder='0.0'
           className='h-14 px-4 w-full pb-4 font-normal bg-[#eeeaf4] ring ring-[#eeeaf4] focus-visible:outline-0 rounded-2xl text-right placeholder:text-[#7a6eaa] '
@@ -79,22 +81,41 @@ export const PanCard: React.FC<HTMLAttributes<HTMLDivElement>> = (props) => {
             rightIcon={<PanExUpDown className='text-white' />}
           ></PanSvgrButton>
         </div>
+        <div className='px-2 space-x-2'>
+          <PanIconButton
+            className='align-bottom active:translate-y-px [&>div>span:last-child]:!ml-[-2px]'
+            hover='hover:opacity-70'
+            ring
+            rounded
+            leftSrc='/images/pancake/pancake.svg'
+            rightSrc='/images/pancake/arrowDown.svg'
+          >
+            CAKE
+          </PanIconButton>
+          <PanSvgrButton
+            ring='py-1'
+            rounded
+            hover
+            className='align-bottom text-[#7a6eaa]'
+            leftIcon={<PanCopy />}
+          ></PanSvgrButton>
+        </div>
 
-        <PanIconButton
-          className='active:translate-y-px [&>div>span:last-child]:!ml-[-2px]'
-          hover='hover:opacity-70'
-          ring
-          rounded
-          leftSrc='/images/pancake/pancake.svg'
-          rightSrc='/images/pancake/arrowDown.svg'
-        >
-          CAKE
-        </PanIconButton>
         <input
           placeholder='0.0'
           className='h-14 px-4 w-full pb-4 font-normal bg-[#eeeaf4] ring ring-[#eeeaf4] focus-visible:outline-0 rounded-2xl text-right placeholder:text-[#7a6eaa] '
           type='text'
         />
+        <div className='w-full p-1 flex justify-end gap-1'>
+          <PanButton className='py-[2px] px-2 text-xs'>SCAN RISK</PanButton>
+          <PanQuestionMask className='text-[#7a6eaa]' />
+        </div>
+        <div className='w-full flex items-center justify-between px-4 pb-3'>
+          <span className='text-xs font-bold text-[#7645d9]'>Slippage Tolerance</span>
+          <span className='text-[#1fc7d4]'>0.5%</span>
+        </div>
+
+        <PanButton className='w-72 h-12 rounded-2xl'>Connect Wallet</PanButton>
       </div>
     </div>
   );

@@ -18,7 +18,7 @@ export const LinkBar: React.FC = () => {
           spread={'1px'}
         />
         <PanSvgrButton
-          className='text-cyan-500/80 font-semibold'
+          className='text-[#1fc7d4] font-semibold'
           ring
           hover='hover:opacity-70 hover:underline'
           rightIcon={<ArrowUpRight className='w-6 h-6 text-cyan-500' />}
