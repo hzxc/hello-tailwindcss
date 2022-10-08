@@ -10,12 +10,12 @@ import PanExUpDown from 'public/images/pancake/PanExUpDown.svg';
 import PanCopy from 'public/images/pancake/panCopy.svg';
 import PanQuestionMask from 'public/images/pancake/panQuestionMark.svg';
 import { useToggle } from 'hooks';
-import { useMutationTokens, useTokens } from 'hooks/pancake';
+import { useTokens } from 'hooks/pancake';
 import { useEffect } from 'react';
 
 const Pancake: NextPage = () => {
   const { visible, close, open } = useToggle(false);
-  const { mutate, data } = useMutationTokens();
+  const { mutate, data } = useTokens();
 
   useEffect(() => {
     mutate();

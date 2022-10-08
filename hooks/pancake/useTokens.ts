@@ -45,10 +45,6 @@ const getTokens = async () => {
 };
 
 export const useTokens = () => {
-  return useQuery<IToken[], Error>(['pancakeTokens'], getTokens);
-};
-
-export const useMutationTokens = () => {
   const dispatch = useAppDispatch();
   return useMutation(getTokens, {
     onSuccess: (data) => {
