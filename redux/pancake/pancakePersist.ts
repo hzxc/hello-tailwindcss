@@ -1,13 +1,13 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { TokenList } from './data';
+import { baseTokens } from '../../data/pancake/baseTokens';
 import { IToken } from './pancakeSlice';
 
 interface PancakePersistState {
-  tokenList: IToken[];
+  baseTokens: IToken[];
 }
 
 const initialState: PancakePersistState = {
-  tokenList: TokenList,
+  baseTokens: baseTokens,
 };
 
 export const pancakePersistSlice = createSlice({
@@ -15,7 +15,7 @@ export const pancakePersistSlice = createSlice({
   initialState,
   reducers: {
     addToken: (state, action: PayloadAction<IToken>) => {
-      state.tokenList.push(action.payload);
+      state.baseTokens.push(action.payload);
     },
     removeToken: (state, action: PayloadAction<string>) => {},
   },

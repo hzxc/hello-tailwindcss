@@ -3,9 +3,17 @@ import counterReducer from 'redux/counter/counterSlice';
 import themeReducer from 'redux/theme/themeSlice';
 import pancakeReducer from 'redux/pancake/pancakeSlice';
 import pancakePersistReducer from 'redux/pancake/pancakePersist';
-
-import { persistStore, persistReducer } from 'redux-persist';
-import storage from 'redux-persist/lib/storage';
+import {
+  persistStore,
+  persistReducer,
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+} from 'redux-persist';
+import storage from './storage';
 
 const persistConfig = {
   key: 'root',
@@ -24,9 +32,16 @@ const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 const store = configureStore({
   reducer: persistedReducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }),
+  devTools: true,
 });
 
-const persistor = persistStore(store);
+let persistor = persistStore(store);
 
 export type AppDispatch = typeof store.dispatch;
 export type RootState = ReturnType<typeof store.getState>;

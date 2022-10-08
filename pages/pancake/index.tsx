@@ -9,11 +9,16 @@ import PanExDown from 'public/images/pancake/panExDown.svg';
 import PanExUpDown from 'public/images/pancake/PanExUpDown.svg';
 import PanCopy from 'public/images/pancake/panCopy.svg';
 import PanQuestionMask from 'public/images/pancake/panQuestionMark.svg';
-import { useToggle } from 'hooks/useToggle';
+import { useToggle } from 'hooks';
+import { useTokens } from 'hooks/pancake';
+import { useEffect } from 'react';
 
 const Pancake: NextPage = () => {
   const { visible, close, open } = useToggle(false);
-
+  const { data } = useTokens();
+  useEffect(() => {
+    console.log(data);
+  }, [data]);
   return (
     <Layout>
       <PanModal visible={visible} close={close} />

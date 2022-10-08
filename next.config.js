@@ -19,4 +19,12 @@ module.exports = {
     });
     return config;
   },
+  async rewrites() {
+    return [
+      {
+        source: '/pancake/:path*',
+        destination: 'https://tokens.pancakeswap.finance/:path*',
+      },
+    ];
+  },
 };

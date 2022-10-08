@@ -1,6 +1,6 @@
-import { IToken } from './pancakeSlice';
+import { IToken } from '../../redux/pancake/pancakeSlice';
 
-export const TokenList: IToken[] = [
+export const baseTokens: IToken[] = [
   {
     name: 'Binance Chain Native Token',
     symbol: 'BNB',
