@@ -6,9 +6,14 @@ import { FixedSizeList as List } from 'react-window';
 import { CSSProperties, useRef } from 'react';
 import { BaseTokenList } from './tokens';
 import { Transition } from 'components/Transition';
+import { IToken } from './types';
 
-export const PanModal: React.FC<{ visible: boolean; close: () => void }> = ({ visible, close }) => {
-  const baseTokens = BaseTokenList.tokens;
+export const PanModal: React.FC<{ visible: boolean; close: () => void; data: IToken[] }> = ({
+  visible,
+  close,
+  data,
+}) => {
+  const tokens = data;
   const Row = ({ index, style }: { index: number; style: CSSProperties | undefined }) => (
     <div
       className='flex items-center cursor-pointer hover:bg-gray-100 px-5 py-1 space-x-2'
@@ -17,11 +22,11 @@ export const PanModal: React.FC<{ visible: boolean; close: () => void }> = ({ vi
       <PanIconButton
         ring='ring-0'
         hover='hover:opacity-70'
-        leftSrc={baseTokens[index]?.logoURI}
+        leftSrc={tokens[index]?.logoURI}
       ></PanIconButton>
       <div className='flex-col'>
-        <p className='font-semibold'>{baseTokens[index].symbol}</p>
-        <p className='text-sm opacity-70'>{baseTokens[index].name}</p>
+        <p className='font-semibold'>{tokens[index].symbol}</p>
+        <p className='text-sm opacity-70'>{tokens[index].name}</p>
       </div>
     </div>
   );
@@ -53,7 +58,7 @@ export const PanModal: React.FC<{ visible: boolean; close: () => void }> = ({ vi
         <List
           className='scrollbar-thin scrollbar-thumb-violet-900/80 scrollbar-track-slate-100 scrollbar-thumb-rounded-lg scrollbar-track-rounded-lg'
           height={392}
-          itemCount={baseTokens.length}
+          itemCount={tokens.length}
           itemSize={56}
           width={'100%'}
         >

@@ -1,17 +1,17 @@
-import { useQuery } from '@tanstack/react-query';
+import { useMutation, useQuery } from '@tanstack/react-query';
 import { baseTokens } from 'data/pancake';
+import { useAppDispatch } from 'redux/hooks';
 import { IToken } from 'redux/pancake/pancakeSlice';
-import { http } from 'utils';
+import { http, useHttp } from 'utils';
+import { setTokens } from 'redux/pancake/pancakeSlice';
+import { useEffect } from 'react';
 
 const getTokens = async () => {
   const array: IToken[] = [];
   const map = new Map();
   const extended = await http('/pancake/pancakeswap-extended.json');
-  console.log('extended:', extended);
   const cmc = await http('/pancake/cmc.json');
-  console.log('cmc:', cmc);
   const coingecko = await http('/pancake/coingecko.json');
-  console.log('coingecko:', coingecko);
 
   baseTokens.forEach((item: IToken) => {
     if (!map.has(item.address)) {
@@ -46,4 +46,13 @@ const getTokens = async () => {
 
 export const useTokens = () => {
   return useQuery<IToken[], Error>(['pancakeTokens'], getTokens);
+};
+
+export const useMutationTokens = () => {
+  const dispatch = useAppDispatch();
+  return useMutation(getTokens, {
+    onSuccess: (data) => {
+      dispatch(setTokens(data));
+    },
+  });
 };

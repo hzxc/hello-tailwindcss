@@ -1,5 +1,6 @@
 import axios, { AxiosRequestConfig } from 'axios';
 import qs from 'qs';
+import { useCallback } from 'react';
 interface Config extends AxiosRequestConfig<object> {
   token?: string;
 }
@@ -17,8 +18,10 @@ export const http = (url: string, { data, token, headers, ...restonfig }: Config
   };
 
   if (config.method.toLowerCase() === 'get') {
-    config.url += `?${qs.stringify(data)}`;
-    config.data = undefined;
+    if (data) {
+      config.url += `?${qs.stringify(data)}`;
+      config.data = undefined;
+    }
   }
 
   return axios(config).then(async (response) => {
@@ -31,4 +34,11 @@ export const http = (url: string, { data, token, headers, ...restonfig }: Config
 
     return response.data;
   });
+};
+
+export const useHttp = () => {
+  return useCallback(
+    (...[endpoint, config]: Parameters<typeof http>) => http(endpoint, { ...config }),
+    []
+  );
 };

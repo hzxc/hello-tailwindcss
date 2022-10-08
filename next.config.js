@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 module.exports = {
-  reactStrictMode: true,
+  reactStrictMode: false,
   images: {
     unoptimized: true,
     domains: [
@@ -24,6 +24,14 @@ module.exports = {
       {
         source: '/pancake/:path*',
         destination: 'https://tokens.pancakeswap.finance/:path*',
+      },
+      {
+        source: '/gate/:path*',
+        destination: 'https://data.gateapi.io/api2/1/:path*',
+      },
+      {
+        source: '/binance/:path*',
+        destination: 'https://api.binance.com/api/v3/:path*',
       },
     ];
   },

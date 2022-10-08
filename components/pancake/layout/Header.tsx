@@ -3,8 +3,11 @@ import { PanButton, PanIconButton, PanSvgrButton } from '../button';
 import ArrowExitSvg from 'public/images/pancake/arrowExit.svg';
 import SettingSvg from '/public/images/pancake/setting.svg';
 import LanguageSvg from 'public/images/pancake/language.svg';
+import { useCakePrice } from 'hooks/pancake';
+import { toNumber } from 'utils';
 
 export const Header: React.FC = () => {
+  // const { data: cake } = useCakePrice();
   return (
     <div className='flex h-14 items-center justify-between border-b px-4 z-40'>
       <div className='flex items-center justify-start py-2 gap-3'>
@@ -117,9 +120,9 @@ export const Header: React.FC = () => {
           hover='[&>div>span:first-child]:hover:scale-125 [&>div>span:first-child]:transition-transform'
           leftSrc='/images/pancake/pancake.svg'
         >
-          <span>$4.752</span>
+          <span>${toNumber('4.5')}</span>
         </PanIconButton>
-
+        {/* <span>{`${cake}`}</span> */}
         <PanSvgrButton
           hover='hover:opacity-70'
           ring
