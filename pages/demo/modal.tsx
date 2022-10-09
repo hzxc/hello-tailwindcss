@@ -5,6 +5,7 @@ import { PanModal } from 'components/pancake';
 import { Layout } from 'components/layout';
 import { ReactElement } from 'react';
 import { NextPageWithLayout } from 'pages/_app';
+import { baseTokens } from 'data/pancake';
 
 const Modal: NextPageWithLayout = () => {
   const { visible, close, open } = useToggle(false);
@@ -13,7 +14,7 @@ const Modal: NextPageWithLayout = () => {
     <Layout>
       <div className='m-auto py-2 space-x-2'>
         <Button onClick={open}>open modal</Button>
-        <PanModal visible={visible} close={close} />
+        <PanModal visible={visible} close={close} data={baseTokens} />
       </div>
     </Layout>
   );

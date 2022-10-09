@@ -11,10 +11,7 @@ export default function Sidebar() {
         <MenuItem>
           <Link href='/pancake'>Pancake</Link>
         </MenuItem>
-        <MenuItem>Create a New React App</MenuItem>
-        <MenuItem>CDN Links</MenuItem>
-        <MenuItem>Release Channels</MenuItem>
-        <SubMenu title='Demo'>
+        <SubMenu title='Tailwindcss'>
           <MenuItem>
             <Link style={{ display: 'block' }} href='/demo/business-card'>
               Business Card
@@ -55,6 +52,11 @@ export default function Sidebar() {
           </MenuItem>
           <MenuItem>
             <Link href='/demo/card'>Card</Link>
+          </MenuItem>
+        </SubMenu>
+        <SubMenu title='ETH'>
+          <MenuItem>
+            <Link href='/demo/wagmi'>Wagmi Start</Link>
           </MenuItem>
         </SubMenu>
       </Menu>

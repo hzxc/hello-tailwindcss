@@ -14,7 +14,7 @@ const ImageDemo: NextPageWithLayout = () => {
     <div className='p-4'>
       <div>
         {/* <img src='/images/spin.svg' className='mr-3 h-5 w-5 text-amber-500' alt='spin' /> */}
-        <img src={`https://robohash.org/${dayjs().unix()}`} alt='' />
+        {/* <img src={`https://robohash.org/${dayjs().unix()}`} alt='' /> */}
       </div>
       {/* <span className='text-amber-500'>
         <Image

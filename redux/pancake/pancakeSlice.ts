@@ -12,6 +12,8 @@ export interface IToken {
 
 interface PancakeState {
   tokens: IToken[];
+  // inputCurrency: string;
+  // outputCurrency: string;
 }
 
 const initialState: PancakeState = {
