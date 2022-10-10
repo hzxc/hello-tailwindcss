@@ -9,7 +9,7 @@ import { WalletConnectConnector } from 'wagmi/connectors/walletConnect';
 const bscChain: Chain = {
   id: 56,
   name: 'Binance Smart Chain Mainnet',
-  network: 'bsc',
+  network: '56',
   nativeCurrency: {
     name: 'BNB',
     symbol: 'BNB',
@@ -27,23 +27,34 @@ const bscChain: Chain = {
   testnet: false,
 };
 
+const bscTestChain: Chain = {
+  id: 97,
+  name: 'Binance Smart Chain Testnet',
+  network: '97',
+  nativeCurrency: {
+    name: 'TBNB',
+    symbol: 'TBNB',
+    decimals: 18,
+  },
+  rpcUrls: {
+    public: '/bsctestapi/rpc/',
+    default: '/bsctestapi/rpc/',
+  },
+  blockExplorers: {
+    default: { name: 'bscscan testnet', url: 'https://testnet.bscscan.com/' },
+  },
+  testnet: true,
+};
+
 const { chains, provider, webSocketProvider } = configureChains(
-  // [bscChain],
-  // [
-  //   jsonRpcProvider({
-  //     rpc: (chain) => {
-  //       if (chain.id !== bscChain.id) return null;
-  //       return { http: chain.rpcUrls.default };
-  //     },
-  //   }),
-  // ]
-  [chain.mainnet, chain.polygon, bscChain],
+  [chain.mainnet, chain.polygon, bscChain, bscTestChain],
   [
     publicProvider(),
     jsonRpcProvider({
       rpc: (chain) => {
-        if (chain.id !== bscChain.id) return null;
-        return { http: chain.rpcUrls.default };
+        if (chain.id === bscChain.id) return { http: bscChain.rpcUrls.default };
+        if (chain.id === bscTestChain.id) return { http: bscTestChain.rpcUrls.default };
+        return null;
       },
     }),
   ]

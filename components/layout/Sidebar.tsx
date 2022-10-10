@@ -70,6 +70,14 @@ export default function Sidebar() {
           <MenuItem>
             <Link href='/demo/wagmi/ens'>ENS</Link>
           </MenuItem>
+          <MenuItem>
+            <Link href='/demo/wagmi/send-transaction'>Send Transaction</Link>
+          </MenuItem>
+        </SubMenu>
+        <SubMenu title='Binance Smart Chain'>
+          <MenuItem>
+            <Link href='/demo/bsc'>Link</Link>
+          </MenuItem>
         </SubMenu>
       </Menu>
     </nav>

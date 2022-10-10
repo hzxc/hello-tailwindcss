@@ -30,8 +30,8 @@ module.exports = {
         destination: 'https://data.gateapi.io/api2/1/:path*',
       },
       {
-        source: '/binance/:path*',
-        destination: 'https://api.binance.com/api/v3/:path*',
+        source: '/bsctestapi/:path*',
+        destination: 'https://bsctestapi.terminet.io/:path*',
       },
     ];
   },

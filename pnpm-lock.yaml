@@ -35,6 +35,7 @@ specifiers:
   tailwind-scrollbar: ^2.0.1
   tailwindcss: ^3.1.2
   typescript: 4.7.2
+  use-debounce: ^8.0.4
   wagmi: ^0.6.8
   web3: ^1.8.0
 
@@ -54,6 +55,7 @@ dependencies:
   react-transition-group: 4.4.5_ef5jwxihqo6n7gxfmzogljlgcm
   react-window: 1.8.7_ef5jwxihqo6n7gxfmzogljlgcm
   redux-persist: 6.0.0_react@18.1.0
+  use-debounce: 8.0.4_react@18.1.0
   wagmi: 0.6.8_il6eynomeubuhfv5suaqalnb7u
   web3: 1.8.0
 
@@ -7802,6 +7804,15 @@ packages:
     resolution: {integrity: sha512-3AChu4NiXquPfeckE5R5cGdiHCMWJx1dwCWOmWIL4KHAziJNOFIYJlpGFeKDvwLPHovZRCxK3cYlwzqI9Vp+Gg==}
     dev: false
 
+  /use-debounce/8.0.4_react@18.1.0:
+    resolution: {integrity: sha512-fGqsYQzl8kLHF2QpQSgIwgOgJmnh6j5L6SIzQiHdLfwp3q1egUL3btq5Bg2SJysH6A0ILLgT2IqXZKoNJr0nFw==}
+    engines: {node: '>= 10.0.0'}
+    peerDependencies:
+      react: '>=16.8.0'
+    dependencies:
+      react: 18.1.0
+    dev: false
+
   /use-sync-external-store/1.2.0_react@18.1.0:
     resolution: {integrity: sha512-eEgnFxGQ1Ife9bzYs6VLi8/4X6CObHMw9Qr9tPY43iKwsPw8xE8+EFsf/2cFZ5S3esXgpWgtSCtLNS41F+sKPA==}
     peerDependencies:
@@ -8452,7 +8463,7 @@ packages:
     dev: false
 
   github.com/ethereumjs/ethereumjs-abi/ee3994657fa7a427238e6ba92a84d0b529bbcde0:
-    resolution: {commit: ee3994657fa7a427238e6ba92a84d0b529bbcde0, repo: git+ssh://git@github.com/ethereumjs/ethereumjs-abi.git, type: git}
+    resolution: {tarball: https://codeload.github.com/ethereumjs/ethereumjs-abi/tar.gz/ee3994657fa7a427238e6ba92a84d0b529bbcde0}
     name: ethereumjs-abi
     version: 0.6.8
     dependencies:

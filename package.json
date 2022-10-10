@@ -21,6 +21,7 @@
     "react-transition-group": "^4.4.5",
     "react-window": "^1.8.7",
     "redux-persist": "^6.0.0",
+    "use-debounce": "^8.0.4",
     "wagmi": "^0.6.8",
     "web3": "^1.8.0"
   },
