@@ -11,7 +11,13 @@ export default function Sidebar() {
         <MenuItem>
           <Link href='/pancake'>Pancake</Link>
         </MenuItem>
-        <SubMenu title='Tailwindcss'>
+        <MenuItem>
+          <Link href=''>Uniswap</Link>
+        </MenuItem>
+        <MenuItem>
+          <Link href=''>Shibaswap</Link>
+        </MenuItem>
+        <SubMenu title='Components'>
           <MenuItem>
             <Link style={{ display: 'block' }} href='/demo/business-card'>
               Business Card
@@ -21,7 +27,7 @@ export default function Sidebar() {
             <Link href='/demo/chit-chat'>Chit Chat</Link>
           </MenuItem>
           <MenuItem>
-            <Link href='/demo/counter'>Counter</Link>
+            <Link href='/demo/counter'>Redux Counter</Link>
           </MenuItem>
           <MenuItem>
             <Link href='/demo/fonts'>Fonts</Link>
@@ -54,9 +60,15 @@ export default function Sidebar() {
             <Link href='/demo/card'>Card</Link>
           </MenuItem>
         </SubMenu>
-        <SubMenu title='ETH'>
+        <SubMenu title='Wagmi'>
           <MenuItem>
-            <Link href='/demo/wagmi'>Wagmi Start</Link>
+            <Link href='/demo/wagmi'>Getting Started</Link>
+          </MenuItem>
+          <MenuItem>
+            <Link href='/demo/wagmi/connect-wallet'>Connect Wallet</Link>
+          </MenuItem>
+          <MenuItem>
+            <Link href='/demo/wagmi/ens'>ENS</Link>
           </MenuItem>
         </SubMenu>
       </Menu>

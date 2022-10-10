@@ -12,7 +12,7 @@ const Modal: NextPageWithLayout = () => {
   // const { open, close, RenderModal } = useModal();
   return (
     <Layout>
-      <div className='m-auto py-2 space-x-2'>
+      <div className='m-auto p-8 space-x-2'>
         <Button onClick={open}>open modal</Button>
         <PanModal visible={visible} close={close} data={baseTokens} />
       </div>

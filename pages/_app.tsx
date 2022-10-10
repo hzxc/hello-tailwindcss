@@ -10,7 +10,9 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { PersistGate } from 'redux-persist/integration/react';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { createClient, WagmiConfig } from 'wagmi';
-import { provider, webSocketProvider } from 'blockchain/bsc/config';
+import { wagmiClient } from 'blockchain/bsc/config';
+import { MetaMaskConnector } from 'wagmi/connectors/metaMask';
+
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: ReactElement) => ReactNode;
 };
@@ -23,11 +25,12 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   const getLayout = Component.getLayout ?? ((page) => page);
   const queryClient = new QueryClient();
 
-  const wagmiClient = createClient({
-    autoConnect: false,
-    provider,
-    webSocketProvider,
-  });
+  // const wagmiClient = createClient({
+  //   autoConnect: false,
+  //   connectors: [new MetaMaskConnector({ chains })],
+  //   provider,
+  //   webSocketProvider,
+  // });
 
   return getLayout(
     <Provider store={store}>
