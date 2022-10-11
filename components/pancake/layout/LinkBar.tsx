@@ -34,7 +34,7 @@ export const LinkBar: React.FC = () => {
           </div>
         </button>
         <div className='relative w-40 h-28'>
-          <Image alt='help.png' layout='fill' src='/images/pancake/help.png' />
+          <Image alt='help.png' layout='fill' priority src='/images/pancake/help.png' />
         </div>
       </div>
     </div>

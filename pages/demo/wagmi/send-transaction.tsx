@@ -28,7 +28,7 @@ const SendTransactionDemo: NextPageWithLayout = () => {
   const { sendTransaction } = useSendTransaction(config);
 
   return (
-    <div className='m-8 p-8 space-y-4 w-96 text-center border rounded-xl'>
+    <div className='m-8 p-8 space-y-4 w-[500px] text-left border rounded-xl'>
       <Input onChange={(e) => setTo(e.target.value)} value={to} placeholder='0x41b8...082B' />
       <Input onChange={(e) => setAmount(e.target.value)} value={amount} placeholder='0.01' />
       <Button
@@ -43,9 +43,9 @@ const SendTransactionDemo: NextPageWithLayout = () => {
       >
         Send
       </Button>
-      <div>from:{address}</div>
-      <div>to:0x41b8CB5D1037a3A88cd308022Ff01db58a4e082B</div>
-      <div>{JSON.stringify(chain)}</div>
+      <p>from:{address}</p>
+      <p>to:0x41b8CB5D1037a3A88cd308022Ff01db58a4e082B</p>
+      <p>{JSON.stringify(chain)}</p>
     </div>
   );
 };

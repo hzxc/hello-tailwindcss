@@ -1,19 +1,19 @@
-import { Layout, PanButton, PanIconButton, PanModal, PanSvgrButton } from 'components/pancake';
-import { NextPage } from 'next';
+import { Layout, PanButton, PanIconButton, TokenModal, PanSvgrButton } from 'components/pancake';
 import ChartSvg from '/public/images/pancake/chart.svg';
 import SettingSvg from '/public/images/pancake/setting.svg';
 import HistorySvg from '/public/images/pancake/history.svg';
 import ArrowLoaddingSvg from '/public/images/pancake/arrowLoading.svg';
-
 import PanExDown from 'public/images/pancake/panExDown.svg';
 import PanExUpDown from 'public/images/pancake/PanExUpDown.svg';
 import PanCopy from 'public/images/pancake/panCopy.svg';
 import PanQuestionMask from 'public/images/pancake/panQuestionMark.svg';
 import { useToggle } from 'hooks';
 import { useTokens } from 'hooks/pancake';
-import { useEffect } from 'react';
+import { ReactElement, useEffect } from 'react';
+import { SvgrButton } from 'components/SvgrButton';
+import { NextPageWithLayout } from 'pages/_app';
 
-const Pancake: NextPage = () => {
+const Pancake: NextPageWithLayout = () => {
   const { visible, close, open } = useToggle(false);
   const { mutate, data } = useTokens();
 
@@ -21,8 +21,8 @@ const Pancake: NextPage = () => {
     mutate();
   }, [mutate]);
   return (
-    <Layout>
-      <PanModal visible={visible} close={close} data={data || []} />
+    <div>
+      <TokenModal visible={visible} close={close} data={data || []} />
       <div className='w-80 flex flex-col border rounded-3xl bg-white'>
         <div className='p-6 border-b'>
           <div className='flex justify-between'>
@@ -77,14 +77,15 @@ const Pancake: NextPage = () => {
             type='text'
           />
           <div className='p-1 w-full text-center'>
-            <PanSvgrButton
+            <SvgrButton
               className='active:translate-y-px align-middle text-cyan-500 [&>div>svg:first-child]:block [&>div>svg:last-child]:hidden shadow-sm shadow-gray-700 active:shadow-none bg-[#eeeaf4]'
+              gap={false}
               rounded='rounded-full'
               ring='p-[6px]'
               hover='[&>div>svg:last-child]:hover:block [&>div>svg:first-child]:hover:hidden hover:bg-[#6edbe3]'
               leftIcon={<PanExDown />}
               rightIcon={<PanExUpDown className='text-white' />}
-            ></PanSvgrButton>
+            ></SvgrButton>
           </div>
           <div className='px-2 space-x-2'>
             <PanIconButton
@@ -121,11 +122,15 @@ const Pancake: NextPage = () => {
             <span className='text-[#1fc7d4]'>0.5%</span>
           </div>
 
-          <PanButton className='w-72 h-12 rounded-2xl'>Connect Wallet</PanButton>
+          <PanButton className='w-72 h-12'>Connect Wallet</PanButton>
         </div>
       </div>
-    </Layout>
+    </div>
   );
+};
+
+Pancake.getLayout = function getLayout(page: ReactElement) {
+  return <Layout>{page}</Layout>;
 };
 
 export default Pancake;

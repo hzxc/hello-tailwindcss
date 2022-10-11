@@ -9,9 +9,8 @@ import type { NextPage } from 'next';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { PersistGate } from 'redux-persist/integration/react';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
-import { createClient, WagmiConfig } from 'wagmi';
+import { WagmiConfig } from 'wagmi';
 import { wagmiClient } from 'blockchain/bsc/config';
-import { MetaMaskConnector } from 'wagmi/connectors/metaMask';
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: ReactElement) => ReactNode;
@@ -25,20 +24,11 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   const getLayout = Component.getLayout ?? ((page) => page);
   const queryClient = new QueryClient();
 
-  // const wagmiClient = createClient({
-  //   autoConnect: false,
-  //   connectors: [new MetaMaskConnector({ chains })],
-  //   provider,
-  //   webSocketProvider,
-  // });
-
-  return getLayout(
+  return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <QueryClientProvider client={queryClient}>
-          <WagmiConfig client={wagmiClient}>
-            <Component {...pageProps} />
-          </WagmiConfig>
+          <WagmiConfig client={wagmiClient}>{getLayout(<Component {...pageProps} />)}</WagmiConfig>
           <ReactQueryDevtools initialIsOpen={false} />
         </QueryClientProvider>
       </PersistGate>

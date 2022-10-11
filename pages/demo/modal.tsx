@@ -1,7 +1,7 @@
 import { NextPage } from 'next';
 import { Button } from 'components';
 import { useToggle } from 'hooks/useToggle';
-import { PanModal } from 'components/pancake';
+import { TokenModal } from 'components/pancake';
 import { Layout } from 'components/layout';
 import { ReactElement } from 'react';
 import { NextPageWithLayout } from 'pages/_app';
@@ -14,7 +14,7 @@ const Modal: NextPageWithLayout = () => {
     <Layout>
       <div className='m-auto p-8 space-x-2'>
         <Button onClick={open}>open modal</Button>
-        <PanModal visible={visible} close={close} data={baseTokens} />
+        <TokenModal visible={visible} close={close} data={baseTokens} />
       </div>
     </Layout>
   );

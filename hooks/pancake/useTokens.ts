@@ -48,6 +48,7 @@ export const useTokens = () => {
   const dispatch = useAppDispatch();
   return useMutation(getTokens, {
     onSuccess: (data) => {
+      console.log('getTokens');
       dispatch(setTokens(data));
     },
   });

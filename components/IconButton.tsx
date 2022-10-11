@@ -1,6 +1,6 @@
-import React, { ButtonHTMLAttributes, ReactElement } from 'react';
+import React, { ButtonHTMLAttributes } from 'react';
 import Image from 'next/image';
-interface PanIconButtonProps {
+interface IconButtonProps {
   leftSrc?: string;
   rightSrc?: string;
   iconWidth?: string;
@@ -9,9 +9,10 @@ interface PanIconButtonProps {
   ring?: string | boolean;
   alt?: string;
   rounded?: string | boolean;
+  col?: boolean;
 }
 
-const defaultInitialProps: PanIconButtonProps = {
+const defaultInitialProps: IconButtonProps = {
   leftSrc: undefined,
   rightSrc: undefined,
   iconWidth: '24px',
@@ -20,12 +21,13 @@ const defaultInitialProps: PanIconButtonProps = {
   hover: 'hover:bg-gray-100 hover:opacity-100',
   alt: '',
   rounded: 'rounded-xl',
+  col: false,
 };
 
-type Props = PanIconButtonProps & ButtonHTMLAttributes<HTMLButtonElement>;
+type Props = IconButtonProps & ButtonHTMLAttributes<HTMLButtonElement>;
 
 const defaultClass: string = `font-kanit`;
-export const PanIconButton: React.FC<Props> = (props) => {
+export const IconButton: React.FC<Props> = (props) => {
   const {
     className,
     children,
@@ -37,6 +39,7 @@ export const PanIconButton: React.FC<Props> = (props) => {
     ring,
     hover,
     rounded,
+    col,
     ...restProps
   } = {
     ...defaultInitialProps,
@@ -48,7 +51,7 @@ export const PanIconButton: React.FC<Props> = (props) => {
 
   return (
     <button className={mergeClass} {...restProps}>
-      <div className={`flex gap-1 items-center justify-between`}>
+      <div className={`flex ${col ? 'flex-col' : ''} gap-1 items-center justify-between`}>
         {leftSrc ? (
           <span className='relative' style={{ width: iconWidth, height: iconHeight }}>
             <Image alt={alt} src={leftSrc} layout='fill' />

@@ -1,16 +1,16 @@
-import { NextPage } from 'next';
 import { PanButton } from 'components/pancake';
 import { Button, SimpleButton } from 'components';
 import { PanIconButton, PanSvgrButton } from 'components/pancake/button';
 import { Layout } from 'components/layout';
 import { NextPageWithLayout } from 'pages/_app';
 import { ReactElement } from 'react';
-import ArrowExit from 'public/images/pancake/arrowExit.svg';
 import ArrowUpRight from 'public/images/pancake/arrowUpRight.svg';
 import BnbSvg from 'public/images/pancake/bnb.svg';
 import PancakeSvg from 'public/images/pancake/pancake.svg';
 import PanExDown from 'public/images/pancake/panExDown.svg';
 import PanExUpDown from 'public/images/pancake/PanExUpDown.svg';
+import { IconButton } from 'components/IconButton';
+import { SvgrButton } from 'components/SvgrButton';
 
 const ButtonDemo: NextPageWithLayout = () => {
   const changeTheme = (event: any) => {
@@ -46,6 +46,10 @@ const ButtonDemo: NextPageWithLayout = () => {
           <span>Icon Button:</span>
 
           <PanIconButton leftSrc='/images/pancake/bnb.svg'>BNB</PanIconButton>
+          <IconButton leftSrc='/images/pancake/bnb.svg' col>
+            BNB
+          </IconButton>
+          <IconButton leftSrc='/images/pancake/bnb.svg'>BNB</IconButton>
           <PanIconButton rightSrc='https://assets-cdn.trustwallet.com/blockchains/smartchain/assets/0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56/logo.png'>
             BUSD
           </PanIconButton>
@@ -150,14 +154,15 @@ const ButtonDemo: NextPageWithLayout = () => {
             CAKE
           </PanIconButton>
 
-          <PanSvgrButton
+          <SvgrButton
             className='active:translate-y-px align-middle text-cyan-500 [&>div>svg:first-child]:block [&>div>svg:last-child]:hidden shadow-sm shadow-gray-700 active:shadow-none bg-[#eeeaf4]'
             rounded='rounded-full'
+            gap={false}
             ring='p-[6px]'
             hover='[&>div>svg:last-child]:hover:block [&>div>svg:first-child]:hover:hidden hover:bg-[#6edbe3]'
             leftIcon={<PanExDown />}
             rightIcon={<PanExUpDown className='text-white' />}
-          ></PanSvgrButton>
+          ></SvgrButton>
         </div>
         <hr />
       </div>

@@ -62,7 +62,7 @@ const { chains, provider, webSocketProvider } = configureChains(
 
 // Set up client
 const wagmiClient = createClient({
-  autoConnect: true,
+  autoConnect: false,
   connectors: [
     new MetaMaskConnector({ chains }),
     new CoinbaseWalletConnector({
