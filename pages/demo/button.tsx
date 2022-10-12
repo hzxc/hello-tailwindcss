@@ -169,6 +169,21 @@ const ButtonDemo: NextPageWithLayout = () => {
             BNB
           </IconButton>
           <IconButton leftSrc='/images/pancake/bnb.svg'></IconButton>
+          <IconButton
+            className='ring-1 p-1 rounded'
+            leftSrc='https://tokens.pancakeswap.finance/images/0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82.png'
+            rightSrc='/images/pancake/bnb.svg'
+          >
+            BNB
+          </IconButton>
+
+          <HoverButton
+            className='ring-1 p-1 rounded'
+            leftSrc='https://tokens.pancakeswap.finance/images/0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82.png'
+            rightSrc='/images/pancake/bnb.svg'
+          >
+            BNB
+          </HoverButton>
         </div>
         <hr />
       </div>
