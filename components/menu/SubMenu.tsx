@@ -32,7 +32,7 @@ export const SubMenu: React.FC<Props> = (props) => {
     e.preventDefault();
     timer = setTimeout(() => {
       setOpen(toggle);
-    }, 100);
+    }, 200);
   };
 
   const clickEvents =

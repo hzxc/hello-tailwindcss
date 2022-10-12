@@ -33,8 +33,8 @@ export const ConnectWalletModal: React.FC<{ visible: boolean; close: () => void 
                   })
                 }
                 className='active:translate-y-px w-1/2 h-1/2 hover:opacity-70'
-                iconHeight='40px'
-                iconWidth='40px'
+                leftSize='40px'
+                rightSize='40px'
                 col
                 leftSrc='/images/pancake/metamask.svg'
               >
@@ -49,8 +49,8 @@ export const ConnectWalletModal: React.FC<{ visible: boolean; close: () => void 
                   })
                 }
                 className='active:translate-y-px w-1/2 h-1/2 hover:opacity-70'
-                iconHeight='40px'
-                iconWidth='40px'
+                leftSize='40px'
+                rightSize='40px'
                 col
                 leftSrc='/images/pancake/binanceWallet.svg'
               >
@@ -65,8 +65,8 @@ export const ConnectWalletModal: React.FC<{ visible: boolean; close: () => void 
                   })
                 }
                 className='active:translate-y-px w-1/2 h-1/2 hover:opacity-70'
-                iconHeight='40px'
-                iconWidth='40px'
+                leftSize='40px'
+                rightSize='40px'
                 col
                 leftSrc='/images/pancake/coinbase.svg'
               >
@@ -75,8 +75,8 @@ export const ConnectWalletModal: React.FC<{ visible: boolean; close: () => void 
               <a href='https://pancakeswap.finance/swap'>
                 <IconButton
                   className='active:translate-y-px w-1/2 h-1/2 hover:opacity-70'
-                  iconHeight='40px'
-                  iconWidth='40px'
+                  leftSize='40px'
+                  rightSize='40px'
                   col
                   leftSrc='/images/pancake/ellipsis.svg'
                 >
@@ -84,7 +84,7 @@ export const ConnectWalletModal: React.FC<{ visible: boolean; close: () => void 
                 </IconButton>
               </a>
             </div>
-            <div className='border-t p-6'>
+            <div className='border-t  p-6'>
               <p className='text-[#7a6eaa] w-full text-center mb-4'>
                 Haven’t got a crypto wallet yet?
               </p>

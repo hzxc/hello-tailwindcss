@@ -10,8 +10,8 @@ import PanQuestionMask from 'public/images/pancake/panQuestionMark.svg';
 import { useToggle } from 'hooks';
 import { useTokens } from 'hooks/pancake';
 import { ReactElement, useEffect } from 'react';
-import { SvgrButton } from 'components/SvgrButton';
 import { NextPageWithLayout } from 'pages/_app';
+import { IconButton } from 'components';
 
 const Pancake: NextPageWithLayout = () => {
   const { visible, close, open } = useToggle(false);
@@ -77,12 +77,13 @@ const Pancake: NextPageWithLayout = () => {
             type='text'
           />
           <div className='p-1 w-full text-center'>
-            <SvgrButton
-              className='active:translate-y-px align-middle rounded-full p-[6px] text-cyan-500 [&>div>svg:first-child]:block [&>div>svg:last-child]:hidden shadow-sm shadow-gray-700 active:shadow-none bg-[#eeeaf4] [&>div>svg:last-child]:hover:block [&>div>svg:first-child]:hover:hidden hover:bg-[#6edbe3]'
-              gap={false}
+            <IconButton
+              tailClass='panEx'
+              leftSize='20px'
+              rightSize='20px'
               leftIcon={<PanExDown />}
               rightIcon={<PanExUpDown className='text-white' />}
-            ></SvgrButton>
+            ></IconButton>
           </div>
           <div className='px-2 space-x-2'>
             <PanIconButton

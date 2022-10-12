@@ -32,7 +32,7 @@ export const SubMenu: React.FC<Props> = (props) => {
     e.preventDefault();
     timer = setTimeout(() => {
       setOpen(toggle);
-    }, 100);
+    }, 200);
   };
 
   const clickEvents =
@@ -70,7 +70,7 @@ export const SubMenu: React.FC<Props> = (props) => {
         <ul
           className={`${
             context.mode === 'horizontal' ? 'absolute ' : ''
-          }flex flex-col flex-nowrap items-start justify-start border mt-1 py-1 rounded-xl bg-white`}
+          }flex flex-col flex-nowrap items-start justify-start border py-1 rounded-xl bg-white`}
         >
           {childrenComponent}
         </ul>
@@ -80,7 +80,7 @@ export const SubMenu: React.FC<Props> = (props) => {
   return (
     <li key={index} className={mergeClass} {...hoverEvents}>
       <div
-        className={`flex items-center cursor-pointer rounded-2xl  hover:bg-zinc-100 px-4 py-4${
+        className={`flex items-center cursor-pointer rounded-2xl my-1 hover:bg-zinc-100 px-4 py-4${
           context.index.startsWith(index + '-') ? ' font-semibold text-violet-600' : ''
         }`}
         style={{ lineHeight: '100%' }}
@@ -88,6 +88,7 @@ export const SubMenu: React.FC<Props> = (props) => {
       >
         <span>{subTitle}</span>
       </div>
+
       {renderChildren()}
     </li>
   );

@@ -11,6 +11,9 @@ import { chainId, useAccount, useConnect, useNetwork } from 'wagmi';
 import { useEffect } from 'react';
 import { SwitchNetworkModal } from '../modal/SwitchNetworkModal';
 import { useInitConnect } from 'hooks/useInitConnect';
+import { MenuButton, MenuButtonItem } from 'components/menu-button';
+import { IconButton } from 'components';
+import ArrowDownSvg from 'public/images/pancake/arrowDown.svg';
 
 export const Header: React.FC = () => {
   const { visible, close, open } = useToggle(false);
@@ -23,7 +26,7 @@ export const Header: React.FC = () => {
       <ConnectWalletModal visible={visible} close={close} />
       <SwitchNetworkModal visible={chain ? chain.id !== 56 : false} close={() => {}} />
       <div className='flex h-14 items-center justify-between border-b px-4 z-40'>
-        <div className='flex items-center justify-start py-2 gap-3'>
+        <div className='flex items-center justify-start gap-3'>
           <PanIconButton
             iconWidth='28px'
             iconHeight='28px'
@@ -35,7 +38,7 @@ export const Header: React.FC = () => {
           >
             PancakeSwap
           </PanIconButton>
-          <Menu className='h-full' mode='horizontal' defaultIndex={'0-0'}>
+          <Menu mode='horizontal' defaultIndex={'0-0'}>
             <SubMenu subTitle='Trade'>
               <MenuItem>Swap</MenuItem>
               <MenuItem>Limit</MenuItem>
@@ -126,7 +129,7 @@ export const Header: React.FC = () => {
             </SubMenu>
           </Menu>
         </div>
-        <div className='flex items-center gap-4'>
+        <div className='flex items-center gap-4 justify-start'>
           <PanIconButton
             className='font-semibold'
             ring='ring-0'
@@ -141,6 +144,23 @@ export const Header: React.FC = () => {
           <SvgButton>
             <SettingSvg className='w-6 h-6' />
           </SvgButton>
+          <MenuButton
+            navBtn={
+              <IconButton
+                className='my-3'
+                tailClass='panMb'
+                leftSize='32px'
+                leftSrc='/images/pancake/56.png'
+                rightIcon={<ArrowDownSvg />}
+                customStyle={{ boxShadow: 'rgb(0 0 0 / 10%) 0px -2px 0px inset' }}
+              >
+                BNB Smart Chain
+              </IconButton>
+            }
+          >
+            <MenuButtonItem>BNB Smart Chain</MenuButtonItem>
+            <MenuButtonItem>Ethereum</MenuButtonItem>
+          </MenuButton>
           {isConnected && address ? (
             '0x...'.concat(address.slice(-4))
           ) : (

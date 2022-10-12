@@ -1,5 +1,5 @@
 import { PanButton } from 'components/pancake';
-import { Button, HoverButton, SimpleButton } from 'components';
+import { Button, IconButton, SimpleButton } from 'components';
 import { PanIconButton, PanSvgrButton } from 'components/pancake/button';
 import { Layout } from 'components/layout';
 import { NextPageWithLayout } from 'pages/_app';
@@ -8,9 +8,12 @@ import ArrowUpRight from 'public/images/pancake/arrowUpRight.svg';
 import BnbSvg from 'public/images/pancake/bnb.svg';
 import PancakeSvg from 'public/images/pancake/pancake.svg';
 import PanExDown from 'public/images/pancake/panExDown.svg';
+import BinanceWalletSvg from 'public/images/pancake/binanceWallet.svg';
+
 import PanExUpDown from 'public/images/pancake/PanExUpDown.svg';
-import { IconButton } from 'components/IconButton';
 import { SvgrButton } from 'components/SvgrButton';
+import ArrowDownSvg from 'public/images/pancake/arrowDown.svg';
+import { MenuButton } from 'components/menu-button';
 
 const ButtonDemo: NextPageWithLayout = () => {
   const changeTheme = (event: any) => {
@@ -153,14 +156,7 @@ const ButtonDemo: NextPageWithLayout = () => {
             CAKE
           </PanIconButton>
 
-          <SvgrButton
-            className='active:translate-y-px align-middle rounded-full p-[6px] text-cyan-500 [&>div>svg:first-child]:block [&>div>svg:last-child]:hidden shadow-sm shadow-gray-700 active:shadow-none bg-[#eeeaf4] [&>div>svg:last-child]:hover:block [&>div>svg:first-child]:hover:hidden hover:bg-[#6edbe3]'
-            gap={false}
-            leftIcon={<PanExDown />}
-            rightIcon={<PanExUpDown className='text-white' />}
-          ></SvgrButton>
-
-          <HoverButton>Hover Button</HoverButton>
+          <IconButton>Hover Button</IconButton>
           <PanIconButton leftSrc='/images/pancake/bnb.svg'>BNB</PanIconButton>
           <IconButton
             className='hover:bg-gray-100 hover:opacity-80 p-1 ring-1 ring-gray-100 rounded-xl active:translate-y-px'
@@ -177,13 +173,52 @@ const ButtonDemo: NextPageWithLayout = () => {
             BNB
           </IconButton>
 
-          <HoverButton
+          <IconButton
             className='ring-1 p-1 rounded'
             leftSrc='https://tokens.pancakeswap.finance/images/0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82.png'
             rightSrc='/images/pancake/bnb.svg'
           >
-            BNB
-          </HoverButton>
+            ETH
+          </IconButton>
+
+          <IconButton
+            className='ring-1 p-1 rounded'
+            leftIcon={<PanExDown className='text-purple-500' />}
+            rightIcon={<BinanceWalletSvg />}
+          >
+            BTC
+          </IconButton>
+          <IconButton
+            tailClass='panEx'
+            leftIcon={<PanExDown />}
+            rightIcon={<PanExUpDown className='text-white' />}
+            leftSize='20px'
+            rightSize='20px'
+          ></IconButton>
+
+          <IconButton
+            className='hover:opacity-80 active:translate-y-px'
+            leftIcon={<BinanceWalletSvg />}
+            rightIcon={<BinanceWalletSvg />}
+          ></IconButton>
+
+          <IconButton
+            className='font-kanit h-8 text-[#280d5f] rounded-xl font-semibold hover:opacity-75 bg-[#eff4f5]'
+            leftSrc='/images/pancake/56.png'
+            rightIcon={<ArrowDownSvg />}
+          >
+            BNB Smart Chain
+          </IconButton>
+
+          <IconButton
+            tailClass='panMb'
+            leftSize='32px'
+            leftSrc='/images/pancake/56.png'
+            rightIcon={<ArrowDownSvg />}
+            customStyle={{ boxShadow: 'rgb(0 0 0 / 10%) 0px -2px 0px inset' }}
+          >
+            BNB Smart Chain
+          </IconButton>
         </div>
         <hr />
       </div>

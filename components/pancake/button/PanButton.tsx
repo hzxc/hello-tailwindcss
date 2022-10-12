@@ -7,7 +7,11 @@ export const PanButton: React.FC<ButtonHTMLAttributes<HTMLButtonElement>> = (pro
   const { className, children, ...restProps } = props;
   const mergeClass = `${defaultClass}${className ? ' ' + className : ''}`;
   return (
-    <button className={mergeClass} {...restProps}>
+    <button
+      style={{ boxShadow: 'rgb(14 14 44 / 40%) 0 -1px 0 0 inset' }}
+      className={mergeClass}
+      {...restProps}
+    >
       {children}
     </button>
   );

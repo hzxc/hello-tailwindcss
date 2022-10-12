@@ -6,4 +6,3 @@ export * from './SimpleButton';
 export * from './Input';
 export * from './SvgButton';
 export * from './IconButton';
-export * from './HoverButton';
