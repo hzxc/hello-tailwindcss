@@ -10,11 +10,14 @@ import { MenuButtonItemProps } from './MenuButtonItem';
 
 interface MenuButtonProps {
   navBtn: ReactNode;
+  title?: string;
   defaultIndex?: string;
   onSelect?: (selectedIndex: string) => void;
+  pos?: string;
 }
 
 const defaultInitialProps: MenuButtonProps = {
+  pos: 'left-0',
   defaultIndex: '0',
   navBtn: <></>,
 };
@@ -30,7 +33,7 @@ type Props = MenuButtonProps & HTMLAttributes<HTMLDivElement>;
 const defaultClass: string = 'font-kanit relative z-40';
 
 export const MenuButton: React.FC<Props> = (props) => {
-  const { className, children, navBtn, defaultIndex, onSelect, ...restProps } = {
+  const { className, children, navBtn, defaultIndex, title, pos, onSelect, ...restProps } = {
     ...defaultInitialProps,
     ...props,
   };
@@ -76,7 +79,7 @@ export const MenuButton: React.FC<Props> = (props) => {
       if (childElement.type.displayName === 'MenuButtonItem') {
         return React.cloneElement(childElement, {
           index: index.toString(),
-          className: `w-64 first:rounded-t-md last:rounded-b-md`,
+          className: `${childElement.props.className} w-64 first:rounded-t-md last:rounded-b-md`,
         });
       } else {
         console.error('Warning: SubMenu has a child which is not a MenuItem component');
@@ -84,7 +87,10 @@ export const MenuButton: React.FC<Props> = (props) => {
     });
     return (
       <Transition visible={menuOpen} timeout={300} classNames='zoom-in-top'>
-        <ul className='absolute flex flex-col flex-nowrap items-start justify-start border py-1 rounded-xl bg-white'>
+        <ul
+          className={`absolute ${pos} flex flex-col flex-nowrap items-start justify-start border py-1 rounded-xl bg-white`}
+        >
+          {title ? <li className='border-b w-64 h-11 p-[14px]'>{title}</li> : undefined}
           {childrenComponent}
         </ul>
       </Transition>

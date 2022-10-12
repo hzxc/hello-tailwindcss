@@ -4,22 +4,21 @@ import { MenuButtonContext } from './MenuButton';
 export interface MenuButtonItemProps {
   index?: string;
   disabled?: boolean;
-  itemClass?: string;
 }
 
 type Props = MenuButtonItemProps & LiHTMLAttributes<HTMLLIElement>;
 const defaultClass: string =
-  'cursor-pointer hover:bg-zinc-100 [&>*:first-child]:block [&>*:first-child]:px-4 [&>*:first-child]:py-4';
+  'cursor-pointer hover:bg-zinc-100 [&>*:first-child]:block [&>*:first-child]:p-4';
 
-const activeClass: string = 'font-semibold text-violet-600';
+const activeClass: string = 'font-semibold text-[#7645d9]';
 
 export const MenuButtonItem: FC<Props> = (props) => {
-  const { index, className, children, itemClass, disabled, ...restProps } = props;
+  const { index, className, children, disabled, ...restProps } = props;
   const context = useContext(MenuButtonContext);
 
   const mergeClass = `${defaultClass} ${className ? className : ''} ${
-    itemClass ? ' ' + itemClass : ''
-  } ${context.index === index ? activeClass : ''}`;
+    context.index === index ? activeClass : ''
+  }`;
 
   const handleClick = () => {
     if (context.onSelect && !disabled && typeof index === 'string') {

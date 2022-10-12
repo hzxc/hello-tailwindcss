@@ -7,10 +7,11 @@ import { SubMenu, Menu, MenuItem } from 'components/menu';
 import { IconButton } from 'components';
 import { Header } from 'components/pancake/layout/Header';
 
-const ButtonMenuDemo: NextPageWithLayout = () => {
+const MenuButtonDemo: NextPageWithLayout = () => {
   return (
     <div className='flex p-8'>
       <MenuButton
+        title='Test'
         navBtn={
           <IconButton
             className='my-1'
@@ -33,8 +34,8 @@ const ButtonMenuDemo: NextPageWithLayout = () => {
   );
 };
 
-ButtonMenuDemo.getLayout = function getLayout(page: ReactElement) {
+MenuButtonDemo.getLayout = function getLayout(page: ReactElement) {
   return <Layout>{page}</Layout>;
 };
 
-export default ButtonMenuDemo;
+export default MenuButtonDemo;

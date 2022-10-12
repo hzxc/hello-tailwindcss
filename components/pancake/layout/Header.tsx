@@ -14,6 +14,7 @@ import { useInitConnect } from 'hooks/useInitConnect';
 import { MenuButton, MenuButtonItem } from 'components/menu-button';
 import { IconButton } from 'components';
 import ArrowDownSvg from 'public/images/pancake/arrowDown.svg';
+import WalletSvg from 'public/images/pancake/wallet.svg';
 
 export const Header: React.FC = () => {
   const { visible, close, open } = useToggle(false);
@@ -95,7 +96,7 @@ export const Header: React.FC = () => {
             >
               <MenuItem>Info</MenuItem>
               <MenuItem>Info</MenuItem>
-              <MenuItem itemClass='border-b'>
+              <MenuItem className='border-b'>
                 <div className='flex items-center justify-between'>
                   <p>Voting</p>
                   <button className='px-2 py-px text-sm font-normal rounded-full border-2 text-emerald-400 border-emerald-400 my-[-5px]'>
@@ -103,7 +104,7 @@ export const Header: React.FC = () => {
                   </button>
                 </div>
               </MenuItem>
-              <MenuItem itemClass='border-b'>Leaderboard</MenuItem>
+              <MenuItem className='border-b'>Leaderboard</MenuItem>
               <MenuItem>
                 <PanSvgrButton
                   className='w-full my-[-2px]'
@@ -145,6 +146,8 @@ export const Header: React.FC = () => {
             <SettingSvg className='w-6 h-6' />
           </SvgButton>
           <MenuButton
+            pos='left-[-38px]'
+            title='Select a Network'
             navBtn={
               <IconButton
                 className='my-3'
@@ -158,11 +161,45 @@ export const Header: React.FC = () => {
               </IconButton>
             }
           >
-            <MenuButtonItem>BNB Smart Chain</MenuButtonItem>
-            <MenuButtonItem>Ethereum</MenuButtonItem>
+            <MenuButtonItem>
+              <IconButton className='my-[-2px]' gap='gap-3' leftSrc='/images/pancake/56.png'>
+                BNB Smart Chain
+              </IconButton>
+            </MenuButtonItem>
+            <MenuButtonItem>
+              <IconButton className='my-[-2px]' gap='gap-3' leftSrc='/images/pancake/1.png'>
+                Ethereum
+              </IconButton>
+            </MenuButtonItem>
           </MenuButton>
+
           {isConnected && address ? (
-            '0x...'.concat(address.slice(-4))
+            <MenuButton
+              title='Select a Network'
+              pos='right-0'
+              navBtn={
+                <IconButton
+                  className='my-3 [&>div>span:first-child]:rounded-full [&>div>span:first-child]:outline [&>div>span:first-child]:outline-[#1fc7d4]'
+                  tailClass='panMb'
+                  leftIcon={<WalletSvg className='text-[#1fc7d4]' />}
+                  rightIcon={<ArrowDownSvg />}
+                  customStyle={{ boxShadow: 'rgb(0 0 0 / 10%) 0px -2px 0px inset' }}
+                >
+                  {'0x...'.concat(address.slice(-4))}
+                </IconButton>
+              }
+            >
+              <MenuButtonItem>
+                <IconButton className='my-[-2px]' gap='gap-3' leftSrc='/images/pancake/56.png'>
+                  BNB Smart Chain
+                </IconButton>
+              </MenuButtonItem>
+              <MenuButtonItem>
+                <IconButton className='my-[-2px]' gap='gap-3' leftSrc='/images/pancake/1.png'>
+                  Ethereum
+                </IconButton>
+              </MenuButtonItem>
+            </MenuButton>
           ) : (
             <PanButton onClick={open}>Connect Wallet</PanButton>
           )}

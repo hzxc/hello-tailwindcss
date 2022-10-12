@@ -58,7 +58,9 @@ export const IconButton: React.FC<Props> = (props) => {
   return (
     <button className={mergeClass} {...restProps} style={customStyle ? customStyle : {}}>
       <div
-        className={`flex ${col ? 'flex-col' : ''} ${gap ? gap : ''} items-center justify-between`}
+        className={`flex flex-nowrap ${col ? 'flex-col' : ''} ${
+          gap ? gap : ''
+        } items-center justify-between`}
       >
         {leftSrc ? (
           <span className='relative' style={{ width: leftSize, height: leftSize }}>
