@@ -78,11 +78,8 @@ const Pancake: NextPageWithLayout = () => {
           />
           <div className='p-1 w-full text-center'>
             <SvgrButton
-              className='active:translate-y-px align-middle text-cyan-500 [&>div>svg:first-child]:block [&>div>svg:last-child]:hidden shadow-sm shadow-gray-700 active:shadow-none bg-[#eeeaf4]'
+              className='active:translate-y-px align-middle rounded-full p-[6px] text-cyan-500 [&>div>svg:first-child]:block [&>div>svg:last-child]:hidden shadow-sm shadow-gray-700 active:shadow-none bg-[#eeeaf4] [&>div>svg:last-child]:hover:block [&>div>svg:first-child]:hover:hidden hover:bg-[#6edbe3]'
               gap={false}
-              rounded='rounded-full'
-              ring='p-[6px]'
-              hover='[&>div>svg:last-child]:hover:block [&>div>svg:first-child]:hover:hidden hover:bg-[#6edbe3]'
               leftIcon={<PanExDown />}
               rightIcon={<PanExUpDown className='text-white' />}
             ></SvgrButton>

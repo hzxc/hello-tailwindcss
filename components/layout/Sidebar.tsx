@@ -4,7 +4,7 @@ import Link from 'next/link';
 export default function Sidebar() {
   return (
     <nav className='fixed top-0 right-0 w-64 h-screen p-4 bg-zinc-100 border-l overflow-y-auto scrollbar-thin scrollbar-thumb-cyan-600/60 scrollbar-track-slate-300 scrollbar-thumb-rounded-lg scrollbar-track-rounded-lg'>
-      <Menu defaultOpenSubMenus={['5']}>
+      <Menu defaultOpenSubMenus={[]}>
         <MenuItem>
           <Link href='/'>Home</Link>
         </MenuItem>

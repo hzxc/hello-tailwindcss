@@ -31,7 +31,7 @@ export const PanSvgrButton: React.FC<Props> = (props) => {
     <button className={mergeClass} {...restProps}>
       <div className={`flex gap-1 items-center justify-between`}>
         {leftIcon ? leftIcon : undefined}
-        <span>{children}</span>
+        {children ? <span>{children}</span> : undefined}
         {rightIcon ? rightIcon : undefined}
       </div>
     </button>

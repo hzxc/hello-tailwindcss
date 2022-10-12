@@ -54,7 +54,7 @@ export const PanIconButton: React.FC<Props> = (props) => {
             <Image alt={alt} src={leftSrc} layout='fill' />
           </span>
         ) : undefined}
-        <span>{children}</span>
+        {children ? <span>{children}</span> : undefined}
         {rightSrc ? (
           <span className='relative' style={{ width: iconWidth, height: iconHeight }}>
             <Image alt={alt} src={rightSrc} layout='fill' />

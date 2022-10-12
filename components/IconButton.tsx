@@ -5,9 +5,6 @@ interface IconButtonProps {
   rightSrc?: string;
   iconWidth?: string;
   iconHeight?: string;
-  // hover?: string | boolean;
-  // ring?: string | boolean;
-  // rounded?: string | boolean;
   alt?: string;
   col?: boolean;
 }
@@ -17,9 +14,6 @@ const defaultInitialProps: IconButtonProps = {
   rightSrc: undefined,
   iconWidth: '24px',
   iconHeight: '24px',
-  // ring: 'ring-1 ring-gray-100 p-[6px]',
-  // hover: 'hover:bg-gray-100 hover:opacity-100',
-  // rounded: 'rounded-xl',
   alt: '',
   col: false,
 };
@@ -28,26 +22,11 @@ type Props = IconButtonProps & ButtonHTMLAttributes<HTMLButtonElement>;
 
 const defaultClass: string = `font-kanit`;
 export const IconButton: React.FC<Props> = (props) => {
-  const {
-    className,
-    children,
-    leftSrc,
-    rightSrc,
-    alt,
-    iconHeight,
-    iconWidth,
-    // ring,
-    // hover,
-    // rounded,
-    col,
-    ...restProps
-  } = {
-    ...defaultInitialProps,
-    ...props,
-  };
-  // const mergeClass = `${defaultClass}${className ? ' ' + className : ''}${ring ? ' ' + ring : ''}${
-  //   hover ? ' ' + hover : ''
-  // }${rounded ? ' ' + rounded : ''}`;
+  const { className, children, leftSrc, rightSrc, alt, iconHeight, iconWidth, col, ...restProps } =
+    {
+      ...defaultInitialProps,
+      ...props,
+    };
 
   const mergeClass = `${defaultClass}${className ? ' ' + className : ''}`;
 
@@ -59,7 +38,7 @@ export const IconButton: React.FC<Props> = (props) => {
             <Image alt={alt} src={leftSrc} layout='fill' />
           </span>
         ) : undefined}
-        <span>{children}</span>
+        {children ? <span>{children}</span> : undefined}
         {rightSrc ? (
           <span className='relative' style={{ width: iconWidth, height: iconHeight }}>
             <Image alt={alt} src={rightSrc} layout='fill' />

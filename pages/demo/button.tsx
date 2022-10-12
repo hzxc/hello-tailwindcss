@@ -1,5 +1,5 @@
 import { PanButton } from 'components/pancake';
-import { Button, SimpleButton } from 'components';
+import { Button, HoverButton, SimpleButton } from 'components';
 import { PanIconButton, PanSvgrButton } from 'components/pancake/button';
 import { Layout } from 'components/layout';
 import { NextPageWithLayout } from 'pages/_app';
@@ -81,15 +81,14 @@ const ButtonDemo: NextPageWithLayout = () => {
           >
             BNB & Pancake
           </PanSvgrButton>
-          <PanSvgrButton
-            leftIcon={<ArrowUpRight className='w-6 h-6 text-cyan-500' />}
-          ></PanSvgrButton>
+          <SvgrButton
+            leftIcon={<ArrowUpRight className='border w-6 h-6 text-cyan-500' />}
+          ></SvgrButton>
 
-          <PanSvgrButton
-            ring
-            hover='hover:opacity-70'
+          <SvgrButton
+            className='hover:opacity-70 border'
             leftIcon={<ArrowUpRight className='w-6 h-6' />}
-          ></PanSvgrButton>
+          ></SvgrButton>
         </div>
         <hr />
 
@@ -155,14 +154,21 @@ const ButtonDemo: NextPageWithLayout = () => {
           </PanIconButton>
 
           <SvgrButton
-            className='active:translate-y-px align-middle text-cyan-500 [&>div>svg:first-child]:block [&>div>svg:last-child]:hidden shadow-sm shadow-gray-700 active:shadow-none bg-[#eeeaf4]'
-            rounded='rounded-full'
+            className='active:translate-y-px align-middle rounded-full p-[6px] text-cyan-500 [&>div>svg:first-child]:block [&>div>svg:last-child]:hidden shadow-sm shadow-gray-700 active:shadow-none bg-[#eeeaf4] [&>div>svg:last-child]:hover:block [&>div>svg:first-child]:hover:hidden hover:bg-[#6edbe3]'
             gap={false}
-            ring='p-[6px]'
-            hover='[&>div>svg:last-child]:hover:block [&>div>svg:first-child]:hover:hidden hover:bg-[#6edbe3]'
             leftIcon={<PanExDown />}
             rightIcon={<PanExUpDown className='text-white' />}
           ></SvgrButton>
+
+          <HoverButton>Hover Button</HoverButton>
+          <PanIconButton leftSrc='/images/pancake/bnb.svg'>BNB</PanIconButton>
+          <IconButton
+            className='hover:bg-gray-100 hover:opacity-80 p-1 ring-1 ring-gray-100 rounded-xl active:translate-y-px'
+            leftSrc='/images/pancake/bnb.svg'
+          >
+            BNB
+          </IconButton>
+          <IconButton leftSrc='/images/pancake/bnb.svg'></IconButton>
         </div>
         <hr />
       </div>
