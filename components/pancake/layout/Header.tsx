@@ -175,7 +175,6 @@ export const Header: React.FC = () => {
 
           {isConnected && address ? (
             <MenuButton
-              title='Select a Network'
               pos='right-0'
               navBtn={
                 <IconButton
@@ -203,7 +202,7 @@ export const Header: React.FC = () => {
           ) : (
             <PanButton onClick={open}>Connect Wallet</PanButton>
           )}
-          <span>{chain?.id}</span>
+          {/* <span>{chain?.id}</span> */}
         </div>
       </div>
     </>
