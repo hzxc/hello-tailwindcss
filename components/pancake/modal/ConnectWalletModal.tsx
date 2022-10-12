@@ -32,12 +32,9 @@ export const ConnectWalletModal: React.FC<{ visible: boolean; close: () => void 
                     }),
                   })
                 }
-                className='active:translate-y-px w-1/2 h-1/2'
+                className='active:translate-y-px w-1/2 h-1/2 hover:opacity-70'
                 iconHeight='40px'
                 iconWidth='40px'
-                hover='hover:opacity-70'
-                rounded
-                ring
                 col
                 leftSrc='/images/pancake/metamask.svg'
               >
@@ -51,12 +48,9 @@ export const ConnectWalletModal: React.FC<{ visible: boolean; close: () => void 
                     }),
                   })
                 }
-                className='active:translate-y-px w-1/2 h-1/2'
+                className='active:translate-y-px w-1/2 h-1/2 hover:opacity-70'
                 iconHeight='40px'
                 iconWidth='40px'
-                hover='hover:opacity-70'
-                rounded
-                ring
                 col
                 leftSrc='/images/pancake/binanceWallet.svg'
               >
@@ -70,12 +64,9 @@ export const ConnectWalletModal: React.FC<{ visible: boolean; close: () => void 
                     }),
                   })
                 }
-                className='active:translate-y-px w-1/2 h-1/2'
+                className='active:translate-y-px w-1/2 h-1/2 hover:opacity-70'
                 iconHeight='40px'
                 iconWidth='40px'
-                hover='hover:opacity-70'
-                rounded
-                ring
                 col
                 leftSrc='/images/pancake/coinbase.svg'
               >
@@ -83,12 +74,9 @@ export const ConnectWalletModal: React.FC<{ visible: boolean; close: () => void 
               </IconButton>
               <a href='https://pancakeswap.finance/swap'>
                 <IconButton
-                  className='active:translate-y-px w-1/2 h-1/2'
+                  className='active:translate-y-px w-1/2 h-1/2 hover:opacity-70'
                   iconHeight='40px'
                   iconWidth='40px'
-                  hover='hover:opacity-70'
-                  rounded
-                  ring
                   col
                   leftSrc='/images/pancake/ellipsis.svg'
                 >

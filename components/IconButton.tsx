@@ -5,10 +5,10 @@ interface IconButtonProps {
   rightSrc?: string;
   iconWidth?: string;
   iconHeight?: string;
-  hover?: string | boolean;
-  ring?: string | boolean;
+  // hover?: string | boolean;
+  // ring?: string | boolean;
+  // rounded?: string | boolean;
   alt?: string;
-  rounded?: string | boolean;
   col?: boolean;
 }
 
@@ -17,10 +17,10 @@ const defaultInitialProps: IconButtonProps = {
   rightSrc: undefined,
   iconWidth: '24px',
   iconHeight: '24px',
-  ring: 'ring-1 ring-gray-100 p-[6px]',
-  hover: 'hover:bg-gray-100 hover:opacity-100',
+  // ring: 'ring-1 ring-gray-100 p-[6px]',
+  // hover: 'hover:bg-gray-100 hover:opacity-100',
+  // rounded: 'rounded-xl',
   alt: '',
-  rounded: 'rounded-xl',
   col: false,
 };
 
@@ -36,18 +36,20 @@ export const IconButton: React.FC<Props> = (props) => {
     alt,
     iconHeight,
     iconWidth,
-    ring,
-    hover,
-    rounded,
+    // ring,
+    // hover,
+    // rounded,
     col,
     ...restProps
   } = {
     ...defaultInitialProps,
     ...props,
   };
-  const mergeClass = `${defaultClass}${className ? ' ' + className : ''}${ring ? ' ' + ring : ''}${
-    hover ? ' ' + hover : ''
-  }${rounded ? ' ' + rounded : ''}`;
+  // const mergeClass = `${defaultClass}${className ? ' ' + className : ''}${ring ? ' ' + ring : ''}${
+  //   hover ? ' ' + hover : ''
+  // }${rounded ? ' ' + rounded : ''}`;
+
+  const mergeClass = `${defaultClass}${className ? ' ' + className : ''}`;
 
   return (
     <button className={mergeClass} {...restProps}>
