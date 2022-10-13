@@ -29,6 +29,7 @@ specifiers:
   react-transition-group: ^4.4.5
   react-window: ^1.8.7
   redux-persist: ^6.0.0
+  redux-persist-expire: ^1.1.1
   stylelint: ^14.12.1
   stylelint-config-prettier: ^9.0.3
   stylelint-config-standard: ^28.0.0
@@ -55,6 +56,7 @@ dependencies:
   react-transition-group: 4.4.5_ef5jwxihqo6n7gxfmzogljlgcm
   react-window: 1.8.7_ef5jwxihqo6n7gxfmzogljlgcm
   redux-persist: 6.0.0_react@18.1.0
+  redux-persist-expire: 1.1.1_react@18.1.0
   use-debounce: 8.0.4_react@18.1.0
   wagmi: 0.6.8_il6eynomeubuhfv5suaqalnb7u
   web3: 1.8.0
@@ -6791,6 +6793,15 @@ packages:
       strip-indent: 3.0.0
     dev: true
 
+  /redux-persist-expire/1.1.1_react@18.1.0:
+    resolution: {integrity: sha512-CoVGJrIHpg7H1++PFRivY61hC9weN1SsK80YV6axr7SxIcZzlYvnXitlxIbByFfKDTujInw40abEPIzW1Hbp/g==}
+    dependencies:
+      redux: 4.2.0
+      redux-persist: 6.0.0_react@18.1.0+redux@4.2.0
+    transitivePeerDependencies:
+      - react
+    dev: false
+
   /redux-persist/6.0.0_react@18.1.0:
     resolution: {integrity: sha512-71LLMbUq2r02ng2We9S215LtPu3fY0KgaGE0k8WRgl6RkqxtGfl7HUozz1Dftwsb0D/5mZ8dwAaPbtnzfvbEwQ==}
     peerDependencies:
@@ -6801,6 +6812,19 @@ packages:
         optional: true
     dependencies:
       react: 18.1.0
+    dev: false
+
+  /redux-persist/6.0.0_react@18.1.0+redux@4.2.0:
+    resolution: {integrity: sha512-71LLMbUq2r02ng2We9S215LtPu3fY0KgaGE0k8WRgl6RkqxtGfl7HUozz1Dftwsb0D/5mZ8dwAaPbtnzfvbEwQ==}
+    peerDependencies:
+      react: '>=16'
+      redux: '>4.0.0'
+    peerDependenciesMeta:
+      react:
+        optional: true
+    dependencies:
+      react: 18.1.0
+      redux: 4.2.0
     dev: false
 
   /redux-thunk/2.4.1_redux@4.2.0:

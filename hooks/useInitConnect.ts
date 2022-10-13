@@ -11,9 +11,7 @@ export const useInitConnect = () => {
   const { mutate } = useMutation(connectAsync);
 
   useEffect(() => {
-    console.log('detect connect');
     if (window.ethereum?._state?.isUnlocked && !isConnected) {
-      console.log('start connect');
       mutate({});
     }
   }, [isConnected, mutate]);

@@ -3,8 +3,7 @@ import { baseTokens } from 'data/pancake';
 import { useAppDispatch } from 'redux/hooks';
 import { IToken } from 'redux/pancake/pancakeSlice';
 import { http, useHttp } from 'utils';
-import { setTokens } from 'redux/pancake/pancakeSlice';
-import { useEffect } from 'react';
+import { setTokens } from 'redux/pancake/pancakePersistSlice';
 
 const getTokens = async () => {
   const array: IToken[] = [];

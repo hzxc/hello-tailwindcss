@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { baseTokens } from 'data/pancake';
 import { RootState } from 'redux/store';
 
 export interface IToken {
@@ -11,12 +12,14 @@ export interface IToken {
 }
 
 interface PancakeState {
+  baseTokens: IToken[];
   tokens: IToken[];
   // inputCurrency: string;
   // outputCurrency: string;
 }
 
 const initialState: PancakeState = {
+  baseTokens: baseTokens,
   tokens: [],
 };
 
@@ -32,6 +35,6 @@ export const pancakeSlice = createSlice({
 
 export const { setTokens } = pancakeSlice.actions;
 
-export const selectCounter = (state: RootState) => state.pancake;
+export const selectPancake = (state: RootState) => state.pancake;
 
 export default pancakeSlice.reducer;

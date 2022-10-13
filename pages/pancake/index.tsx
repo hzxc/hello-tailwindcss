@@ -12,17 +12,38 @@ import { useTokens } from 'hooks/pancake';
 import { ReactElement, useEffect } from 'react';
 import { NextPageWithLayout } from 'pages/_app';
 import { IconButton } from 'components';
+import { useAppDispatch, useAppSelector } from 'redux/hooks';
+import { setBaseTokens } from 'redux/pancake/pancakePersistSlice';
+
+import { selectPancake } from 'redux/pancake/pancakeSlice';
+import { selectPancakePersist } from 'redux/pancake/pancakePersistSlice';
+import { baseTokens } from 'data/pancake';
 
 const Pancake: NextPageWithLayout = () => {
   const { visible, close, open } = useToggle(false);
-  const { mutate, data } = useTokens();
+  const { mutate, isIdle } = useTokens();
+  const pancake = useAppSelector(selectPancake);
+  const pancakePersist = useAppSelector(selectPancakePersist);
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
-    mutate();
-  }, [mutate]);
+    // if (!pancakePersist.baseTokens) {
+    //   console.log('get baseTokens from network');
+    //   dispatch(setBaseTokens(baseTokens));
+    // } else {
+    //   console.log('get baseTokens from local storage');
+    // }
+
+    if (!pancakePersist.tokens && isIdle) {
+      console.log('get toekns from network');
+      mutate();
+    } else {
+      console.log('get toekns from local storage');
+    }
+  }, [dispatch, isIdle, mutate, pancakePersist.tokens]);
   return (
     <div>
-      <TokenModal visible={visible} close={close} data={data || []} />
+      <TokenModal visible={visible} close={close} data={pancake.baseTokens || []} />
       <div className='w-80 flex flex-col border rounded-3xl bg-white'>
         <div className='p-6 border-b'>
           <div className='flex justify-between'>
@@ -122,6 +143,9 @@ const Pancake: NextPageWithLayout = () => {
 
           <PanButton className='w-72 h-12'>Connect Wallet</PanButton>
         </div>
+        <div>tokens.length:{pancake.baseTokens.length}</div>
+        <div>persist baseTokens.length:{pancakePersist.baseTokens?.length}</div>
+        <div>persist tokens.length:{pancakePersist.tokens?.length}</div>
       </div>
     </div>
   );

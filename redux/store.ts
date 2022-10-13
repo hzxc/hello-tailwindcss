@@ -2,7 +2,9 @@ import { configureStore, combineReducers, ThunkAction, Action } from '@reduxjs/t
 import counterReducer from 'redux/counter/counterSlice';
 import themeReducer from 'redux/theme/themeSlice';
 import pancakeReducer from 'redux/pancake/pancakeSlice';
-import pancakePersistReducer from 'redux/pancake/pancakePersist';
+import pancakePersistReducer from 'redux/pancake/pancakePersistSlice';
+import expireReducer from 'redux-persist-expire';
+
 import {
   persistStore,
   persistReducer,
@@ -14,11 +16,24 @@ import {
   REGISTER,
 } from 'redux-persist';
 import storage from './storage';
+import { baseTokens } from 'data/pancake';
 
 const persistConfig = {
   key: 'root',
   storage,
   whitelist: ['pancakePersist'],
+  transforms: [
+    expireReducer('pancakePersist', {
+      // persistedAtKey: 'loadedAt',
+      expireSeconds: 60 * 60 * 24,
+      // expireSeconds: 60,
+      expiredState: {
+        tokens: null,
+        baseTokens: baseTokens,
+      },
+      autoExpire: true,
+    }),
+  ],
 };
 
 const rootReducer = combineReducers({
