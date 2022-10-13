@@ -27,20 +27,10 @@ const Pancake: NextPageWithLayout = () => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    // if (!pancakePersist.baseTokens) {
-    //   console.log('get baseTokens from network');
-    //   dispatch(setBaseTokens(baseTokens));
-    // } else {
-    //   console.log('get baseTokens from local storage');
-    // }
-
     if (!pancakePersist.tokens && isIdle) {
-      console.log('get toekns from network');
       mutate();
-    } else {
-      console.log('get toekns from local storage');
     }
-  }, [dispatch, isIdle, mutate, pancakePersist.tokens]);
+  }, [isIdle, mutate, pancakePersist.tokens]);
   return (
     <div>
       <TokenModal visible={visible} close={close} data={pancake.baseTokens || []} />
