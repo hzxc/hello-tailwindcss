@@ -43,7 +43,7 @@ export const TokenModal: React.FC<{ visible: boolean; close: () => void; data: I
           <div className='p-5 space-y-3'>
             <input
               placeholder='Search name or paste address'
-              className='w-full border border-[#d7caec] bg-violet-900/10 rounded-2xl h-12 py-0 px-4 focus:ring-4 focus:outline-none focus:ring-[#ad8fe8]'
+              className='w-full border border-[#d7caec] bg-violet-900/10 rounded-2xl h-12 py-0 px-4 focus:border-[#7645d9] focus:ring-4 focus:outline-none focus:ring-[#ad8fe8]'
               type='text'
             />
             <p className='text-sm'>Common tokens</p>
