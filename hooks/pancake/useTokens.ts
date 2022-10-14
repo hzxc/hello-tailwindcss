@@ -1,9 +1,10 @@
 import { useMutation, useQuery } from '@tanstack/react-query';
 import { baseTokens } from 'data/pancake';
-import { useAppDispatch } from 'redux/hooks';
+import { useAppDispatch, useAppSelector } from 'redux/hooks';
 import { IToken } from 'redux/pancake/pancakeSlice';
-import { http, useHttp } from 'utils';
+import { http } from 'utils';
 import { setTokens } from 'redux/pancake/pancakePersistSlice';
+import { selectPancakePersist } from 'redux/pancake/pancakePersistSlice';
 
 const getTokens = async () => {
   const array: IToken[] = [];
@@ -43,12 +44,28 @@ const getTokens = async () => {
   return array;
 };
 
+const searchTokens = async (param: string, tokens: IToken[], baseTokens: IToken[]) => {
+  if (param.length > 0) {
+    const result = tokens.filter((t) => t.symbol.toLowerCase().includes(param.toLowerCase()));
+    return result;
+  }
+
+  return baseTokens;
+};
+
 export const useTokens = () => {
   const dispatch = useAppDispatch();
   return useMutation(getTokens, {
     onSuccess: (data) => {
-      console.log('getTokens');
       dispatch(setTokens(data));
     },
+  });
+};
+
+export const useSearch = (param: string) => {
+  const pancake = useAppSelector(selectPancakePersist);
+
+  return useQuery<IToken[]>(['searchPancakeTokens', param], () => {
+    return searchTokens(param, pancake.tokens || [], pancake.baseTokens);
   });
 };

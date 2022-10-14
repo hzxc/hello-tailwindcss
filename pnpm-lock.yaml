@@ -18,6 +18,7 @@ specifiers:
   eslint-config-next: ^12.3.1
   eslint-config-prettier: ^8.5.0
   ethers: ^5.7.1
+  i: ^0.3.7
   next: latest
   postcss: ^8.4.14
   prettier: ^2.7.1
@@ -37,6 +38,7 @@ specifiers:
   tailwindcss: ^3.1.2
   typescript: 4.7.2
   use-debounce: ^8.0.4
+  use-element-size: ^1.2.2
   wagmi: ^0.6.8
   web3: ^1.8.0
 
@@ -47,6 +49,7 @@ dependencies:
   axios: 1.1.2
   dayjs: 1.11.5
   ethers: 5.7.1
+  i: 0.3.7
   next: 12.3.1_ef5jwxihqo6n7gxfmzogljlgcm
   qs: 6.11.0
   react: 18.1.0
@@ -58,6 +61,7 @@ dependencies:
   redux-persist: 6.0.0_react@18.1.0
   redux-persist-expire: 1.1.1_react@18.1.0
   use-debounce: 8.0.4_react@18.1.0
+  use-element-size: 1.2.2_ef5jwxihqo6n7gxfmzogljlgcm
   wagmi: 0.6.8_il6eynomeubuhfv5suaqalnb7u
   web3: 1.8.0
 
@@ -5235,6 +5239,11 @@ packages:
       resolve-alpn: 1.2.1
     dev: false
 
+  /i/0.3.7:
+    resolution: {integrity: sha512-FYz4wlXgkQwIPqhzC5TdNMLSE5+GS1IIDJZY/1ZiEPCT2S3COUVZeT5OW4BmW4r5LHLQuOosSwsvnroG9GR59Q==}
+    engines: {node: '>=0.4'}
+    dev: false
+
   /iconv-lite/0.4.24:
     resolution: {integrity: sha512-v3MXnZAcvnywkTUEZomIActle7RXXeedOR31wwl7VlyoXO4Qi9arvSenNQWne1TcRwhCL1HwLI21bEqdpj8/rA==}
     engines: {node: '>=0.10.0'}
@@ -6616,6 +6625,10 @@ packages:
     resolution: {integrity: sha512-WuyALRjWPDGtt/wzJiadO5AXY+8hZ80hVpe6MyivgraREW751X3SbhRvG3eLKOYN+8VEvqLcf3wdnt44Z4S4SA==}
     engines: {node: '>=10'}
 
+  /rafz/0.1.14:
+    resolution: {integrity: sha512-YiQkedSt1urYtYbvHhTQR3l67M8SZbUvga5eJFM/v4vx/GmDdtXlE2hjJIyRjhhO/PjcdGC+CXCYOUA4onit8w==}
+    dev: false
+
   /randombytes/2.1.0:
     resolution: {integrity: sha512-vYl3iOX+4CKUWuxGi9Ukhie6fsqXqS9FE2Zaic4tNFD2N2QQaXOMFbuKK4QmDHC0JO6B1Zp41J0LpT0oR68amQ==}
     dependencies:
@@ -7837,6 +7850,17 @@ packages:
       react: 18.1.0
     dev: false
 
+  /use-element-size/1.2.2_ef5jwxihqo6n7gxfmzogljlgcm:
+    resolution: {integrity: sha512-umpqeZdliRZkn+ehp1OEWGesUW4GMioCi2Byy5b1R7zZfsXinvD1+JtJPgu6v1JAAHC3ujiZYcnfHl/GAYVQRw==}
+    peerDependencies:
+      react: '>=16.9'
+      react-dom: '>=16.9'
+    dependencies:
+      rafz: 0.1.14
+      react: 18.1.0
+      react-dom: 18.1.0_react@18.1.0
+    dev: false
+
   /use-sync-external-store/1.2.0_react@18.1.0:
     resolution: {integrity: sha512-eEgnFxGQ1Ife9bzYs6VLi8/4X6CObHMw9Qr9tPY43iKwsPw8xE8+EFsf/2cFZ5S3esXgpWgtSCtLNS41F+sKPA==}
     peerDependencies:
@@ -8487,7 +8511,7 @@ packages:
     dev: false
 
   github.com/ethereumjs/ethereumjs-abi/ee3994657fa7a427238e6ba92a84d0b529bbcde0:
-    resolution: {tarball: https://codeload.github.com/ethereumjs/ethereumjs-abi/tar.gz/ee3994657fa7a427238e6ba92a84d0b529bbcde0}
+    resolution: {commit: ee3994657fa7a427238e6ba92a84d0b529bbcde0, repo: git+ssh://git@github.com/ethereumjs/ethereumjs-abi.git, type: git}
     name: ethereumjs-abi
     version: 0.6.8
     dependencies:

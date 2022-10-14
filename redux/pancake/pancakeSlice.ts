@@ -9,6 +9,7 @@ export interface IToken {
   chainId: number;
   decimals: number;
   logoURI?: string;
+  source?: string;
 }
 
 interface PancakeState {

@@ -1,12 +1,13 @@
 import { TransitionRef } from 'components';
 import { Portal } from 'components/portal';
-import { ReactNode, useRef } from 'react';
+import { ReactNode, useEffect, useRef } from 'react';
 
 export const Modal: React.FC<{ visible: boolean; children: ReactNode }> = ({
   visible,
   children,
 }) => {
   const nodeRef = useRef(null);
+
   const ModalDom = (
     <div
       ref={nodeRef}

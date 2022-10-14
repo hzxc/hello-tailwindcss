@@ -2,17 +2,23 @@ import { Modal } from 'components/modal';
 import { ModalOverlay } from './ModalOverlay';
 import { PanIconButton } from '../button';
 import { FixedSizeList as List } from 'react-window';
-import { CSSProperties } from 'react';
+import { CSSProperties, useEffect, useRef, useState } from 'react';
 import { IToken } from './types';
-import { SvgButton } from 'components';
+import { IconButton, SvgButton } from 'components';
 import CloseSvg from 'public/images/pancake/close.svg';
+import { useDebounce } from 'use-debounce';
+import { useSearch } from 'hooks/pancake';
+import { PanModal } from './PanModal';
 
-export const TokenModal: React.FC<{ visible: boolean; close: () => void; data: IToken[] }> = ({
+export const TokenModal: React.FC<{ visible: boolean; close: () => void }> = ({
   visible,
   close,
-  data,
 }) => {
-  const tokens = data;
+  const [searchParam, setSearchParam] = useState<string>('');
+  const [debouncedSearchParam] = useDebounce(searchParam, 400);
+  const { data } = useSearch(debouncedSearchParam);
+  const tokens = data || [];
+
   const Row = ({ index, style }: { index: number; style: CSSProperties | undefined }) => (
     <div
       className='flex items-center cursor-pointer hover:bg-gray-100 px-5 py-1 space-x-2'
@@ -29,10 +35,10 @@ export const TokenModal: React.FC<{ visible: boolean; close: () => void; data: I
       </div>
     </div>
   );
+
   return (
-    <Modal visible={visible}>
-      <ModalOverlay onClick={close} />
-      <div className='fixed h-auto top-[max(calc((100vh-694px)/2),0px)] left-1/2 -translate-x-1/2 overflow-hidden bg-white w-full max-w-[420px] rounded-[32px] font-kanit text-base text-[#280d5f]'>
+    <PanModal visible={visible} close={close}>
+      <div className=' overflow-hidden w-[420px] rounded-[32px] text-[#280d5f] bg-white'>
         <div className='flex py-5 border border-x-transparent border-t-transparent px-6 items-center justify-between'>
           <div className='text-xl font-semibold'>Select a Token</div>
           <SvgButton onClick={close}>
@@ -42,8 +48,12 @@ export const TokenModal: React.FC<{ visible: boolean; close: () => void; data: I
         <div className='overflow-y-auto max-h-[calc(100vh-56px)] scrollbar-thin scrollbar-thumb-violet-900/80 scrollbar-track-slate-100 scrollbar-thumb-rounded-lg scrollbar-track-rounded-lg'>
           <div className='p-5 space-y-3'>
             <input
+              value={searchParam}
+              onChange={(e) => {
+                setSearchParam(e.target.value);
+              }}
               placeholder='Search name or paste address'
-              className='w-full border border-[#d7caec] bg-violet-900/10 rounded-2xl h-12 py-0 px-4 focus:border-[#7645d9] focus:ring-4 focus:outline-none focus:ring-[#ad8fe8]'
+              className='w-full border border-[#d7caec] bg-[#eeeaf4] rounded-2xl h-12 py-0 px-4 placeholder:text-[#7c70ab] focus:border-[#7645d9] focus:ring focus:outline-none focus:ring-[#ad8fe8]'
               type='text'
             />
             <p className='text-sm'>Common tokens</p>
@@ -56,26 +66,27 @@ export const TokenModal: React.FC<{ visible: boolean; close: () => void; data: I
               <PanIconButton leftSrc='/images/pancake/btc.png'>BTCB</PanIconButton>
             </div>
           </div>
-          <List
-            className='scrollbar-thin scrollbar-thumb-violet-900/80 scrollbar-track-slate-100 scrollbar-thumb-rounded-lg scrollbar-track-rounded-lg'
-            height={392}
-            itemCount={tokens.length}
-            itemSize={56}
-            width={'100%'}
-          >
-            {Row}
-          </List>
-          <div className='p-5 text-center'>
-            <PanIconButton
-              className='text-cyan-400 font-semibold'
-              ring='ring-0'
-              hover='hover:opacity-70'
+          {tokens.length === 0 ? (
+            <div className='text-center text-[#7a6eaa]'>No results found.</div>
+          ) : (
+            <List
+              className='scrollbar-thin scrollbar-thumb-violet-900/80 scrollbar-track-slate-100 scrollbar-thumb-rounded-lg scrollbar-track-rounded-lg'
+              height={392}
+              itemCount={tokens.length}
+              itemSize={56}
+              width={'100%'}
             >
+              {Row}
+            </List>
+          )}
+
+          <div className='p-5 text-center'>
+            {/* <button className='text-[#1fc7d4] font-semibold hover:opacity-70 active:translate-y-px'>
               Manage Tokens
-            </PanIconButton>
+            </button> */}
           </div>
         </div>
       </div>
-    </Modal>
+    </PanModal>
   );
 };
