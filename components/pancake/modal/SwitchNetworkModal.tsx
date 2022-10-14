@@ -12,7 +12,7 @@ export const SwitchNetworkModal: React.FC<{ visible: boolean; close: () => void 
     <div>
       <Modal visible={visible}>
         <ModalOverlay />
-        <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 overflow-hidden max-h-screen bg-white w-96 rounded-3xl font-kanit text-base text-[#280d5f]'>
+        <div className='absolute top-[max(calc((100vh-574px)/2),0px)] left-1/2 transform -translate-x-1/2 overflow-hidden max-h-screen bg-white w-96 rounded-3xl font-kanit text-base text-[#280d5f]'>
           <div className='text-xl font-semibold px-6 py-3 border-b bg-gradient-to-br from-cyan-50 to-purple-50'>
             <span>Check your network</span>
           </div>

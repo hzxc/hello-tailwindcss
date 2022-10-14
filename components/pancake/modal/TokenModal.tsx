@@ -32,8 +32,8 @@ export const TokenModal: React.FC<{ visible: boolean; close: () => void; data: I
   return (
     <Modal visible={visible}>
       <ModalOverlay onClick={close} />
-      <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 max-h-screen overflow-hidden bg-white w-full min-w-[320px] max-w-[420px] rounded-[32px] font-kanit text-base text-[#280d5f]'>
-        <div className='flex py-5 border-b px-6 items-center justify-between'>
+      <div className='fixed h-auto top-[max(calc((100vh-694px)/2),0px)] left-1/2 -translate-x-1/2 overflow-hidden bg-white w-full max-w-[420px] rounded-[32px] font-kanit text-base text-[#280d5f]'>
+        <div className='flex py-5 border border-x-transparent border-t-transparent px-6 items-center justify-between'>
           <div className='text-xl font-semibold'>Select a Token</div>
           <SvgButton onClick={close}>
             <CloseSvg className='w-5 h-5 text-[#1fc7d4]' />
@@ -43,7 +43,7 @@ export const TokenModal: React.FC<{ visible: boolean; close: () => void; data: I
           <div className='p-5 space-y-3'>
             <input
               placeholder='Search name or paste address'
-              className='w-full bg-violet-900/10 rounded-2xl h-12 py-0 px-4 focus:ring-4 focus:outline-none focus:ring-purple-700/60'
+              className='w-full border border-[#d7caec] bg-violet-900/10 rounded-2xl h-12 py-0 px-4 focus:ring-4 focus:outline-none focus:ring-[#ad8fe8]'
               type='text'
             />
             <p className='text-sm'>Common tokens</p>

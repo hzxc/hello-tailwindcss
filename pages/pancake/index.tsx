@@ -24,11 +24,13 @@ const Pancake: NextPageWithLayout = () => {
   const { mutate, isIdle } = useTokens();
   const pancake = useAppSelector(selectPancake);
   const pancakePersist = useAppSelector(selectPancakePersist);
-  const dispatch = useAppDispatch();
 
   useEffect(() => {
     if (!pancakePersist.tokens && isIdle) {
+      console.log('get tokens from network');
       mutate();
+    } else {
+      console.log('get tokens from local storage');
     }
   }, [isIdle, mutate, pancakePersist.tokens]);
   return (

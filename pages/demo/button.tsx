@@ -46,7 +46,7 @@ const ButtonDemo: NextPageWithLayout = () => {
         <hr />
 
         <div className='space-x-4 space-y-4'>
-          <span>Icon Button:</span>
+          <span>Pan Icon Button:</span>
 
           <PanIconButton leftSrc='/images/pancake/bnb.svg'>BNB</PanIconButton>
           <IconButton leftSrc='/images/pancake/bnb.svg' col>
@@ -133,7 +133,7 @@ const ButtonDemo: NextPageWithLayout = () => {
         </div>
         <hr />
         <div className='space-x-4'>
-          <span>Test:</span>
+          <span>Icon Button:</span>
           <PanIconButton
             className='text-cyan-500'
             ring='ring-0'

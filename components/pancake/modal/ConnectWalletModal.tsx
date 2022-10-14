@@ -15,8 +15,8 @@ export const ConnectWalletModal: React.FC<{ visible: boolean; close: () => void 
     <div>
       <Modal visible={visible}>
         <ModalOverlay onClick={close} />
-        <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 overflow-hidden max-h-screen bg-white w-80 rounded-3xl font-kanit text-base text-[#280d5f]'>
-          <div className='flex items-center justify-between h-16 text-xl font-semibold px-6 py-3 border-b bg-gradient-to-br from-cyan-50 to-purple-50'>
+        <div className='absolute top-[max(calc((100vh-442px)/2),0px)] left-1/2 transform -translate-x-1/2 overflow-hidden max-h-screen bg-white w-80 rounded-3xl font-kanit text-base text-[#280d5f]'>
+          <div className='flex items-center justify-between h-16 text-xl font-semibold px-6 py-3 border border-x-transparent border-t-transparent bg-gradient-to-br from-cyan-50 to-purple-50'>
             <span>Connect Wallet</span>
             <SvgButton onClick={close}>
               <CloseSvg className='w-5 h-5 text-[#1fc7d4]' />
@@ -84,7 +84,7 @@ export const ConnectWalletModal: React.FC<{ visible: boolean; close: () => void 
                 </IconButton>
               </a>
             </div>
-            <div className='border-t  p-6'>
+            <div className='border border-x-transparent border-b-transparent  p-6'>
               <p className='text-[#7a6eaa] w-full text-center mb-4'>
                 Haven’t got a crypto wallet yet?
               </p>

@@ -2,7 +2,6 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from 'redux/store';
 import { baseTokens } from '../../data/pancake/baseTokens';
 import { IToken } from './pancakeSlice';
-import dayjs from 'dayjs';
 
 interface PancakePersistState {
   baseTokens: IToken[];
