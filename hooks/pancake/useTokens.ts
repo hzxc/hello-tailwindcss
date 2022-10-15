@@ -14,16 +14,17 @@ const getTokens = async () => {
   const cmc = await http('/pancake/cmc.json');
   const coingecko = await http('/pancake/coingecko.json');
 
-  baseTokens.forEach((item: IToken) => {
-    if (!map.has(item.address)) {
-      map.set(item.address, 0);
-      array.push(item);
-    }
-  });
+  // baseTokens.forEach((item: IToken) => {
+  //   if (!map.has(item.address)) {
+  //     map.set(item.address, 0);
+  //     array.push(item);
+  //   }
+  // });
 
   extended.tokens?.forEach((item: IToken) => {
     if (!map.has(item.address)) {
       map.set(item.address, 0);
+      item.source = 'PancakeSwap Extended';
       array.push(item);
     }
   });
@@ -31,6 +32,7 @@ const getTokens = async () => {
   cmc.tokens?.forEach((item: IToken) => {
     if (!map.has(item.address)) {
       map.set(item.address, 0);
+      item.source = 'CoinMarketCap';
       array.push(item);
     }
   });
@@ -38,6 +40,7 @@ const getTokens = async () => {
   coingecko.tokens?.forEach((item: IToken) => {
     if (!map.has(item.address)) {
       map.set(item.address, 0);
+      item.source = 'CoinGecko';
       array.push(item);
     }
   });
@@ -48,8 +51,30 @@ const getTokens = async () => {
 const searchTokens = async (param: string, tokens: IToken[], baseTokens: IToken[]) => {
   console.log('searchTokens');
   if (param.length > 0) {
-    const result = tokens.filter((t) => t.symbol.toLowerCase().includes(param.toLowerCase()));
-    return result;
+    const baseResult = baseTokens.filter((t) =>
+      t.symbol.toLowerCase().includes(param.toLowerCase())
+    );
+    const extendedResult = tokens.filter((t) =>
+      t.symbol.toLowerCase().includes(param.toLowerCase())
+    );
+
+    if (extendedResult.length > 0) {
+      return [
+        ...baseResult,
+        {
+          name: 'label',
+          symbol: '',
+          address: '',
+          chainId: 56,
+          decimals: 18,
+          logoURI: '',
+          source: '',
+        },
+        ...extendedResult,
+      ];
+    } else {
+      return baseResult;
+    }
   }
 
   return baseTokens;

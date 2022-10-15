@@ -1,8 +1,5 @@
 import { Modal } from 'components/modal';
-import { useLayoutEffect } from 'react';
-import { HTMLAttributes, ReactNode, useEffect, useRef, useState } from 'react';
-import { useElementSize } from 'use-element-size';
-import { ModalOverlay } from './ModalOverlay';
+import { ReactNode } from 'react';
 
 export const PanModal: React.FC<{
   visible: boolean;

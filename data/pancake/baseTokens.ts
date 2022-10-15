@@ -46,15 +46,6 @@ export const baseTokens: IToken[] = [
       'https://tokens.pancakeswap.finance/images/0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c.png',
   },
   {
-    name: 'Pancake Bunny',
-    symbol: 'BUNNY',
-    address: '0xC9849E6fdB743d08fAeE3E34dd2D1bc69EA11a51',
-    chainId: 56,
-    decimals: 18,
-    logoURI:
-      'https://tokens.pancakeswap.finance/images/0xC9849E6fdB743d08fAeE3E34dd2D1bc69EA11a51.png',
-  },
-  {
     name: 'BUSD Token',
     symbol: 'BUSD',
     address: '0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56',

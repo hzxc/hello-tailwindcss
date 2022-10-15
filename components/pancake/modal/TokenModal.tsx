@@ -1,6 +1,6 @@
 import { Modal } from 'components/modal';
 import { ModalOverlay } from './ModalOverlay';
-import { PanIconButton } from '../button';
+import { PanButton, PanIconButton } from '../button';
 import { FixedSizeList as List } from 'react-window';
 import { CSSProperties, useEffect, useRef, useState } from 'react';
 import { IToken } from './types';
@@ -21,17 +21,36 @@ export const TokenModal: React.FC<{ visible: boolean; close: () => void }> = ({
 
   const Row = ({ index, style }: { index: number; style: CSSProperties | undefined }) => (
     <div
-      className='flex items-center cursor-pointer hover:bg-gray-100 px-5 py-1 space-x-2'
+      className='flex items-center justify-between cursor-pointer hover:bg-gray-100 px-5 py-1 gap-2'
       style={style}
     >
-      <PanIconButton
-        ring='ring-0'
-        hover='hover:opacity-70'
-        leftSrc={tokens[index]?.logoURI}
-      ></PanIconButton>
-      <div className='flex-col'>
-        <p className='font-semibold'>{tokens[index].symbol}</p>
-        <p className='text-sm opacity-70'>{tokens[index].name}</p>
+      <div className='shrink'>
+        <IconButton leftSrc={tokens[index]?.logoURI}></IconButton>
+      </div>
+      <div className='flex-col grow overflow-hidden'>
+        <p className='whitespace-nowrap overflow-hidden text-ellipsis'>
+          <span className='font-semibold'>{tokens[index].symbol}</span>
+          <span className='ml-2 font-normal text-xs text-[#bdc2c4]'>
+            {tokens[index].source ? tokens[index].name : ''}
+          </span>
+        </p>
+        <p className='text-sm opacity-70'>
+          {tokens[index].source ? (
+            <IconButton
+              rightSize='12px'
+              rightSrc={`/images/pancake/${tokens[index].source?.replaceAll(' ', '')}.png`}
+            >
+              {'via ' + tokens[index].source}
+            </IconButton>
+          ) : (
+            tokens[index].name
+          )}
+        </p>
+      </div>
+      <div className='shrink h-full'>
+        {tokens[index].source ? (
+          <PanButton className='h-full w-24 shrink'>Import</PanButton>
+        ) : undefined}
       </div>
     </div>
   );
