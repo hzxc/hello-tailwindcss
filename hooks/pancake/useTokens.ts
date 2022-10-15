@@ -7,6 +7,7 @@ import { setTokens } from 'redux/pancake/pancakePersistSlice';
 import { selectPancakePersist } from 'redux/pancake/pancakePersistSlice';
 
 const getTokens = async () => {
+  console.log('getTokens');
   const array: IToken[] = [];
   const map = new Map();
   const extended = await http('/pancake/pancakeswap-extended.json');
@@ -45,6 +46,7 @@ const getTokens = async () => {
 };
 
 const searchTokens = async (param: string, tokens: IToken[], baseTokens: IToken[]) => {
+  console.log('searchTokens');
   if (param.length > 0) {
     const result = tokens.filter((t) => t.symbol.toLowerCase().includes(param.toLowerCase()));
     return result;

@@ -22,9 +22,19 @@ export const PanModal: React.FC<{
       <ModalOverlay onClick={close} />
       <div
         ref={ref}
-        style={{ top: `max(calc((100vh - ${refHeight}px)/2),0px)` }}
-        className={`absolute left-1/2 -translate-x-1/2 max-h-screen font-kanit text-base`}
+        // style={{ top: `max(calc((100vh - ${refHeight}px)/2),0px)`, transform: '-translateY(50%)' }}
+        style={
+          {
+            // top: `max(calc((100vh - ${refHeight}px)/2),50%)`,
+            // top: '50%',
+            // left: '50%',
+            // transform: `translateX(-50%) translateY(-${Math.floor(refHeight / 2)}px)`,
+            // transform: `translateX(-50%) translateY(-50%)`,
+          }
+        }
+        className={`absolute transition-all max-h-screen font-kanit text-base`}
       >
+        {/* <div>{Math.floor(refHeight / 2)}</div> */}
         {children}
       </div>
     </Modal>
