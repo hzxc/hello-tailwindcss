@@ -38,7 +38,7 @@ export const TokenModal: React.FC<{ visible: boolean; close: () => void }> = ({
 
   return (
     <PanModal visible={visible} close={close}>
-      <div className=' overflow-hidden w-[420px] rounded-[32px] text-[#280d5f] bg-white'>
+      <div className='overflow-hidden w-[420px] rounded-[32px] text-[#280d5f] bg-white'>
         <div className='flex py-5 border border-x-transparent border-t-transparent px-6 items-center justify-between'>
           <div className='text-xl font-semibold'>Select a Token</div>
           <SvgButton onClick={close}>

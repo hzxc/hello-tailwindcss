@@ -11,7 +11,7 @@ export const SwitchNetworkModal: React.FC<{ visible: boolean; close: () => void 
 }) => {
   return (
     <PanModal visible={visible} close={close}>
-      <div className=' overflow-hidden w-96 rounded-3xl text-[#280d5f] bg-white'>
+      <div className='overflow-hidden w-96 rounded-3xl text-[#280d5f] bg-white'>
         <div className='text-xl font-semibold px-6 py-3 border-b bg-gradient-to-br from-cyan-50 to-purple-50'>
           <span>Check your network</span>
         </div>
