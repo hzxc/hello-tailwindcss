@@ -9,6 +9,7 @@ import CloseSvg from 'public/images/pancake/close.svg';
 import { useDebounce } from 'use-debounce';
 import { useSearch } from 'hooks/pancake';
 import { PanModal } from './PanModal';
+import PanQuestionMarkSvg from 'public/images/pancake/panQuestionMark.svg';
 
 export const TokenModal: React.FC<{ visible: boolean; close: () => void }> = ({
   visible,
@@ -19,41 +20,59 @@ export const TokenModal: React.FC<{ visible: boolean; close: () => void }> = ({
   const { data } = useSearch(debouncedSearchParam);
   const tokens = data || [];
 
-  const Row = ({ index, style }: { index: number; style: CSSProperties | undefined }) => (
-    <div
-      className='flex items-center justify-between cursor-pointer hover:bg-gray-100 px-5 py-1 gap-2'
-      style={style}
-    >
-      <div className='shrink'>
+  const Row = ({ index, style }: { index: number; style: CSSProperties | undefined }) => {
+    return tokens[index].symbol ? (
+      <div
+        className={`flex items-center justify-between ${
+          tokens[index].source ? 'cursor-auto' : 'cursor-pointer hover:bg-gray-100'
+        } px-5 py-1 gap-2`}
+        style={style}
+      >
         <IconButton leftSrc={tokens[index]?.logoURI}></IconButton>
-      </div>
-      <div className='flex-col grow overflow-hidden'>
-        <p className='whitespace-nowrap overflow-hidden text-ellipsis'>
-          <span className='font-semibold'>{tokens[index].symbol}</span>
-          <span className='ml-2 font-normal text-xs text-[#bdc2c4]'>
-            {tokens[index].source ? tokens[index].name : ''}
-          </span>
-        </p>
-        <p className='text-sm opacity-70'>
+        <div
+          className={`flex-col grow overflow-hidden ${tokens[index].source ? 'opacity-60' : ''}`}
+        >
+          <p className='w-52 whitespace-nowrap overflow-hidden text-ellipsis text-[#bdc2c4]'>
+            <span className={`${tokens[index].source ? '' : 'font-semibold'} text-[#280d5f]`}>
+              {tokens[index].symbol}
+            </span>
+            <span className='ml-2 font-normal text-xs'>
+              {tokens[index].source ? tokens[index].name : ''}
+            </span>
+          </p>
+          <p className='text-sm opacity-70'>
+            {tokens[index].source ? (
+              <IconButton
+                className='cursor-auto'
+                rightSize='12px'
+                rightSrc={`/images/pancake/${tokens[index].source?.replaceAll(' ', '')}.png`}
+              >
+                {'via ' + tokens[index].source}
+              </IconButton>
+            ) : (
+              tokens[index].name
+            )}
+          </p>
+        </div>
+        <div className='shrink h-full'>
           {tokens[index].source ? (
-            <IconButton
-              rightSize='12px'
-              rightSrc={`/images/pancake/${tokens[index].source?.replaceAll(' ', '')}.png`}
-            >
-              {'via ' + tokens[index].source}
-            </IconButton>
-          ) : (
-            tokens[index].name
-          )}
+            <PanButton className='h-full w-24 shrink'>Import</PanButton>
+          ) : undefined}
+        </div>
+      </div>
+    ) : (
+      <div className='px-5 py-[9px] text-sm font-normal' style={style}>
+        <p className='flex items-center justify-between border border-[#e7e3eb] bg-[#faf9fa] w-full px-3 py-2 rounded-lg'>
+          <span>{tokens[index].name}</span>
+          <IconButton
+            className='align-middle cursor-auto'
+            leftSize='16px'
+            leftIcon={<PanQuestionMarkSvg />}
+          ></IconButton>
         </p>
       </div>
-      <div className='shrink h-full'>
-        {tokens[index].source ? (
-          <PanButton className='h-full w-24 shrink'>Import</PanButton>
-        ) : undefined}
-      </div>
-    </div>
-  );
+    );
+  };
 
   return (
     <PanModal visible={visible} close={close}>

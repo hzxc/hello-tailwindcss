@@ -62,13 +62,11 @@ const searchTokens = async (param: string, tokens: IToken[], baseTokens: IToken[
       return [
         ...baseResult,
         {
-          name: 'label',
+          name: 'Expanded results from inactive Token Lists',
           symbol: '',
           address: '',
           chainId: 56,
           decimals: 18,
-          logoURI: '',
-          source: '',
         },
         ...extendedResult,
       ];
