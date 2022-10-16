@@ -1,9 +1,6 @@
-import { Modal } from 'components/modal';
-import { ModalOverlay } from './ModalOverlay';
 import { PanButton, PanIconButton } from '../button';
 import { FixedSizeList as List } from 'react-window';
-import { CSSProperties, useEffect, useRef, useState } from 'react';
-import { IToken } from './types';
+import { CSSProperties, useState } from 'react';
 import { IconButton, SvgButton } from 'components';
 import CloseSvg from 'public/images/pancake/close.svg';
 import { useDebounce } from 'use-debounce';

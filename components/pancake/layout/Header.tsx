@@ -3,23 +3,87 @@ import { PanButton, PanIconButton, PanSvgrButton } from '../button';
 import ArrowExitSvg from 'public/images/pancake/arrowExit.svg';
 import SettingSvg from '/public/images/pancake/setting.svg';
 import LanguageSvg from 'public/images/pancake/language.svg';
-import { toNumber } from 'utils';
 import { ConnectWalletModal } from '../modal/ConnectWalletModal';
 import { useToggle } from 'hooks';
 import { SvgButton } from 'components/SvgButton';
-import { useNetwork } from 'wagmi';
+import { useContractRead, useNetwork } from 'wagmi';
 import { SwitchNetworkModal } from '../modal/SwitchNetworkModal';
 import { useInitConnect } from 'hooks/useInitConnect';
 import { MenuButton, MenuButtonItem } from 'components/menu-button';
 import { IconButton } from 'components';
 import ArrowDownSvg from 'public/images/pancake/arrowDown.svg';
 import WalletSvg from 'public/images/pancake/wallet.svg';
+import { PancakeRouterABI, IBEP20ABI } from 'abi/bsc';
+import { BigNumber, utils } from 'ethers';
+import { useEffect } from 'react';
+import { erc20ABI } from 'wagmi';
 
 export const Header: React.FC = () => {
   const { visible, close, open } = useToggle(false);
   const { chain } = useNetwork();
 
   const [isConnected, address] = useInitConnect();
+
+  // const { data, isError, isLoading } = useContractRead({
+  //   // address: '0x10ED43C718714eb63d5aA57B78B54704E256024E',
+  //   address: '0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82',
+  //   abi: [
+  //     {
+  //       inputs: [],
+  //       name: 'decimals',
+  //       outputs: [
+  //         {
+  //           internalType: 'uint8',
+  //           name: '',
+  //           type: 'uint8',
+  //         },
+  //       ],
+  //       stateMutability: 'view',
+  //       type: 'function',
+  //     },
+  //   ],
+  //   functionName: 'decimals',
+  //   args: [],
+  // });
+
+  // const { data, isError, isLoading, isSuccess } = useContractRead({
+  //   addressOrName: '0x10ED43C718714eb63d5aA57B78B54704E256024E',
+  //   contractInterface: PancakeRouterABI,
+  //   functionName: 'getAmountsOut',
+  //   chainId: 56,
+  //   args: [
+  //     utils.parseEther('1'),
+  //     ['0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82', '0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56'],
+  //   ],
+  // });
+
+  const { data, isError, isLoading, isSuccess } = useContractRead<
+    typeof PancakeRouterABI,
+    'getAmountsOut'
+  >({
+    address: '0x10ED43C718714eb63d5aA57B78B54704E256024E',
+    abi: PancakeRouterABI,
+    functionName: 'getAmountsOut',
+    chainId: 56,
+    args: [
+      utils.parseEther('1'),
+      ['0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82', '0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56'],
+    ],
+  });
+
+  // const { data, isError, isLoading, isSuccess } = useContractRead({
+  //   address: '0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82',
+  //   abi: IBEP20ABI,
+  //   functionName: 'symbol',
+  //   chainId: 56,
+  // });
+
+  useEffect(() => {
+    const wei = utils.parseEther('1');
+    // console.log('wei:', wei.toString());
+
+    console.log('data', data);
+  }, [data]);
 
   return (
     <>
@@ -136,7 +200,7 @@ export const Header: React.FC = () => {
             hover='[&>div>span:first-child]:hover:scale-125 [&>div>span:first-child]:transition-transform'
             leftSrc='/images/pancake/pancake.svg'
           >
-            <span>${toNumber('4.5')}</span>
+            <span></span>
           </PanIconButton>
           <SvgButton>
             <LanguageSvg className='w-6 h-6' />

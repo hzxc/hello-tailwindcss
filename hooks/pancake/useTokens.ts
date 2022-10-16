@@ -14,12 +14,12 @@ const getTokens = async () => {
   const cmc = await http('/pancake/cmc.json');
   const coingecko = await http('/pancake/coingecko.json');
 
-  // baseTokens.forEach((item: IToken) => {
-  //   if (!map.has(item.address)) {
-  //     map.set(item.address, 0);
-  //     array.push(item);
-  //   }
-  // });
+  baseTokens.forEach((item: IToken) => {
+    if (!map.has(item.address)) {
+      map.set(item.address, 0);
+      // array.push(item);
+    }
+  });
 
   extended.tokens?.forEach((item: IToken) => {
     if (!map.has(item.address)) {
