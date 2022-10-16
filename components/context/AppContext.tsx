@@ -1,6 +1,4 @@
 import { createContext, ReactNode, useContext, useEffect, useRef, useState } from 'react';
-import { Drizzle } from '@drizzle/store';
-import PancakeRouter from 'contracts/pancake/bsc/PancakeRouter.json';
 
 interface AppContextProps {
   contextName: string;
